@@ -1,0 +1,8 @@
+{
+	"debug" : true,
+	"experimental" : false,
+	"features": {
+		"buildkit": true
+	}
+}
+

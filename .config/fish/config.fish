@@ -1,0 +1,109 @@
+#!/usr/bin/env fish
+
+## Path Variable
+# UNIX System Paths
+set -e PATH
+set -x fish_user_paths /bin
+set -x fish_user_paths /sbin $fish_user_paths
+set -x fish_user_paths /usr/bin $fish_user_paths
+set -x fish_user_paths /usr/sbin $fish_user_paths
+set -x fish_user_paths /usr/local/bin $fish_user_paths
+set -x fish_user_paths /usr/local/sbin $fish_user_paths
+
+## XDG Base Dir Spec
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+
+# User Paths
+set -x CONFIG_HOME $XDG_CONFIG_HOME
+set -x CACHE_HOME $XDG_CACHE_HOME
+set -x fish_user_paths $HOME/bin $fish_user_paths
+set -x fish_user_paths $HOME/sbin $fish_user_paths
+
+# Package Managers
+if type -q brew
+    set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib)
+    set -x CFLAGS -Ofast (string replace -- (brew --prefix) -I(brew --prefix) (brew --prefix)/opt/*/include)
+    set -x CPPFLAGS $CFLAGS
+    set -x PKG_CONFIG_PATH (brew --prefix)/opt/*/lib/pkgconfig
+
+    set -x fish_user_paths (brew --prefix)/bin $fish_user_paths
+end
+
+## SHIM Paths
+# Golang
+if type -q goenv and (status --is-interactive)
+    # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
+    set -x GOENV_ROOT $CONFIG_HOME/goenv
+    set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
+end
+# Java
+if type -q jenv and (status --is-interactive)
+    # No source, just precedent
+    set -x JENV_ROOT $CONFIG_HOME/jenv
+    set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
+end
+# Node.js
+if type -q nodenv and (status --is-interactive)
+    # https://github.com/nodenv/nodenv#environment-variables
+    set -x NODENV_ROOT $CONFIG_HOME/nodenv
+    set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
+end
+# Python
+if type -q pyenv and (status --is-interactive)
+    # https://github.com/pyenv/pyenv#environment-variables
+    set -x PYENV_ROOT $CONFIG_HOME/pyenv
+    set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
+end
+# Ruby
+if type -q rbenv and (status --is-interactive)
+    # https://github.com/rbenv/rbenv#environment-variables
+    set -x RBENV_ROOT $CONFIG_HOME/rbenv
+    set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
+end
+# Rust
+if test -e ~/.cargo/env
+    set -x fish_user_paths $HOME/.cargo/bin $fish_user_paths
+end
+
+## Environment variables
+# Editors
+if type -q code # Check if VS Code is installed
+    set -x EDITOR code -w
+    set -x VISUAL code -w
+else if type -q vim
+    set -x EDITOR vim
+    set -x VISUAL vim
+else
+    set -x EDITOR vi
+    set -x VISUAL vi
+end
+
+## Cloud Providers
+# AWS
+set -x AWS_CONFIG_FILE $CONFIG_HOME/aws/config # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#general-options
+set -x AWS_SHARED_CREDENTIALS_FILE $CONFIG_HOME/aws/credentials # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#the-shared-credentials-file
+
+# Azure
+set -x AZURE_CONFIG_DIR $HOME/.config/azure
+
+## OS Specific
+if test (uname -s) = "Darwin" # Check if using macOS
+    ## Java Paths
+    ## TODO: Replace with jenv shim
+    set -x JAVA_HOME /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
+    ## Android Paths
+    set -x ANDROID_HOME $HOME/Library/Android/sdk
+    set -x fish_user_paths $ANDROID_HOME/platform-tools $fish_user_paths
+    set -x fish_user_paths $ANDROID_HOME/tools $fish_user_paths
+    set -x fish_user_paths $ANDROID_HOME/tools/bin $fish_user_paths
+
+    ## Flutter Paths
+    set -x fish_user_paths $HOME/Library/Flutter/flutter/bin $fish_user_paths
+
+    ## DotNet tools
+    set -x fish_user_paths /usr/local/share/dotnet $fish_user_paths
+end

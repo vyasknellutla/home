@@ -1,0 +1,30 @@
+.mono/
+configstore/
+doctl/
+Microsoft\\VisualStudio\ Services/
+stetic/
+xbuild/
+
+# Tools
+git/credentials
+git/local.config
+
+# Shims
+shims/
+versions/
+
+pyenv/pyenv/
+
+jenv/*.time
+
+# Azure
+azure/commands
+azure/logs
+azure/telemetry
+azure/az.json
+azure/az.sess
+azure/azureProfile.json
+azure/telemetry.txt
+
+# AWS
+aws/credentials

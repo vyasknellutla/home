@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 100,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true
+}

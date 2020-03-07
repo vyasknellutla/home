@@ -1,0 +1,23 @@
+[user]
+	# Values in ~/.config/git/local.config
+[core]
+	editor = vim
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+[gpg]
+	program = gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = true
+[credential]
+	# Values in ~/.config/git/local.config
+[include]
+	path = ~/.config/git/local.config
