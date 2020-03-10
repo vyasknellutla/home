@@ -1,0 +1,109 @@
+#!/bin/sh
+
+## Path Variable
+# UNIX System Paths
+export PATH="/bin":"/sbin":"/usr/bin":"/usr/sbin":"/usr/local/bin":"/usr/local/sbin"
+
+
+## XDG Base Dir Spec
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CONFIG_HOME "${HOME}/.config"
+export XDG_CACHE_HOME "${HOME}/.cache"
+
+# User Paths
+export DATA_HOME="${XDG_DATA_HOME}"
+export CONFIG_HOME="${XDG_CONFIG_HOME}"
+export CACHE_HOME="${XDG_CACHE_HOME}"
+export PATH="${HOME}/bin":"${HOME}/sbin":"${PATH}"
+
+
+## Package Managers
+# Snap
+export PATH="${HOME}/snap":"/snap":"${PATH}"
+
+# HomeBrew
+if [-x "$(command -v brew)"]; then
+    export PATH="$(brew --prefix)/bin":"$(brew --prefix)/sbin":"${PATH}"
+fi
+
+
+## SHIM Paths
+# Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
+export GOENV_ROOT="${CONFIG_HOME}/goenv"
+
+# Java: No source, just precedent
+export JENV_ROOT="${CONFIG_HOME}/jenv"
+
+# Node.js: https://github.com/nodenv/nodenv#environment-variables
+export NODENV_ROOT="${CONFIG_HOME}/nodenv"
+
+# Perl: No source, just precedent
+export PLENV_ROOT="${CONFIG_HOME}/plenv"
+
+# Python: https://github.com/pyenv/pyenv#environment-variables
+export PYENV_ROOT="${CONFIG_HOME}/pyenv"
+
+# Ruby: https://github.com/rbenv/rbenv#environment-variables
+export RBENV_ROOT="${CONFIG_HOME}/rbenv"
+
+# Rust
+# https://github.com/rust-lang/rustup#environment-variables
+export RUSTUP_HOME="${CONFIG_HOME}/rustup"
+# https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+export CARGO_HOME="${DATA_HOME}/cargo"
+
+export PATH="${GOENV_ROOT}/shims":"${JENV_ROOT}/shims":"${NODENV_ROOT}/shims":"${PLENV_ROOT}/shims":"${PYENV_ROOT}/shims":"${RBENV_ROOT}/shims":"${CARGO_HOME}/bin":"${PATH}"
+
+
+## CLI Tools
+# ls
+export CLICOLOR=1
+export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
+
+# Editors
+if [  ]; then # Check if VS Code is installed
+    export EDITOR="code -w"
+    export VISUAL="code -w"
+elif [  ]; then
+    export EDITOR="vim"
+    export VISUAL="vim"
+else
+    export EDITOR="vi"
+    export VISUAL="vi"
+fi
+
+# GPG: https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
+export GNUPGHOME="${CONFIG_HOME}/gnupg"
+
+# Docker
+if [ -x "$(command -v docker)" ]; then
+    export DOCKER_HOST="unix:///var/run/docker.sock"
+fi
+
+
+## Cloud Providers
+# AWS
+export AWS_CONFIG_FILE="${CONFIG_HOME}/aws/config" # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#general-options
+export AWS_SHARED_CREDENTIALS_FILE="${CONFIG_HOME}/aws/credentials" # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#the-shared-credentials-file
+
+# Azure
+export AZURE_CONFIG_DIR="${CONFIG_HOME}/azure"
+
+
+## OS Specific
+if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
+    ## Java Paths
+    ## TODO: Replace with jenv shim
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+
+    ## Android Paths
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    export PATH="${ANDROID_HOME}:tools/bin":"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":"${PATH}"
+
+    ## Flutter Paths
+    export PATH="${HOME}/Library/Flutter/flutter/bin":"${PATH}"
+
+    ## DotNet tools
+    export PATH="/usr/local/share/dotnet":"${PATH}"
+fi

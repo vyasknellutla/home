@@ -117,3 +117,8 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+# direnv: https://direnv.net/docs/hook.html#bash
+if [ -x "$(command -v direnv)" ]; then
+    eval "$(direnv hook bash)"
+fi

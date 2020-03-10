@@ -14,7 +14,7 @@ if [ -x "$(command -v brew)" ]; then
     PATH="$(brew --prefix)/bin:${PATH}"
 
     brew update --force && brew upgrade && brew cleanup
-    brew install fish git gpg --display-times
+    brew install direnv fish git gpg --display-times
 
     if [ -x "$(command -v fish)" ]; then
         sudo usermod --shell "$(which fish)" "${USER}"
