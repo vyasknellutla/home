@@ -20,7 +20,7 @@ brew "htop"
 brew "ios-deploy"
 brew "jenv"
 brew "jq"
-brew "kubernetes-cli", link: false
+brew "kubernetes-cli"
 brew "kubectx"
 brew "mas"
 brew "nmap"

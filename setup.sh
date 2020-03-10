@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 if ! [ -x "$(command -v brew)" ]; then
     # TODO make commands non-interactive

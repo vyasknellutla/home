@@ -3,6 +3,7 @@
 ## Path Variable
 # UNIX System Paths
 set -e PATH
+set -e fish_user_paths
 set -x fish_user_paths /bin
 set -x fish_user_paths /sbin $fish_user_paths
 set -x fish_user_paths /usr/bin $fish_user_paths
@@ -30,7 +31,7 @@ if type -q snap
         set -x fish_user_paths /snap $fish_user_paths
     end
     if [ -e ~/snap ]
-        set -x fish_user_paths ~/snap $fish_user_paths
+        set -x fish_user_paths $HOME/snap $fish_user_paths
     end
 end
 # HomeBrew
@@ -41,6 +42,7 @@ if type -q brew
     set -x PKG_CONFIG_PATH (brew --prefix)/opt/*/lib/pkgconfig
 
     set -x fish_user_paths (brew --prefix)/bin $fish_user_paths
+    set -x fish_user_paths (brew --prefix)/sbin $fish_user_paths
 end
 
 
@@ -50,30 +52,40 @@ if type -q goenv and (status --is-interactive)
     # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
     set -x GOENV_ROOT $CONFIG_HOME/goenv
     set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
+
+    goenv rehash
 end
 # Java
 if type -q jenv and (status --is-interactive)
     # No source, just precedent
     set -x JENV_ROOT $CONFIG_HOME/jenv
     set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
+
+    jenv rehash
 end
 # Node.js
 if type -q nodenv and (status --is-interactive)
     # https://github.com/nodenv/nodenv#environment-variables
     set -x NODENV_ROOT $CONFIG_HOME/nodenv
     set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
+
+    nodenv rehash
 end
 # Python
 if type -q pyenv and (status --is-interactive)
     # https://github.com/pyenv/pyenv#environment-variables
     set -x PYENV_ROOT $CONFIG_HOME/pyenv
     set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
+
+    pyenv rehash
 end
 # Ruby
 if type -q rbenv and (status --is-interactive)
     # https://github.com/rbenv/rbenv#environment-variables
     set -x RBENV_ROOT $CONFIG_HOME/rbenv
     set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
+
+    rbenv rehash
 end
 # Rust
 if type -q rustup-init and (status --is-interactive)
@@ -104,7 +116,7 @@ set -x AWS_CONFIG_FILE $CONFIG_HOME/aws/config # https://docs.aws.amazon.com/cli
 set -x AWS_SHARED_CREDENTIALS_FILE $CONFIG_HOME/aws/credentials # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#the-shared-credentials-file
 
 # Azure
-set -x AZURE_CONFIG_DIR $HOME/.config/azure
+set -x AZURE_CONFIG_DIR $CONFIG_HOME/azure
 
 ## OS Specific
 if [ (uname -s) = "Darwin" ] # Check if using macOS
