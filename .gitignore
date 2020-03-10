@@ -87,15 +87,9 @@ node_modules/
 # VS Code
 .vscode/extensions
 
-.vscode-server/bin
-.vscode-server/data/logs
-.vscode-server/data/User
-.vscode-server/data/machineid
-.vscode-server/extensions
-.vscode-server/*.log
+.vscode-server/
 
 .VSTeamServicesAuthPlugin/
 
-
 # Bash
-.bash_history
+.bash_logout
