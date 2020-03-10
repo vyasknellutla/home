@@ -24,3 +24,13 @@ fi
 if [ -x "$(command -v rustup-init)" ]; then
     rustup-init --no-modify-path -y
 fi
+
+# Symlinks
+if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
+    mkdir -p "${HOME}/.vscode-server/data/Machine"
+    ln -sfn "${CONFIG_HOME}/Code/User" "${HOME}/.vscode-server/data/Machine"
+fi
+
+if [ -f "${HOME}/.logout" ]; then
+    ln -sfn "${HOME}/.logout" "${HOME}/.bash_logout"
+fi
