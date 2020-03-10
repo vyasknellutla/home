@@ -9,13 +9,17 @@ xbuild/
 git/credentials
 git/local.config
 
+gnupg/
+
 # Shims
 shims/
 versions/
 
-pyenv/pyenv/
-
+cargo/
 jenv/*.time
+pyenv/pyenv/
+rustup/
+
 
 # Azure
 azure/commands

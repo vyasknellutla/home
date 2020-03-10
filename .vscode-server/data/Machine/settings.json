@@ -3,5 +3,10 @@
     "files.autoSaveDelay": 100,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "files.watcherExclude": {
+        "~/.cache": true,
+        "**/logs/**/*.log": true,
+        "~/.local/share": true
+    }
 }

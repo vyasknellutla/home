@@ -17,12 +17,23 @@ set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 
 # User Paths
+set -x DATA_HOME $XDG_DATA_HOME
 set -x CONFIG_HOME $XDG_CONFIG_HOME
 set -x CACHE_HOME $XDG_CACHE_HOME
 set -x fish_user_paths $HOME/bin $fish_user_paths
 set -x fish_user_paths $HOME/sbin $fish_user_paths
 
-# Package Managers
+## Package Managers
+# Snap
+if type -q snap
+    if [ -e /snap ]
+        set -x fish_user_paths /snap $fish_user_paths
+    end
+    if [ -e ~/snap ]
+        set -x fish_user_paths ~/snap $fish_user_paths
+    end
+end
+# HomeBrew
 if type -q brew
     set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib)
     set -x CFLAGS -Ofast (string replace -- (brew --prefix) -I(brew --prefix) (brew --prefix)/opt/*/include)
@@ -31,6 +42,7 @@ if type -q brew
 
     set -x fish_user_paths (brew --prefix)/bin $fish_user_paths
 end
+
 
 ## SHIM Paths
 # Golang
@@ -64,8 +76,13 @@ if type -q rbenv and (status --is-interactive)
     set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
 end
 # Rust
-if test -e ~/.cargo/env
-    set -x fish_user_paths $HOME/.cargo/bin $fish_user_paths
+if type -q rustup-init and (status --is-interactive)
+    # https://github.com/rust-lang/rustup#environment-variables
+    set -x RUSTUP_HOME $CONFIG_HOME/rustup
+
+    # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+    set -x CARGO_HOME $CONFIG_HOME/cargo
+    set -x fish_user_paths $CARGO_HOME/bin $fish_user_paths
 end
 
 ## Environment variables
@@ -90,7 +107,7 @@ set -x AWS_SHARED_CREDENTIALS_FILE $CONFIG_HOME/aws/credentials # https://docs.a
 set -x AZURE_CONFIG_DIR $HOME/.config/azure
 
 ## OS Specific
-if test (uname -s) = "Darwin" # Check if using macOS
+if [ (uname -s) = "Darwin" ] # Check if using macOS
     ## Java Paths
     ## TODO: Replace with jenv shim
     set -x JAVA_HOME /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
@@ -106,4 +123,20 @@ if test (uname -s) = "Darwin" # Check if using macOS
 
     ## DotNet tools
     set -x fish_user_paths /usr/local/share/dotnet $fish_user_paths
+end
+
+## CLI Tools
+# GPG
+if type -q gpg
+    # https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
+    set -x GNUPGHOME $CONFIG_HOME/gnupg
+end
+
+## Fish Exit/Logout
+function on_exit --on-process %self
+    echo "Exiting Fish Shell, see you next time"
+    if [ -e ~/.logout ]
+        ~/.logout
+    end
+    sleep 1
 end

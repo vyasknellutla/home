@@ -5,7 +5,7 @@
 [color]
 	ui = auto
 [commit]
-	gpgsign = true
+	# gpgsign = true
 [tag]
 	forceSignAnnotated = true
 [gpg]
@@ -21,3 +21,5 @@
 	# Values in ~/.config/git/local.config
 [include]
 	path = ~/.config/git/local.config
+[http]
+	sslVerify = true

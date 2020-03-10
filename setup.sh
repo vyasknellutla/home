@@ -20,3 +20,7 @@ if [ -x "$(command -v brew)" ]; then
         sudo usermod --shell "$(which fish)" "${USER}"
     fi
 fi
+
+if [ -x "$(command -v rustup-init)" ]; then
+    rustup-init --no-modify-path -y
+fi

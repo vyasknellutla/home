@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
@@ -11,41 +11,41 @@
 #umask 022
 
 # if running bash
-if [[ -n "$BASH_VERSION" ]]; then
+if [ -n "${BASH_VERSION}" ]; then
     # include .bashrc if it exists
-    if [[ -f "$HOME/.bashrc" ]]; then
-	    source "$HOME/.bashrc"
+    if [ -f "${HOME}/.bashrc" ]; then
+	    . "${HOME}/.bashrc"
     fi
 
     # begin bash_completion configuration
-    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-        source /usr/share/bash-completion/bash_completion
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
     fi
-    if [[ -f /etc/bash_completion ]]; then
-        source /etc/bash_completion
+    if [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
     fi
     # end bash_completion configuration
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [[ -d "$HOME/bin" ]] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "${HOME}/bin" ] ; then
+    PATH="${HOME}/bin:${PATH}"
 fi
-if [[ -d "$HOME/sbin" ]] ; then
-    PATH="$HOME/sbin:$PATH"
+if [ -d "${HOME}/sbin" ] ; then
+    PATH="${HOME}/sbin:${PATH}"
 fi
 
 # set PATH so it includes user's local private bin if it exists
-if [[ -d "$HOME/.local/bin" ]] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "${HOME}/.local/bin" ] ; then
+    PATH="${HOME}/.local/bin:${PATH}"
 fi
-if [[ -d "$HOME/.local/sbin" ]] ; then
-    PATH="$HOME/.local/sbin:$PATH"
+if [ -d "${HOME}/.local/sbin" ] ; then
+    PATH="${HOME}/.local/sbin:${PATH}"
 fi
 
 # set PATH so it includes snap packages
-if [[ -d "/snap/bin/" ]] ; then
-    PATH="/snap/bin/:$PATH"
+if [ -d "/snap/bin/" ] ; then
+    PATH="/snap/bin/:${PATH}"
 fi
 
 # LSCOLORS
@@ -55,28 +55,32 @@ export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx';
 
 ### Setup Brew Package Manager
 
-if [[ -x "$(command -v brew)" ]] && [[ -d "$(brew --prefix)/bin" ]]; then
-    PATH="$(brew --prefix)/bin:$PATH"
+if [ -x "$(command -v brew)" ] && [ -d "$(brew --prefix)/bin" ]; then
+    PATH="$(brew --prefix)/bin:${PATH}"
 
     # Adds completions for packages installed by brew
-    if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
-        source $(brew --prefix)/etc/bash_completion
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
     fi
 
     # TODO change to if exists
-    PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
-    PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+    PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:${PATH}"
+    PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:${PATH}"
 fi
 
 ### General Setup
-PATH="$HOME/snap/bin:$PATH"
+PATH="${HOME}/snap/bin:${PATH}"
 export EDITOR="code -w"
 export VISUAL="code -w"
 
 # Docker from host
-export DOCKER_HOST="unix:///var/run/docker.sock"
+if [ -x "$(command -v docker)" ]; then
+    export DOCKER_HOST="unix:///var/run/docker.sock"
+fi
 
 # SSH key management
-if [[ -f "$HOME/.ssh/id_rsa" ]]; then
+if [ -f "${HOME}/.ssh/id_rsa" ]; then
     ssh-add -k ~/.ssh/id_rsa
 fi
+
+export PATH="/home/vyas/.config/cargo/bin:$PATH"
