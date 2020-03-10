@@ -30,7 +30,7 @@ if type -q snap
     if [ -e /snap ]
         set -x fish_user_paths /snap $fish_user_paths
     end
-    if [ -e ~/snap ]
+    if [ -e $HOME/snap ]
         set -x fish_user_paths $HOME/snap $fish_user_paths
     end
 end
@@ -39,7 +39,10 @@ if type -q brew
     set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib)
     set -x CFLAGS -Ofast (string replace -- (brew --prefix) -I(brew --prefix) (brew --prefix)/opt/*/include)
     set -x CPPFLAGS $CFLAGS
-    set -x PKG_CONFIG_PATH (brew --prefix)/opt/*/lib/pkgconfig
+
+    if [ (uname -s) = "Darwin" ]
+        set -x PKG_CONFIG_PATH (brew --prefix)/opt/*/lib/pkgconfig
+    end
 
     set -x fish_user_paths (brew --prefix)/bin $fish_user_paths
     set -x fish_user_paths (brew --prefix)/sbin $fish_user_paths
@@ -47,54 +50,63 @@ end
 
 
 ## SHIM Paths
-# Golang
-if type -q goenv and (status --is-interactive)
-    # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
-    set -x GOENV_ROOT $CONFIG_HOME/goenv
-    set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
+if status --is-interactive
+    # Golang
+    if type -q goenv
+        # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
+        set -x GOENV_ROOT $CONFIG_HOME/goenv
+        set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
 
-    goenv rehash
-end
-# Java
-if type -q jenv and (status --is-interactive)
-    # No source, just precedent
-    set -x JENV_ROOT $CONFIG_HOME/jenv
-    set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
+        goenv rehash
+    end
+    # Java
+    if type -q jenv
+        # No source, just precedent
+        set -x JENV_ROOT $CONFIG_HOME/jenv
+        set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
 
-    jenv rehash
-end
-# Node.js
-if type -q nodenv and (status --is-interactive)
-    # https://github.com/nodenv/nodenv#environment-variables
-    set -x NODENV_ROOT $CONFIG_HOME/nodenv
-    set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
+        jenv rehash
+    end
+    # Node.js
+    if type -q nodenv
+        # https://github.com/nodenv/nodenv#environment-variables
+        set -x NODENV_ROOT $CONFIG_HOME/nodenv
+        set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
 
-    nodenv rehash
-end
-# Python
-if type -q pyenv and (status --is-interactive)
-    # https://github.com/pyenv/pyenv#environment-variables
-    set -x PYENV_ROOT $CONFIG_HOME/pyenv
-    set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
+        nodenv rehash
+    end
+    # Perl
+    if type -q plenv
+        set -x PLENV_ROOT $CONFIG_HOME/plenv
+        set -x fish_user_paths $PLENV_ROOT/shims $fish_user_paths
 
-    pyenv rehash
-end
-# Ruby
-if type -q rbenv and (status --is-interactive)
-    # https://github.com/rbenv/rbenv#environment-variables
-    set -x RBENV_ROOT $CONFIG_HOME/rbenv
-    set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
+        plenv rehash
+    end
+    # Python
+    if type -q pyenv
+        # https://github.com/pyenv/pyenv#environment-variables
+        set -x PYENV_ROOT $CONFIG_HOME/pyenv
+        set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
 
-    rbenv rehash
-end
-# Rust
-if type -q rustup-init and (status --is-interactive)
-    # https://github.com/rust-lang/rustup#environment-variables
-    set -x RUSTUP_HOME $CONFIG_HOME/rustup
+        pyenv rehash
+    end
+    # Ruby
+    if type -q rbenv
+        # https://github.com/rbenv/rbenv#environment-variables
+        set -x RBENV_ROOT $CONFIG_HOME/rbenv
+        set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
 
-    # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
-    set -x CARGO_HOME $CONFIG_HOME/cargo
-    set -x fish_user_paths $CARGO_HOME/bin $fish_user_paths
+        rbenv rehash
+    end
+    # Rust
+    if type -q rustup-init
+        # https://github.com/rust-lang/rustup#environment-variables
+        set -x RUSTUP_HOME $CONFIG_HOME/rustup
+
+        # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+        set -x CARGO_HOME $CONFIG_HOME/cargo
+        set -x fish_user_paths $CARGO_HOME/bin $fish_user_paths
+    end
 end
 
 ## Environment variables
@@ -147,8 +159,8 @@ end
 ## Fish Exit/Logout
 function on_exit --on-process %self
     echo "Exiting Fish Shell, see you next time"
-    if [ -e ~/.logout ]
-        ~/.logout
+    if [ -e $HOME/.logout ]
+        $HOME/.logout
     end
     sleep 1
 end
