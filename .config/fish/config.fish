@@ -26,14 +26,9 @@ set -x fish_user_paths $HOME/sbin $fish_user_paths
 
 ## Package Managers
 # Snap
-if type -q snap
-    if [ -e /snap ]
-        set -x fish_user_paths /snap $fish_user_paths
-    end
-    if [ -e $HOME/snap ]
-        set -x fish_user_paths $HOME/snap $fish_user_paths
-    end
-end
+set -x fish_user_paths /snap $fish_user_paths
+set -x fish_user_paths $HOME/snap $fish_user_paths
+
 # HomeBrew
 if type -q brew
     set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib)
@@ -52,61 +47,59 @@ end
 ## SHIM Paths
 if status --is-interactive
     # Golang
+    # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
+    set -x GOENV_ROOT $CONFIG_HOME/goenv
+    set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
     if type -q goenv
-        # https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
-        set -x GOENV_ROOT $CONFIG_HOME/goenv
-        set -x fish_user_paths $GOENV_ROOT/shims $fish_user_paths
-
         goenv rehash
     end
-    # Java
-    if type -q jenv
-        # No source, just precedent
-        set -x JENV_ROOT $CONFIG_HOME/jenv
-        set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
 
+    # Java
+    # No source, just precedent
+    set -x JENV_ROOT $CONFIG_HOME/jenv
+    set -x fish_user_paths $JENV_ROOT/shims $fish_user_paths
+    if type -q jenv
         jenv rehash
     end
-    # Node.js
-    if type -q nodenv
-        # https://github.com/nodenv/nodenv#environment-variables
-        set -x NODENV_ROOT $CONFIG_HOME/nodenv
-        set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
 
+    # Node.js
+    # https://github.com/nodenv/nodenv#environment-variables
+    set -x NODENV_ROOT $CONFIG_HOME/nodenv
+    set -x fish_user_paths $NODENV_ROOT/shims $fish_user_paths
+    if type -q nodenv
         nodenv rehash
     end
-    # Perl
-    if type -q plenv
-        set -x PLENV_ROOT $CONFIG_HOME/plenv
-        set -x fish_user_paths $PLENV_ROOT/shims $fish_user_paths
 
+    # Perl
+    # No source, just precedent
+    set -x PLENV_ROOT $CONFIG_HOME/plenv
+    set -x fish_user_paths $PLENV_ROOT/shims $fish_user_paths
+    if type -q plenv
         plenv rehash
     end
-    # Python
-    if type -q pyenv
-        # https://github.com/pyenv/pyenv#environment-variables
-        set -x PYENV_ROOT $CONFIG_HOME/pyenv
-        set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
 
+    # Python
+    # https://github.com/pyenv/pyenv#environment-variables
+    set -x PYENV_ROOT $CONFIG_HOME/pyenv
+    set -x fish_user_paths $PYENV_ROOT/shims $fish_user_paths
+    if type -q pyenv
         pyenv rehash
     end
-    # Ruby
-    if type -q rbenv
-        # https://github.com/rbenv/rbenv#environment-variables
-        set -x RBENV_ROOT $CONFIG_HOME/rbenv
-        set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
 
+    # Ruby
+    # https://github.com/rbenv/rbenv#environment-variables
+    set -x RBENV_ROOT $CONFIG_HOME/rbenv
+    set -x fish_user_paths $RBENV_ROOT/shims $fish_user_paths
+    if type -q rbenv
         rbenv rehash
     end
-    # Rust
-    if type -q rustup-init
-        # https://github.com/rust-lang/rustup#environment-variables
-        set -x RUSTUP_HOME $CONFIG_HOME/rustup
 
-        # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
-        set -x CARGO_HOME $CONFIG_HOME/cargo
-        set -x fish_user_paths $CARGO_HOME/bin $fish_user_paths
-    end
+    # Rust
+    # https://github.com/rust-lang/rustup#environment-variables
+    set -x RUSTUP_HOME $CONFIG_HOME/rustup
+    # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+    set -x CARGO_HOME $DATA_HOME/cargo
+    set -x fish_user_paths $CARGO_HOME/bin $fish_user_paths
 end
 
 ## Environment variables
@@ -151,10 +144,8 @@ end
 
 ## CLI Tools
 # GPG
-if type -q gpg
-    # https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
-    set -x GNUPGHOME $CONFIG_HOME/gnupg
-end
+# https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
+set -x GNUPGHOME $CONFIG_HOME/gnupg
 
 ## Fish Exit/Logout
 function on_exit --on-process %self

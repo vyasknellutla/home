@@ -13,6 +13,9 @@
 .Trash*/
 Library/
 
+## User Dirs
+src/
+
 ## CLI Apps
 # gpg keys
 .gnupg/

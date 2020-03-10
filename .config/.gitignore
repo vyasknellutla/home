@@ -15,11 +15,9 @@ gnupg/
 shims/
 versions/
 
-cargo/
 jenv/*.time
 pyenv/pyenv/
 rustup/
-
 
 # Azure
 azure/commands
