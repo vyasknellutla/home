@@ -1,5 +1,5 @@
-# Home Directory
+# dotfiles
 
-This repository is a personal preference configuration on how a home directory should be across any Operating System. As a result it makes no attempts to accomodate for alternate preferences/workflows.
+## This repository is my configuration for dotfiles across any Operating System.
 
-For a customizable home directory setup, I encourage you to visit https://github.com/vyasknellutla/.dotfiles as a base (or in my case a submodule) for organizing and configuring a home directory
+_Currently focused on Unix-based Operating Systems, with goal to extend support for Windows_
