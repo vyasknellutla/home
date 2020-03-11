@@ -17,8 +17,7 @@ versions/
 
 jenv/*.time
 pyenv/pyenv/
-rustup/*
-!rustup/settings.toml
+rustup/
 
 # Azure
 azure/commands

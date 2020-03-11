@@ -47,17 +47,21 @@ if [ "${USER}" = "vyas" ]; then
 
     # Setup Homebrew
     if ! [ -d "${HOMEBREW_HOME}" ]; then
-        mkdir -p "${HOMEBREW_HOME}" && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOMEBREW_HOME}"
+        sudo mkdir -p "${HOMEBREW_HOME}"
+        sudo chown -R  vyas "${HOMEBREW_HOME}"
+        curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOMEBREW_HOME}"
     fi
 
     if [ -x "$(command -v brew)" ]; then
         brew update --force && brew upgrade && brew cleanup
-        brew install direnv fish git gpg --display-times --force-bottle
+        brew install --display-times --force-bottle direnv fish git gpg
 
         # Check for sudo permissions
         if [ -x "$(command -v fish)" ]; then
             sudo usermod --shell "$(which fish)" "${USER}"
         fi
+        
+        brew bundle install --global
     fi
 
     if [ -x "$(command -v rustup-init)" ]; then
