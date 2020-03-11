@@ -1,5 +1,5 @@
 [user]
-	# Values in ~/.config/git/local.config
+	# Values in ~/.config/git/local_config
 [core]
 	editor = vim
 [color]
@@ -18,8 +18,8 @@
 [pull]
 	rebase = true
 [credential]
-	# Values in ~/.config/git/local.config
+	# Values in ~/.config/git/local_config
 [include]
-	path = ~/.config/git/local.config
+	path = ~/.config/git/local_config
 [http]
 	sslVerify = true

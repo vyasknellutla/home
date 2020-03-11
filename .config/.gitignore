@@ -7,7 +7,7 @@ xbuild/
 
 # Tools
 git/credentials
-git/local.config
+git/local_config
 
 gnupg/
 
