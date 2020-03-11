@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 ## direnv: https://direnv.net/docs/hook.html#fish
+set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
 if type -q direnv
     set -e fish_user_paths
     eval (direnv hook fish)
@@ -10,9 +11,9 @@ end
 ## Package Managers
 # HomeBrew
 if type -q brew
-    set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib)
-    set -x CFLAGS -Ofast (string replace -- (brew --prefix) -I(brew --prefix) (brew --prefix)/opt/*/include)
-    set -x CPPFLAGS $CFLAGS
+    set -x LDFLAGS (string replace -- (brew --prefix) -L(brew --prefix) (brew --prefix)/opt/*/lib) $LDFLAGS
+    set -x CPPFLAGS -Ofast (string replace -- (brew --prefix) -I(brew --prefix) (brew --prefix)/opt/*/include) $CPPFLAGS
+    set -x CFLAGS $CPPFLAGS
 
     if [ (uname -s) = "Darwin" ]
         set -x PKG_CONFIG_PATH (brew --prefix)/opt/*/lib/pkgconfig

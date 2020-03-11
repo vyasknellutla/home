@@ -119,6 +119,7 @@ if ! shopt -oq posix; then
 fi
 
 # direnv: https://direnv.net/docs/hook.html#bash
+PATH="${HOME}/.local/share/homebrew/bin":"${PATH}"
 if [ -x "$(command -v direnv)" ]; then
     eval "$(direnv hook bash)"
 fi

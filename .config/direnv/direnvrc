@@ -8,8 +8,8 @@ export PATH="/bin":"/sbin":"/usr/bin":"/usr/sbin":"/usr/local/bin":"/usr/local/s
 ## XDG Base Dir Spec
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_CONFIG_HOME "${HOME}/.config"
-export XDG_CACHE_HOME "${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
 
 # User Paths
 export DATA_HOME="${XDG_DATA_HOME}"
@@ -17,15 +17,17 @@ export CONFIG_HOME="${XDG_CONFIG_HOME}"
 export CACHE_HOME="${XDG_CACHE_HOME}"
 export PATH="${HOME}/bin":"${HOME}/sbin":"${PATH}"
 
+export DIRENV="${CONFIG_HOME}/direnv"
 
 ## Package Managers
 # Snap
 export PATH="${HOME}/snap":"/snap":"${PATH}"
 
 # HomeBrew
-if [-x "$(command -v brew)"]; then
-    export PATH="$(brew --prefix)/bin":"$(brew --prefix)/sbin":"${PATH}"
-fi
+export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
+export HOMEBREW_CACHE="${CACHE_HOME}/Homebrew"
+
+export PATH="${HOMEBREW_HOME}/bin":"${HOMEBREW_HOME}/sbin":"${PATH}"
 
 
 ## SHIM Paths
@@ -55,6 +57,16 @@ export CARGO_HOME="${DATA_HOME}/cargo"
 
 export PATH="${GOENV_ROOT}/shims":"${JENV_ROOT}/shims":"${NODENV_ROOT}/shims":"${PLENV_ROOT}/shims":"${PYENV_ROOT}/shims":"${RBENV_ROOT}/shims":"${CARGO_HOME}/bin":"${PATH}"
 
+## C/C++ Complier Flags
+# C PreProcessor (C/C++)
+export CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include"
+export LDFLAGS="-L/usr/local/lib"
+
+# C complier
+export CFLAGS="${CPPFLAGS}"
+
+# C++ complier
+export CXXFLAGS="${CPPFLAGS}"
 
 ## CLI Tools
 # ls
@@ -62,10 +74,10 @@ export CLICOLOR=1
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 
 # Editors
-if [  ]; then # Check if VS Code is installed
+if [ -x "$(command -v code)" ]; then # Check if VS Code is installed
     export EDITOR="code -w"
     export VISUAL="code -w"
-elif [  ]; then
+elif [ -x "$(command -v vim)" ]; then
     export EDITOR="vim"
     export VISUAL="vim"
 else
