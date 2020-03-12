@@ -20,6 +20,7 @@ rm -f "${DATA_HOME}/fish/fish_history"
 
 # VIM
 rm -f "${HOME}/.viminfo"
+rm -rf "${HOME}/.vim/"
 
 # wget
 rm -f "${HOME}/.wget-hsts"

@@ -18,7 +18,7 @@ if [ "${USER}" = "root" ]; then # TODO: Add condition, user vyas doesn't exist
     ## exec su "vyas" "$0" -- "$@" : exits with code 127
 fi
 if [ "${USER}" = "vyas" ]; then
-    . ~/.config/direnv/direnvrc
+    . ~/.envrc
 
     # Setup dotfiles
     cd "${HOME}" # TODO remove
@@ -58,7 +58,11 @@ if [ "${USER}" = "vyas" ]; then
 
         # Check for sudo permissions
         if [ -x "$(command -v fish)" ]; then
-            sudo usermod --shell "$(which fish)" "${USER}"
+            if ! [ grep -qi "$(command -v fish)" /etc/shells ]; then
+                sudo command -v fish >> /etc/shells
+            fi
+            ## TODO: VSCode Remote SSH fails with custom shell
+            # sudo chsh --shell "$(command -v fish)" "${USER}"
         fi
         
         brew bundle install --global
@@ -68,10 +72,31 @@ if [ "${USER}" = "vyas" ]; then
         rustup-init --no-modify-path -y
     fi
 
+    # Setup Shims
+    if [ -x "$(command -v goenv)" ]; then
+        goenv install --skip-existing "$(goenv global)" &
+    fi 
+    if [ -x "$(command -v pyenv)" ]; then
+        pyenv install --skip-existing "$(pyenv global)" &
+    fi 
+    if [ -x "$(command -v rbenv)" ]; then
+        rbenv install --skip-existing "$(rbenv global)" &
+    fi 
+    if [ -x "$(command -v nodenv)" ]; then
+        nodenv install --skip-existing "$(nodenv global)" &
+    fi
+
+    # VS Code setup
+    if ! [ grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf ]; then
+        sudo $SHELL -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+        sudo sysctl -p
+    fi
+
     # Symlinks
     if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
         mkdir -p "${HOME}/.vscode-server/data/Machine"
         ln -sfn "${CONFIG_HOME}/Code/User" "${HOME}/.vscode-server/data/Machine"
+        ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
     fi
 
     if [ -f "${HOME}/.logout" ]; then

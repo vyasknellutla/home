@@ -1,0 +1,2 @@
+[whitelist]
+exact = [ "/home/vyas/.envrc" ]
