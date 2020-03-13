@@ -95,4 +95,5 @@ node_modules/
 .VSTeamServicesAuthPlugin/
 
 # Bash
+.bash_profile
 .bash_logout
