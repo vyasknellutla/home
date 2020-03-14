@@ -1,12 +1,14 @@
 #!/bin/sh
 
-if [ "${USER}" = "root" ]; then # TODO: Add condition, user vyas doesn't exist
-    adduser --gecos "" vyas     # TODO: automate password
-    adduser vyas sudo
+user="vyas"
+
+if [ "${USER}" = "root" ]; then  # TODO: Add condition, user vyas doesn't exist
+    adduser --gecos "" "${user}" # TODO: automate password
+    adduser "${user}" sudo
     if [ -d "${HOME}/.ssh" ]; then
         mkdir -p ~vyas/.ssh
         cat "${HOME}/.ssh/authorized_keys" >~vyas/.ssh/authorized_keys
-        chown -R vyas ~vyas
+        chown -R "${user}" ~vyas
 
         if [ -f "/etc/ssh/sshd_config" ]; then
             sed -i 's/#PermitRootLogin no/PermitRootLogin no/g' /etc/ssh/sshd_config
@@ -17,7 +19,7 @@ if [ "${USER}" = "root" ]; then # TODO: Add condition, user vyas doesn't exist
     # TODO: Switch user to vyas
     ## exec su "vyas" "$0" -- "$@" : exits with code 127
 fi
-if [ "${USER}" = "vyas" ]; then
+if [ "${USER}" = "${user}" ]; then
     . ~/.config/direnv/direnvrc
 
     # Setup dotfiles
@@ -87,6 +89,8 @@ if [ "${USER}" = "vyas" ]; then
         fi
 
         brew bundle install --global
+
+        brew link "$(brew leaves)"
     fi
 
     if [ -x "$(command -v rustup-init)" ]; then
@@ -109,7 +113,7 @@ if [ "${USER}" = "vyas" ]; then
 
     # VS Code setup
     if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
-        sudo $SHELL -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+        sudo "${SHELL}" -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf"
         sudo sysctl -p
     fi
 fi

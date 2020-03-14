@@ -95,7 +95,7 @@ node_modules/
 .VSTeamServicesAuthPlugin/
 
 # Bash
-
+.bashrc
 .bash_profile
 .bash_logout
 .envrc
