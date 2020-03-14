@@ -5,6 +5,9 @@ Microsoft\\VisualStudio\ Services/
 stetic/
 xbuild/
 
+# Direnv
+direnv/direnvrc
+
 # Tools
 git/credentials
 git/local_config

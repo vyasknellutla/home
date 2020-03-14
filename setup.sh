@@ -20,7 +20,7 @@ if [ "${USER}" = "root" ]; then  # TODO: Add condition, user vyas doesn't exist
     ## exec su "vyas" "$0" -- "$@" : exits with code 127
 fi
 if [ "${USER}" = "${user}" ]; then
-    . ~/.config/direnv/direnvrc
+    . "${HOME}/.profile"
 
     # Setup dotfiles
     cd "${HOME}" # TODO remove
@@ -38,14 +38,14 @@ if [ "${USER}" = "${user}" ]; then
         ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
     fi
 
-    if [ -x "${CONFIG_HOME}/direnv/direnvrc" ]; then
-        ln -sfn "${CONFIG_HOME}/direnv/direnvrc" "${HOME}/.envrc"
-    fi
-
     if [ -x "${HOME}/.profile" ]; then
         ln -sfn "${HOME}/.profile" "${HOME}/.zshrc"
         ln -sfn "${HOME}/.profile" "${HOME}/.bashrc"
         ln -sfn "${HOME}/.profile" "${HOME}/.bash_profile"
+
+        # Direnv Aliases
+        ln -sfn "${HOME}/.profile" "${HOME}/.envrc"
+        ln -sfn "${HOME}/.profile" "${DIRENV}/direnvrc"
     fi
 
     if [ -x "${HOME}/.logout" ]; then
