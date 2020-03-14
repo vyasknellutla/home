@@ -36,37 +36,37 @@ export PATH="${HOMEBREW_HOME}/bin":"${HOMEBREW_HOME}/sbin":"${PATH}"
 ## SHIM Paths
 # Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
 export GOENV_ROOT="${CONFIG_HOME}/goenv"
-if tty -s && [  -x "$(command -v goenv)" ]; then
+if tty -s && [ -x "$(command -v goenv)" ]; then
     goenv rehash
 fi
 
 # Java: No source, just precedent
 export JENV_ROOT="${CONFIG_HOME}/jenv"
-if tty -s && [  -x "$(command -v jenv)" ]; then
+if tty -s && [ -x "$(command -v jenv)" ]; then
     jenv rehash
 fi
 
 # Node.js: https://github.com/nodenv/nodenv#environment-variables
 export NODENV_ROOT="${CONFIG_HOME}/nodenv"
-if tty -s && [  -x "$(command -v nodenv)" ]; then
+if tty -s && [ -x "$(command -v nodenv)" ]; then
     nodenv rehash
 fi
 
 # Perl: No source, just precedent
 export PLENV_ROOT="${CONFIG_HOME}/plenv"
-if tty -s && [  -x "$(command -v plenv)" ]; then
+if tty -s && [ -x "$(command -v plenv)" ]; then
     plenv rehash
 fi
 
 # Python: https://github.com/pyenv/pyenv#environment-variables
 export PYENV_ROOT="${CONFIG_HOME}/pyenv"
-if tty -s && [  -x "$(command -v pyenv)" ]; then
+if tty -s && [ -x "$(command -v pyenv)" ]; then
     pyenv rehash
 fi
 
 # Ruby: https://github.com/rbenv/rbenv#environment-variables
 export RBENV_ROOT="${CONFIG_HOME}/rbenv"
-if tty -s && [  -x "$(command -v rbenv)" ]; then
+if tty -s && [ -x "$(command -v rbenv)" ]; then
     rbenv rehash
 fi
 
@@ -112,6 +112,11 @@ export GNUPGHOME="${CONFIG_HOME}/gnupg"
 # Docker
 if [ -x "$(command -v docker)" ]; then
     export DOCKER_HOST="unix:///var/run/docker.sock"
+fi
+
+# SSH
+if [ -f "${HOME}/.ssh/id_rsa" ]; then
+    ssh-add -k "${HOME}/.ssh/id_rsa"
 fi
 
 ## Cloud Providers

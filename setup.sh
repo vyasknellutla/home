@@ -29,6 +29,27 @@ if [ "${USER}" = "vyas" ]; then
         git checkout --force -b master --track origin/master
     fi
 
+    # Symlinks
+    if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
+        mkdir -p "${HOME}/.vscode-server/data/Machine"
+        ln -sfn "${CONFIG_HOME}/Code/User" "${HOME}/.vscode-server/data/Machine"
+        ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
+    fi
+
+    if [ -x "${CONFIG_HOME}/direnv/direnvrc" ]; then
+        ln -sfn "${CONFIG_HOME}/direnv/direnvrc" "${HOME}/.envrc"
+    fi
+
+    if [ -x "${HOME}/.profile" ]; then
+        ln -sfn "${HOME}/.profile" "${HOME}/.zshrc"
+        ln -sfn "${HOME}/.profile" "${HOME}/.bashrc"
+        ln -sfn "${HOME}/.profile" "${HOME}/.bash_profile"
+    fi
+
+    if [ -x "${HOME}/.logout" ]; then
+        ln -sfn "${HOME}/.logout" "${HOME}/.bash_logout"
+    fi
+
     # Update system
     ## TODO: check if user is a part of sudo
     if [ -x "$(command -v apt)" ]; then
@@ -87,30 +108,8 @@ if [ "${USER}" = "vyas" ]; then
     fi
 
     # VS Code setup
-    if ! [ grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf ]; then
+    if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
         sudo $SHELL -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
         sudo sysctl -p
-    fi
-
-    # Symlinks
-    if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
-        mkdir -p "${HOME}/.vscode-server/data/Machine"
-        ln -sfn "${CONFIG_HOME}/Code/User" "${HOME}/.vscode-server/data/Machine"
-        ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
-    fi
-
-    if [ -x "${CONFIG_HOME}/direnv/direnvrc" ]; then
-        ln -sfn "${CONFIG_HOME}/direnv/direnvrc" "${HOME}/.envrc"
-    fi
-
-    if [ -x "${HOME}/.profile" ]; then
-        ln -sfn "${HOME}/.profile" "${HOME}/.bash_profile"
-    fi
-    if [ -x "${HOME}/.bashrc" ]; then
-        ln -sfn "${HOME}/.bashrc" "${HOME}/.zshrc"
-    fi
-
-    if [ -x "${HOME}/.logout" ]; then
-        ln -sfn "${HOME}/.logout" "${HOME}/.bash_logout"
     fi
 fi
