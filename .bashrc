@@ -1,14 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-*i*) ;;
-*) return ;;
-esac
+[ -z "$PS1" ] && return
+
+# direnv: https://direnv.net/docs/hook.html#bash
+. ~/.config/direnv/direnvrc
+if [ -x "$(command -v direnv)" ]; then
+    direnv allow .
+    eval "$(direnv hook bash)"
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -116,11 +120,4 @@ if ! shopt -oq posix; then
     elif [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
     fi
-fi
-
-# direnv: https://direnv.net/docs/hook.html#bash
-HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
-PATH="${HOMEBREW_HOME}/bin":"${PATH}"
-if [ -x "$(command -v direnv)" ]; then
-    eval "$(direnv hook bash)"
 fi

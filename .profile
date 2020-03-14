@@ -14,7 +14,7 @@
 if [ -n "${BASH_VERSION}" ]; then
     # include .bashrc if it exists
     if [ -f "${HOME}/.bashrc" ]; then
-	    . "${HOME}/.bashrc"
+        . "${HOME}/.bashrc"
     fi
 
     # begin bash_completion configuration
@@ -24,15 +24,12 @@ if [ -n "${BASH_VERSION}" ]; then
     if [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
     fi
-    # end bash_completion configuration
-fi
 
-### Setup Brew Package Manager
-if [ -x "$(command -v brew)" ]; then
     # Adds completions for packages installed by brew
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
+    if [ -f "${HOMEBREW_HOME}/etc/bash_completion" ]; then
+        . "${HOMEBREW_HOME}/etc/bash_completion"
     fi
+    # end bash_completion configuration
 fi
 
 # SSH key management
