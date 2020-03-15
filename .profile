@@ -150,7 +150,7 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
 fi
 
 # If not running interactively, don't do anything
-tty -s && return
+! tty -s && return
 
 # Bash Specific
 if [ -n "$(${SHELL} -c 'echo ${BASH_VERSION}')" ]; then
