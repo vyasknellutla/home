@@ -39,9 +39,14 @@ if [ "${USER}" = "${user}" ]; then
     fi
 
     if [ -x "${HOME}/.profile" ]; then
-        ln -sfn "${HOME}/.profile" "${HOME}/.zshrc"
+        # Bash
         ln -sfn "${HOME}/.profile" "${HOME}/.bashrc"
         ln -sfn "${HOME}/.profile" "${HOME}/.bash_profile"
+
+        # Zsh
+        ln -sfn "${HOME}/.profile" "${HOME}/.login"
+        ln -sfn "${HOME}/.profile" "${HOME}/.zprofile"
+        ln -sfn "${HOME}/.profile" "${HOME}/.zshrc"
 
         # Direnv Aliases
         ln -sfn "${HOME}/.profile" "${HOME}/.envrc"
@@ -115,5 +120,10 @@ if [ "${USER}" = "${user}" ]; then
     if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
         sudo "${SHELL}" -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf"
         sudo sysctl -p
+    fi
+
+    # SSH
+    if [ -f "${HOME}/.ssh/id_rsa" ]; then
+        ssh-add -k "${HOME}/.ssh/id_rsa"
     fi
 fi

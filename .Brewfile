@@ -77,6 +77,8 @@ brew "nmap"
 brew "node-build"
 brew "nodenv"
 brew "openssh" # TODO: fix installation errors
+brew "perl-build"
+brew "plenv"
 brew "pyenv"
 brew "rbenv"
 brew "rename"

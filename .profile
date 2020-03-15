@@ -112,14 +112,7 @@ fi
 export GNUPGHOME="${CONFIG_HOME}/gnupg"
 
 # Docker
-if [ -x "$(command -v docker)" ]; then
-    export DOCKER_HOST="unix:///var/run/docker.sock"
-fi
-
-# SSH
-if [ -f "${HOME}/.ssh/id_rsa" ]; then
-    ssh-add -k "${HOME}/.ssh/id_rsa"
-fi
+export DOCKER_HOST="unix:///var/run/docker.sock"
 
 ## Cloud Providers
 # AWS
@@ -165,12 +158,12 @@ if [ -n "$(${SHELL} -c 'echo ${BASH_VERSION}')" ]; then
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
     # sources /etc/bash.bashrc).
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    fi
-    if [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
+    # if [ -f "/usr/share/bash-completion/bash_completion" ]; then
+    #     . "/usr/share/bash-completion/bash_completion"
+    # fi
+    # if [ -f "/etc/bash_completion" ]; then
+    #     . "/etc/bash_completion"
+    # fi
 
     # Adds completions for packages installed by brew
     if [ -f "${HOMEBREW_HOME}/etc/bash_completion" ]; then
@@ -182,7 +175,7 @@ fi
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+# shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -190,7 +183,7 @@ HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+# shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -241,7 +234,7 @@ esac
 ### Aliases
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ -x "/usr/bin/dircolors" ]; then
     test -r "${HOME}/.dircolors" && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'

@@ -94,11 +94,15 @@ node_modules/
 
 .VSTeamServicesAuthPlugin/
 
-# Bash
+# bash
 .bashrc
 .bash_profile
 .bash_logout
+
+# direnv
 .envrc
 
-# Zsh
+# zsh
+.login
+.zprofile
 .zshrc
