@@ -8,6 +8,8 @@
     "files.watcherExclude": {
         "~/.cache": true,
         "**/logs/**/*.log": true,
-        "~/.local/share": true
+        "~/.local/share": true,
+        "~/.bash*": true,
+        "~/.*rc": true
     }
 }

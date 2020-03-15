@@ -106,3 +106,6 @@ node_modules/
 .login
 .zprofile
 .zshrc
+
+# Snap
+snap/

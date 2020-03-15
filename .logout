@@ -15,9 +15,6 @@ rm -f "${HOME}/.lesshst"
 # Bash
 rm -f "${HOME}/.bash_history"
 
-# Fish
-rm -f "${DATA_HOME}/fish/fish_history"
-
 # VIM
 rm -f "${HOME}/.viminfo"
 rm -rf "${HOME}/.vim/"
