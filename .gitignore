@@ -17,9 +17,6 @@ Library/
 src/
 
 ## CLI Apps
-# gpg keys
-.gnupg/
-
 # ssh keys & known_hosts
 .ssh/
 

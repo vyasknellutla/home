@@ -33,3 +33,6 @@ azure/telemetry.txt
 
 # AWS
 aws/credentials
+
+# Fish
+fish/completions/
