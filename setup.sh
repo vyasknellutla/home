@@ -120,8 +120,8 @@ if [ "${USER}" = "${user}" ]; then
     if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
         sudo "${SHELL}" -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf"
         sudo sysctl -p
-    
-    
+    fi
+
     # Docker
     if [ -x "$(command -v docker)" ]; then
         sudo addgroup --system docker
