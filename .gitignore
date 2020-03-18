@@ -106,3 +106,4 @@ node_modules/
 
 # Snap
 snap/
+.snap/

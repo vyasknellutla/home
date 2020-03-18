@@ -11,5 +11,6 @@
         "~/.local/share": true,
         "~/.bash*": true,
         "~/.*rc": true
-    }
+    },
+    "editor.renderWhitespace": "boundary"
 }
