@@ -18,6 +18,9 @@ gnupg/
 shims/
 versions/
 
+npm/_cacache/
+npm/_locks/
+
 jenv/*.time
 pyenv/pyenv/
 rustup/

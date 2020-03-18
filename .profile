@@ -46,7 +46,9 @@ if tty -s && [ -x "$(command -v jenv)" ]; then
     jenv rehash
 fi
 
-# Node.js: https://github.com/nodenv/nodenv#environment-variables
+# Node.js
+export NPM_HOME="${CONFIG_HOME}/npm"
+# https://github.com/nodenv/nodenv#environment-variables
 export NODENV_ROOT="${CONFIG_HOME}/nodenv"
 if tty -s && [ -x "$(command -v nodenv)" ]; then
     nodenv rehash
