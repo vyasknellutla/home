@@ -22,7 +22,7 @@ export DIRENV="${CONFIG_HOME}/direnv"
 
 ## Package Managers
 # Snap
-export PATH="${HOME}/snap":"/snap/bin":"${PATH}"
+export PATH="/snap/bin":"${PATH}"
 
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
