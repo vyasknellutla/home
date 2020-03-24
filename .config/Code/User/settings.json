@@ -1,16 +1,17 @@
 {
-    "git.ignoreLimitWarning": true,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 100,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "files.trimFinalNewlines": true,
-    "files.watcherExclude": {
-        "~/.cache": true,
-        "**/logs/**/*.log": true,
-        "~/.local/share": true,
-        "~/.bash*": true,
-        "~/.*rc": true
-    },
-    "editor.renderWhitespace": "boundary"
+  "git.ignoreLimitWarning": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 100,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "files.trimFinalNewlines": true,
+  "files.watcherExclude": {
+    "~/.cache": true,
+    "**/logs/**/*.log": true,
+    "~/.local/share": true,
+    "~/.bash*": true,
+    "~/.*rc": true
+  },
+  "editor.renderWhitespace": "boundary",
+  "terminal.integrated.shell.linux": "/home/linuxbrew/.linuxbrew/bin/fish"
 }
