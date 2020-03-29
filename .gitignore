@@ -4,7 +4,7 @@
 .cache/
 .local/share/
 
-# MacOS system Files/Directories
+# MacOS System Files/Directories
 .DS_Store
 .localized
 
@@ -12,6 +12,33 @@
 .ServiceHub/logs/
 .Trash*/
 Library/
+
+# Windows System Files/Directories
+3D Objects/
+AppData/
+Application Data/
+Cookies/
+Documents/
+Downloads/
+Favorites/
+Intel/
+IntelGraphicsProfiles/
+Links/
+Local Settings/
+MicrosoftEdgeBackups/
+My Documents/
+NetHood/
+OneDrive*/
+PrintHood/
+Recent/
+Searches/
+SendTo/
+Start Menu/
+Templates/
+
+NTUSER.DAT*
+ntuser.*
+desktop.ini
 
 ## User Dirs
 src/

@@ -142,6 +142,8 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
 
     ## DotNet tools
     export PATH="/usr/local/share/dotnet":"${PATH}"
+elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
+    export PATH="/mingw64/bin":"${PATH}"
 fi
 
 # If not running interactively, don't do anything
