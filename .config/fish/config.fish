@@ -7,11 +7,6 @@ if type -q direnv
     eval (direnv hook fish)
 end
 
-## Linuxbrew completions:
-if type -q brew
-    . (brew --prefix)/completions/fish/brew.fish
-end
-
 ## Fish Exit/Logout
 function on_exit --on-process %self
     echo "Exiting Fish Shell, see you next time"

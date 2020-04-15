@@ -150,7 +150,7 @@ fi
 ! tty -s && return
 
 # Bash Specific
-if [ -n "$(${SHELL} -c 'echo ${BASH_VERSION}')" ]; then
+if [ -n "$(/bin/bash -c 'echo ${BASH_VERSION}')" ]; then
     # Alias definitions.
     # You may want to put all your additions into a separate file like
     # ~/.bash_aliases, instead of adding them here directly.

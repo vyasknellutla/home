@@ -59,7 +59,7 @@ if [ "${USER}" = "${user}" ]; then
 
     # Update system
     ## TODO: check if user is a part of sudo
-    if [ -x "$(command -v apt)" ]; then
+    if [ -x "$(command -v apt-get)" ]; then
         sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y
 
         # Install Homebrew Dependencies: https://docs.brew.sh/Homebrew-on-Linux#debian-or-ubuntu

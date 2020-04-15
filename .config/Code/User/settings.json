@@ -13,5 +13,9 @@
     "~/.*rc": true
   },
   "editor.renderWhitespace": "boundary",
-  "terminal.integrated.shell.linux": "/home/linuxbrew/.linuxbrew/bin/fish"
+  "terminal.integrated.shell.linux": "/home/linuxbrew/.linuxbrew/bin/fish",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDelete": false
 }
