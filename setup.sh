@@ -87,7 +87,8 @@ if [ "${USER}" = "${user}" ]; then
         # Check for sudo permissions
         if [ -x "$(command -v fish)" ]; then
             if ! [ grep -qi "$(command -v fish)" /etc/shells ]; then
-                sudo command -v fish >>/etc/shells
+                ls >/dev/null
+                # sudo command -v fish >>/etc/shells
             fi
             ## TODO: VSCode Remote SSH fails with custom shell
             # sudo chsh --shell "$(command -v fish)" "${USER}"
@@ -95,7 +96,7 @@ if [ "${USER}" = "${user}" ]; then
 
         brew bundle install --global
 
-        brew link "$(brew leaves)"
+        #       brew link "$(brew leaves)"
     fi
 
     if [ -x "$(command -v rustup-init)" ]; then

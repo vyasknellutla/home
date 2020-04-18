@@ -5,7 +5,7 @@
 [color]
 	ui = auto
 [commit]
-	# gpgsign = true
+	# Values in ~/.config/git/local_config
 [tag]
 	forceSignAnnotated = true
 [gpg]
