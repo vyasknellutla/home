@@ -1,8 +1,8 @@
 ## Operating System
 # XDG Base Dir Spec
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-.cache/
-.local/share/
+.cache
+.local
 
 # MacOS System Files/Directories
 .DS_Store
@@ -49,7 +49,7 @@ ntuser.*
 desktop.ini
 
 ## User Dirs
-src/
+src
 
 ## CLI Apps
 # ssh keys & known_hosts

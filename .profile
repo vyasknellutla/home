@@ -1,5 +1,11 @@
 #!/bin/sh
 
+## Proxy
+export http_proxy="http://proxy-wsa.esl.cisco.com:80"
+export HTTP_PROXY="${http_proxy}"
+export HTTPS_PROXY="${http_proxy}"
+export https_proxy="${http_proxy}"
+
 ## Path Variable
 # UNIX System Paths
 export PATH="/bin":"/sbin":"/usr/bin":"/usr/sbin":"/usr/local/bin":"/usr/local/sbin"
@@ -109,6 +115,14 @@ else
     export EDITOR="vi"
     export VISUAL="vi"
 fi
+
+# Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
+export VAGRANT_HOME="${DATA_HOME}/vagrant"
+
+
+# Packer: https://www.packer.io/docs/other/environment-variables.html
+export PACKER_CACHE_DIR="${CACHE_HOME}/packer"
+export PACKER_CONFIG_DIR="${CONFIG_HOME}/packer"
 
 # GPG: https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
 export GNUPGHOME="${CONFIG_HOME}/gnupg"
