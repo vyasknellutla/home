@@ -49,7 +49,7 @@ ntuser.*
 desktop.ini
 
 ## User Dirs
-src
+src/
 
 ## CLI Apps
 # ssh keys & known_hosts

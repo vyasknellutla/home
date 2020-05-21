@@ -13,7 +13,7 @@
     "~/.*rc": true
   },
   "editor.renderWhitespace": "boundary",
-  "terminal.integrated.shell.linux": "/home/linuxbrew/.linuxbrew/bin/fish",
+  "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.osx": "/usr/local/bin/fish",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

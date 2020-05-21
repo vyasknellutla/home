@@ -1,10 +1,7 @@
 #!/bin/sh
 
 ## Proxy
-export http_proxy="http://proxy-wsa.esl.cisco.com:80"
-export HTTP_PROXY="${http_proxy}"
-export HTTPS_PROXY="${http_proxy}"
-export https_proxy="${http_proxy}"
+
 
 ## Path Variable
 # UNIX System Paths
@@ -39,44 +36,29 @@ export HOMEBREW_CACHE="${CACHE_HOME}/Homebrew"
 
 export PATH="${HOMEBREW_HOME}/bin":"${HOMEBREW_HOME}/sbin":"${PATH}"
 
+# Pip (user-level)
+export PATH="${HOME}/.local/bin":"${PATH}"
+
 ## SHIM Paths
 # Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
 export GOENV_ROOT="${CONFIG_HOME}/goenv"
-if tty -s && [ -x "$(command -v goenv)" ]; then
-    goenv rehash
-fi
 
 # Java: No source, just precedent
 export JENV_ROOT="${CONFIG_HOME}/jenv"
-if tty -s && [ -x "$(command -v jenv)" ]; then
-    jenv rehash
-fi
 
 # Node.js
 export NPM_HOME="${CONFIG_HOME}/npm"
 # https://github.com/nodenv/nodenv#environment-variables
 export NODENV_ROOT="${CONFIG_HOME}/nodenv"
-if tty -s && [ -x "$(command -v nodenv)" ]; then
-    nodenv rehash
-fi
 
 # Perl: No source, just precedent
 export PLENV_ROOT="${CONFIG_HOME}/plenv"
-if tty -s && [ -x "$(command -v plenv)" ]; then
-    plenv rehash
-fi
 
 # Python: https://github.com/pyenv/pyenv#environment-variables
 export PYENV_ROOT="${CONFIG_HOME}/pyenv"
-if tty -s && [ -x "$(command -v pyenv)" ]; then
-    pyenv rehash
-fi
 
 # Ruby: https://github.com/rbenv/rbenv#environment-variables
 export RBENV_ROOT="${CONFIG_HOME}/rbenv"
-if tty -s && [ -x "$(command -v rbenv)" ]; then
-    rbenv rehash
-fi
 
 # Rust
 # https://github.com/rust-lang/rustup#environment-variables
@@ -115,6 +97,9 @@ else
     export EDITOR="vi"
     export VISUAL="vi"
 fi
+
+# VirtualBox: https://github.com/hashicorp/vagrant/issues/3532#issuecomment-41321828
+export VBOX_USER_HOME="${DATA_HOME}/virtualbox"
 
 # Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
 export VAGRANT_HOME="${DATA_HOME}/vagrant"
