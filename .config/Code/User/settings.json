@@ -22,5 +22,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "python.jediEnabled": false,
+  "vsonline.authentication.accountProvider": "Microsoft",
+  "vsonline.accountProvider": "Microsoft",
+  "editor.formatOnType": true
 }

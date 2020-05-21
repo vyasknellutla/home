@@ -2,7 +2,6 @@
 
 ## Proxy
 
-
 ## Path Variable
 # UNIX System Paths
 export PATH="/bin":"/sbin":"/usr/bin":"/usr/sbin":"/usr/local/bin":"/usr/local/sbin"
@@ -104,7 +103,6 @@ export VBOX_USER_HOME="${DATA_HOME}/virtualbox"
 # Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
 export VAGRANT_HOME="${DATA_HOME}/vagrant"
 
-
 # Packer: https://www.packer.io/docs/other/environment-variables.html
 export PACKER_CACHE_DIR="${CACHE_HOME}/packer"
 export PACKER_CONFIG_DIR="${CONFIG_HOME}/packer"
@@ -141,6 +139,9 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
 
     ## DotNet tools
     export PATH="/usr/local/share/dotnet":"${PATH}"
+
+    # TODO use launchctl setenv PATH $PATH
+    # For all environment vairables
 elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
     export PATH="/mingw64/bin":"${PATH}"
 fi
