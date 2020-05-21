@@ -36,7 +36,8 @@ export HOMEBREW_CACHE="${CACHE_HOME}/Homebrew"
 export PATH="${HOMEBREW_HOME}/bin":"${HOMEBREW_HOME}/sbin":"${PATH}"
 
 # Pip (user-level)
-export PATH="${HOME}/.local/bin":"${PATH}"
+export PYTHONUSERBASE="${DATA_HOME}/pip"
+export PATH="${PYTHONUSERBASE}/bin":"${PATH}"
 
 ## SHIM Paths
 # Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
@@ -173,6 +174,15 @@ if [ -n "$(/bin/bash -c 'echo ${BASH_VERSION}')" ]; then
     if [ -f "${HOMEBREW_HOME}/etc/bash_completion" ]; then
         . "${HOMEBREW_HOME}/etc/bash_completion"
     fi
+
+    # Pip
+    _pip_completion() {
+        COMPREPLY=($(COMP_WORDS="${COMP_WORDS[*]}" \
+            COMP_CWORD=$COMP_CWORD \
+            PIP_AUTO_COMPLETE=1 $1 2>/dev/null))
+    }
+    complete -o default -F _pip_completion pip
+    complete -o default -F _pip_completion pip3
 fi
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

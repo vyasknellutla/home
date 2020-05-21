@@ -58,6 +58,9 @@ src/
 # Kubernetes
 .kube/
 
+# GnuPG
+.gnupg
+
 ## GUI Apps
 # GitKraken
 .gitkraken/
