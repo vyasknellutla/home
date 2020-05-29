@@ -20,10 +20,11 @@ if [ "${USER}" = "root" ]; then  # TODO: Add condition, user vyas doesn't exist
     ## exec su "vyas" "$0" -- "$@" : exits with code 127
 fi
 if [ "${USER}" = "${user}" ]; then
+    # shellcheck source=.profile
     . "${HOME}/.profile"
 
     # Setup dotfiles
-    cd "${HOME}" # TODO remove
+    cd "${HOME}" || exit # TODO remove
     if ! [ -d "${HOME}/.git" ]; then
         git init "${HOME}"
         git remote add origin https://github.com/vyasknellutla/dotfiles.git
@@ -49,7 +50,7 @@ if [ "${USER}" = "${user}" ]; then
         ln -sfn "${HOME}/.profile" "${HOME}/.zshrc"
 
         # Direnv Aliases
-        ln -sfn "${HOME}/.profile" "${HOME}/.envrc"
+        # ln -sfn "${HOME}/.profile" "${HOME}/.envrc"
         ln -sfn "${HOME}/.profile" "${DIRENV}/direnvrc"
     fi
 
@@ -83,16 +84,6 @@ if [ "${USER}" = "${user}" ]; then
     if [ -x "$(command -v brew)" ]; then
         brew update --force && brew upgrade && brew cleanup
         brew install --display-times --force-bottle direnv fish git gpg
-
-        # Check for sudo permissions
-        if [ -x "$(command -v fish)" ]; then
-            if ! [ grep -qi "$(command -v fish)" /etc/shells ]; then
-                ls >/dev/null
-                # sudo command -v fish >>/etc/shells
-            fi
-            ## TODO: VSCode Remote SSH fails with custom shell
-            # sudo chsh --shell "$(command -v fish)" "${USER}"
-        fi
 
         brew bundle install --global
 

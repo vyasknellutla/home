@@ -4,8 +4,8 @@
 
 ## Path Variable
 # UNIX System Paths
-export PATH="/bin":"/sbin":"/usr/bin":"/usr/sbin":"/usr/local/bin":"/usr/local/sbin"
-export HOME="${HOME:-$(echo ~)}"
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export HOME="${HOME:-$(~)}"
 export USER="${USER:-$(id --user --name)}"
 
 ## XDG Base Dir Spec
@@ -18,26 +18,26 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export DATA_HOME="${XDG_DATA_HOME}"
 export CONFIG_HOME="${XDG_CONFIG_HOME}"
 export CACHE_HOME="${XDG_CACHE_HOME}"
-export PATH="${HOME}/bin":"${HOME}/sbin":"${PATH}"
+export PATH="${HOME}/bin:${HOME}/sbin:${PATH}"
 
 export DIRENV="${CONFIG_HOME}/direnv"
 
 ## Package Managers
 # Snap
-export PATH="/snap/bin":"${PATH}"
+export PATH="/snap/bin:${PATH}"
 
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
     export HOMEBREW_HOME="$(brew --prefix)"
 fi
 export HOMEBREW_HOME="${HOMEBREW_HOME:-"/home/linuxbrew/.linuxbrew"}"
-export HOMEBREW_CACHE="${CACHE_HOME}/Homebrew"
+export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 
-export PATH="${HOMEBREW_HOME}/bin":"${HOMEBREW_HOME}/sbin":"${PATH}"
+export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
 
 # Pip (user-level)
 export PYTHONUSERBASE="${DATA_HOME}/pip"
-export PATH="${PYTHONUSERBASE}/bin":"${PATH}"
+export PATH="${PYTHONUSERBASE}/bin:${PATH}"
 
 ## SHIM Paths
 # Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
@@ -66,12 +66,12 @@ export RUSTUP_HOME="${DATA_HOME}/rustup"
 # https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
 export CARGO_HOME="${DATA_HOME}/cargo"
 
-export PATH="${GOENV_ROOT}/shims":"${JENV_ROOT}/shims":"${NODENV_ROOT}/shims":"${PLENV_ROOT}/shims":"${PYENV_ROOT}/shims":"${RBENV_ROOT}/shims":"${CARGO_HOME}/bin":"${PATH}"
+export PATH="${GOENV_ROOT}/shims:${JENV_ROOT}/shims:${NODENV_ROOT}/shims:${PLENV_ROOT}/shims:${PYENV_ROOT}/shims:${RBENV_ROOT}/shims:${CARGO_HOME}/bin:${PATH}"
 
 ## C/C++ Complier Flags
 # C PreProcessor (C/C++)
-export CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include $(echo ${HOMEBREW_HOME}/opt/*/include | sed 's/ / -I/g')"
-export LDFLAGS="-L/usr/local/lib $(echo ${HOMEBREW_HOME}/opt/*/lib | sed 's/ / -L/g')"
+export CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+export LDFLAGS="-L/usr/local/lib $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
 
 # C complier
 export CC="$(command -v gcc)"
@@ -133,18 +133,18 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
 
     ## Android Paths
     export ANDROID_HOME="${HOME}/Library/Android/sdk"
-    export PATH="${ANDROID_HOME}:tools/bin":"${ANDROID_HOME}/tools":"${ANDROID_HOME}/platform-tools":"${PATH}"
+    export PATH="${ANDROID_HOME}:tools/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
 
     ## Flutter Paths
-    export PATH="${HOME}/Library/Flutter/flutter/bin":"${PATH}"
+    export PATH="${HOME}/Library/Flutter/flutter/bin:${PATH}"
 
     ## DotNet tools
-    export PATH="/usr/local/share/dotnet":"${PATH}"
+    export PATH="/usr/local/share/dotnet:${PATH}"
 
     # TODO use launchctl setenv PATH $PATH
     # For all environment vairables
 elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
-    export PATH="/mingw64/bin":"${PATH}"
+    export PATH="/mingw64/bin:${PATH}"
 fi
 
 # If not running interactively, don't do anything
@@ -249,7 +249,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x "/usr/bin/dircolors" ]; then
-    test -r "${HOME}/.dircolors" && eval "$(dircolors -b ${HOME}/.dircolors)" || eval "$(dircolors -b)"
+    test -r "${HOME}/.dircolors" && eval "$(dircolors -b "${HOME}"/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'

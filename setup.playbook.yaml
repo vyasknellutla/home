@@ -1,0 +1,64 @@
+---
+- name: "Software Updates"
+  hosts: localhost
+  connection: local
+  become_method: sudo
+  tasks:
+    - name: Upgrade all Homebrew 'brews'
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+      when: ansible_distribution == "MacOSX" # TODO: Add Linux
+    - name: Upgrade all Homebrew 'casks'
+      homebrew_cask:
+        upgrade_all: true
+      when: ansible_distribution == "MacOSX"
+    - name: Upgrade all installed packages for Debian and Ubuntu
+      become: true
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+        force_apt_get: yes
+      when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+    - name: Upgrade all installed packages on openSUSE
+      become: true
+      zypper:
+        name: "*"
+        state: latest
+      when: ansible_distribution == "openSUSE Leap"
+    - name: Update all installed packages for CentOS
+      become: true
+      yum:
+        name: "*"
+        state: latest
+        update_cache: yes
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
+    - name: Upgrade all installed packages on Fedora
+      become: true
+      dnf:
+        name: "*"
+        state: latest
+        update_cache: yes
+      when: ansible_distribution == "Fedora"
+
+    - git:
+        repo: "https://github.com/vyasknellutla/dotfiles.git"
+        dest: ~/
+        update: no
+
+    - name: Create Symlinks to .profile
+      file:
+        src: "{{ lookup('env','HOME') }}/{{ item.src }}"
+        dest: "{{ lookup('env','HOME') }}/{{ item.dest }}"
+        state: link
+        owner: vyas
+      loop:
+        # Bash
+        - { src: ".profile", dest: ".bashrc" }
+        - { src: ".profile", dest: ".bash_profile" }
+        # Zsh
+        - { src: ".profile", dest: ".login" }
+        - { src: ".profile", dest: ".zprofile" }
+        - { src: ".profile", dest: ".zshrc" }
+        # TODO: Direnv
