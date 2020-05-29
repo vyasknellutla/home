@@ -15,7 +15,7 @@ if [ "${USER}" = "root" ]; then  # TODO: Add condition, user vyas doesn't exist
             sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
             /etc/init.d/ssh restart
         fi
-    fi
+    fi  
     # TODO: Switch user to vyas
     ## exec su "vyas" "$0" -- "$@" : exits with code 127
 fi

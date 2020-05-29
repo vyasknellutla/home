@@ -7,10 +7,8 @@
   "files.trimFinalNewlines": true,
   "files.watcherExclude": {
     "~/.cache": true,
-    "**/logs/**/*.log": true,
-    "~/.local/share": true,
-    "~/.bash*": true,
-    "~/.*rc": true
+    "**/*.log": true,
+    "~/.local": true
   },
   "editor.renderWhitespace": "boundary",
   "terminal.integrated.shell.linux": "/usr/bin/fish",
@@ -26,5 +24,8 @@
   "python.jediEnabled": false,
   "vsonline.authentication.accountProvider": "Microsoft",
   "vsonline.accountProvider": "Microsoft",
-  "editor.formatOnType": true
+  "editor.formatOnType": true,
+  "codespaces.accountProvider": "Microsoft",
+  "projectManager.git.baseFolders": ["$home", "$home/src"],
+  "projectManager.git.maxDepthRecursion": 1
 }
