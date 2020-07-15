@@ -26,6 +26,15 @@
   "vsonline.accountProvider": "Microsoft",
   "editor.formatOnType": true,
   "codespaces.accountProvider": "Microsoft",
-  "projectManager.git.baseFolders": ["$home", "$home/src"],
-  "projectManager.git.maxDepthRecursion": 1
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+"javascript.updateImportsOnFileMove.enabled": "always",
+"python.languageServer": "Microsoft"
 }

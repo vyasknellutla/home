@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 # Uninstall Visual Studio for Mac
 echo "Uninstalling Visual Studio for Mac..."
