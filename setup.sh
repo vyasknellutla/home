@@ -19,26 +19,10 @@ if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
     ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
 fi
 
-# Update system
-## TODO: check if user is a part of sudo
-if [ -x "$(command -v apt-get)" ]; then
-    sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y
-
-    # Install Homebrew Dependencies: https://docs.brew.sh/Homebrew-on-Linux#debian-or-ubuntu
-    sudo apt-get install build-essential curl file git -y
-elif [ -x "$(command -v yum)" ]; then
-    sudo yum update -y
-
-    # Install Homebrew Dependencies: https://docs.brew.sh/Homebrew-on-Linux#fedora-centos-or-red-hat
-    sudo yum groupinstall 'Development Tools' --yes
-    sudo yum install curl file git --yes
-    sudo yum install libxcrypt-compat --yes # needed by Fedora 30 and up
-fi
-
 # Setup Homebrew
 if ! [ -d "${HOMEBREW_HOME}" ]; then
-    sudo mkdir -p "${HOMEBREW_HOME}"
-    sudo chown -R vyas "${HOMEBREW_HOME}"
+    mkdir -p "${HOMEBREW_HOME}"
+    chown -R vyas "${HOMEBREW_HOME}"
     curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOMEBREW_HOME}"
 fi
 
@@ -70,22 +54,18 @@ if [ -x "$(command -v nodenv)" ]; then
 fi
 
 # VS Code setup
-if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
-    sudo "${SHELL}" -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf"
-    sudo sysctl -p
-fi
+# if ! grep -qi 'fs.inotify.max_user_watches' /etc/sysctl.conf; then
+#     sudo "${SHELL}" -c "echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf"
+#     sudo sysctl -p
+# fi
 
-# Docker
-if [ -x "$(command -v docker)" ]; then
-    sudo addgroup --system docker
-    sudo adduser "${USER}" docker
-    newgrp docker
-    sudo gpasswd -a "${USER}" docker
-fi
+# # Docker TODO: Ansible Role
+# if [ -x "$(command -v docker)" ]; then
+#     sudo addgroup --system docker
+#     sudo adduser "${USER}" docker
+#     newgrp docker
+#     sudo gpasswd -a "${USER}" docker
+# fi
 
-# SSH
-if [ -f "${HOME}/.ssh/id_rsa" ]; then
-    ssh-add -k "${HOME}/.ssh/id_rsa"
-fi
-
+python3 -m pip install --user ansible pipenv
 ansible-playbook setup.playbook.yaml

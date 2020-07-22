@@ -31,9 +31,14 @@ export PATH="/snap/bin:${PATH}"
 
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
-    export HOMEBREW_HOME="$(brew --prefix)"
+    HOMEBREW_HOME="$(brew --prefix)"
+    export HOMEBREW_HOME
 fi
-export HOMEBREW_HOME="${HOMEBREW_HOME:-"/home/linuxbrew/.linuxbrew"}"
+if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
+    export HOMEBREW_HOME="${HOMEBREW_HOME:-"/usr/local"}"
+else
+    export HOMEBREW_HOME="${HOMEBREW_HOME:-"/home/linuxbrew/.linuxbrew"}"
+fi
 export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
@@ -73,15 +78,20 @@ export PATH="${GOENV_ROOT}/shims:${JENV_ROOT}/shims:${NODENV_ROOT}/shims:${PLENV
 
 ## C/C++ Complier Flags
 # C PreProcessor (C/C++)
-export CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
-export LDFLAGS="-L/usr/local/lib $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+export CPPFLAGS
+
+LDFLAGS="-L/usr/local/lib $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+export LDFLAGS
 
 # C complier
-export CC="$(command -v gcc)"
+CC="$(command -v gcc)"
+export CC
 export CFLAGS="${CPPFLAGS}"
 
 # C++ complier
-export CXX="$(command -v g++)"
+CXX="$(command -v g++)"
+export CXX
 export CXXFLAGS="${CPPFLAGS}"
 
 ## CLI Tools
@@ -159,9 +169,9 @@ if [ -n "$(/bin/bash -c 'echo ${BASH_VERSION}')" ]; then
     # You may want to put all your additions into a separate file like
     # ~/.bash_aliases, instead of adding them here directly.
     # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-    if [ -f "${HOME}/.bash_aliases" ]; then
-        . "${HOME}/.bash_aliases"
-    fi
+    # if [ -f "${HOME}/.bash_aliases" ]; then
+    #     . "${HOME}/.bash_aliases"
+    # fi
 
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
