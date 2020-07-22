@@ -1,5 +1,4 @@
 #!/bin/sh -eu
-set -o pipefail
 
 # shellcheck source=.profile
 . "${HOME}/.profile"
