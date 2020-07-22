@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/sh -eu
+set -o pipefail
 
 # shellcheck source=.profile
 . "${HOME}/.profile"
@@ -87,3 +88,5 @@ fi
 if [ -f "${HOME}/.ssh/id_rsa" ]; then
     ssh-add -k "${HOME}/.ssh/id_rsa"
 fi
+
+ansible-playbook setup.playbook.yaml
