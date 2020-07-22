@@ -36,5 +36,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 "javascript.updateImportsOnFileMove.enabled": "always",
-"python.languageServer": "Microsoft"
+"python.languageServer": "Microsoft",
+"editor.fontLigatures": null,
+"editor.minimap.enabled": false
 }

@@ -55,6 +55,9 @@ src/
 # ssh keys & known_hosts
 .ssh/
 
+# Ansible
+.ansible/
+
 # Kubernetes
 .kube/
 
@@ -145,3 +148,5 @@ node_modules/
 # Snap
 snap/
 .snap/
+.config/gh/hosts.yml
+.config/gh/state.yml

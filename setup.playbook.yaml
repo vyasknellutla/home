@@ -4,15 +4,14 @@
   connection: local
   become_method: sudo
   tasks:
-    - name: Upgrade all Homebrew 'brews'
-      homebrew:
-        update_homebrew: yes
-        upgrade_all: yes
-      when: ansible_distribution == "MacOSX" # TODO: Add Linux
-    - name: Upgrade all Homebrew 'casks'
-      homebrew_cask:
-        upgrade_all: true
-      when: ansible_distribution == "MacOSX"
+    # Python Dependencies
+    - pip:
+        name:
+          - pipenv
+          - ansible
+        extra_args: --user
+
+    # System Upgrade
     - name: Upgrade all installed packages for Debian and Ubuntu
       become: true
       apt:
@@ -42,23 +41,45 @@
         update_cache: yes
       when: ansible_distribution == "Fedora"
 
+    # dotfiles repository
     - git:
         repo: "https://github.com/vyasknellutla/dotfiles.git"
         dest: ~/
         update: no
 
-    - name: Create Symlinks to .profile
+    # Homebrew
+    - name: Upgrade all Homebrew 'brews'
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+      when: ansible_distribution == "MacOSX" # TODO: Add Linux
+    - name: Upgrade all Homebrew 'casks'
+      homebrew_cask:
+        upgrade_all: true
+      when: ansible_distribution == "MacOSX"
+    - shell: |
+        brew bundle --global --verbose
+      when: ansible_distribution == "MacOSX"
+
+    # Symlinks
+    - name: Create Symlinks
       file:
         src: "{{ lookup('env','HOME') }}/{{ item.src }}"
         dest: "{{ lookup('env','HOME') }}/{{ item.dest }}"
         state: link
-        owner: vyas
+        force: yes
       loop:
-        # Bash
+        # direnv
+        - { src: ".profile", dest: ".config/direnv/direnvrc" }
+        # bash
         - { src: ".profile", dest: ".bashrc" }
         - { src: ".profile", dest: ".bash_profile" }
-        # Zsh
+        - { src: ".logout", dest: ".bash_logout" }
+        # zsh
         - { src: ".profile", dest: ".login" }
         - { src: ".profile", dest: ".zprofile" }
         - { src: ".profile", dest: ".zshrc" }
-        # TODO: Direnv
+        # gnupg
+        - { src: ".config/gnupg", dest: ".gnupg" }
+        # VS Code
+        # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
