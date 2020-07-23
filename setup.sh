@@ -31,8 +31,6 @@ if [ -x "$(command -v brew)" ]; then
     brew install --display-times --force-bottle direnv fish git gpg
 
     brew bundle install --global
-
-    #       brew link "$(brew leaves)"
 fi
 
 if [ -x "$(command -v rustup-init)" ]; then
