@@ -48,3 +48,6 @@ Code/*
 !Code/Dictionaries/
 !Code/User/argv.json
 !Code/User/settings.json
+
+# Packer
+packer/

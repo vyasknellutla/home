@@ -52,23 +52,36 @@ desktop.ini
 src/
 
 ## CLI Apps
-# ssh keys & known_hosts
+# bash
+.bashrc
+.bash_profile
+.bash_logout
+
+# direnv
+.envrc
+
+# ssh
 .ssh/
 
-# Ansible
+# ansible
 .ansible/
 
-# Kubernetes
+# kubernetes
 .kube/
 
-# GnuPG
+# gnupg
 .gnupg
+
+# zsh
+.login
+.zprofile
+.zshrc
 
 ## GUI Apps
 # GitKraken
 .gitkraken/
 
-# Hyper Terminal files
+# Hyper
 .hyper_plugins/
 
 # Terraform
@@ -81,16 +94,8 @@ src/
 .templateengine/
 
 ## Package Managers
+# .NET
 .aspnet/
-
-# Elm
-.elm/
-.elm-analyse/
-
-# RubyGems
-.bundle/
-.gem/ruby/
-.gem/specs/
 
 # Cargo
 .cargo/
@@ -98,6 +103,14 @@ src/
 
 # Cocoapods
 .cocoapods/
+
+# Elm
+.elm/
+.elm-analyse/
+
+# Gradle
+.gradle/
+.tooling/gradle/
 
 # NPM/Yarn
 .npm/
@@ -110,12 +123,19 @@ node_modules/
 # NuGet
 .nuget/
 
-# Gradle
-.gradle/
-.tooling/gradle/
-
 # Perl
 .cpan/
+
+# RubyGems
+.bundle/
+.gem/ruby/
+.gem/specs/
+
+# Snap
+snap/
+.snap/
+.config/gh/hosts.yml
+.config/gh/state.yml
 
 ## App Development
 # Android Development
@@ -125,28 +145,15 @@ node_modules/
 .dartServer/
 .pub-cache/
 
+# Devspace
+.devspace/
+
+# VirtualBox
+VirtualBox*/
+
 # VS Code
 .vscode/extensions
 
 .vscode-server/
 
 .VSTeamServicesAuthPlugin/
-
-# bash
-.bashrc
-.bash_profile
-.bash_logout
-
-# direnv
-.envrc
-
-# zsh
-.login
-.zprofile
-.zshrc
-
-# Snap
-snap/
-.snap/
-.config/gh/hosts.yml
-.config/gh/state.yml

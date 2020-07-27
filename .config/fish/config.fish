@@ -4,6 +4,7 @@
 set PATH /home/linuxbrew/.linuxbrew/bin $PATH
 if type -q direnv
     direnv allow "$HOME/.envrc"
+    "/usr/local/bin/direnv" export fish | source;
     eval (direnv hook fish)
 end
 

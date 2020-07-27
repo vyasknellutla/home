@@ -29,8 +29,6 @@ fi
 if [ -x "$(command -v brew)" ]; then
     brew update --force && brew upgrade && brew cleanup
     brew install --display-times --force-bottle direnv fish git gpg
-
-    brew bundle install --global
 fi
 
 if [ -x "$(command -v rustup-init)" ]; then

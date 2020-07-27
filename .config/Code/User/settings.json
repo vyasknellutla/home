@@ -35,8 +35,13 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-"javascript.updateImportsOnFileMove.enabled": "always",
-"python.languageServer": "Microsoft",
-"editor.fontLigatures": null,
-"editor.minimap.enabled": false
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "python.languageServer": "Microsoft",
+  "editor.fontLigatures": false,
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 14,
+  "npm.packageManager": "yarn",
+  "elmLS.trace.server": "messages",
+  "terminal.external.osxExec": "Hyper.app",
+  "prettier.packageManager": "yarn"
 }
