@@ -17,8 +17,8 @@
       apt:
         name: "*"
         state: latest
-        update_cache: yes
-        force_apt_get: yes
+        update_cache: true
+        force_apt_get: true
       when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
     - name: Upgrade all installed packages on openSUSE
       become: true
@@ -31,34 +31,29 @@
       yum:
         name: "*"
         state: latest
-        update_cache: yes
+        update_cache: true
       when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
     - name: Upgrade all installed packages on Fedora
       become: true
       dnf:
         name: "*"
         state: latest
-        update_cache: yes
+        update_cache: true
       when: ansible_distribution == "Fedora"
 
     # dotfiles repository
     - git:
         repo: "https://github.com/vyasknellutla/dotfiles.git"
         dest: ~/
-        update: no
+        update: false
 
     # Homebrew
-    - name: Upgrade all Homebrew 'brews'
-      homebrew:
-        update_homebrew: yes
-        upgrade_all: yes
-      when: ansible_distribution == "MacOSX" # TODO: Add Linux
-    - name: Upgrade all Homebrew 'casks'
-      homebrew_cask:
-        upgrade_all: true
-      when: ansible_distribution == "MacOSX"
+    - name: Workaround for cask sudo permissions
+      shell: echo 'sudo'
+      become: true
     - shell: |
         brew bundle --global --verbose
+        brew upgrade --greedy --display-times --verbose
       when: ansible_distribution == "MacOSX"
 
     # Symlinks
@@ -67,7 +62,7 @@
         src: "{{ lookup('env','HOME') }}/{{ item.src }}"
         dest: "{{ lookup('env','HOME') }}/{{ item.dest }}"
         state: link
-        force: yes
+        force: true
       loop:
         # direnv
         - { src: ".profile", dest: ".config/direnv/direnvrc" }

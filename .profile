@@ -100,10 +100,7 @@ export CLICOLOR=1
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 
 # Editors
-if [ -x "$(command -v code)" ]; then # Check if VS Code is installed
-    export EDITOR="code -w"
-    export VISUAL="code -w"
-elif [ -x "$(command -v vim)" ]; then
+if [ -x "$(command -v vim)" ]; then
     export EDITOR="vim"
     export VISUAL="vim"
 else
