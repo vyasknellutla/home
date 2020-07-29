@@ -40,8 +40,12 @@ else
     export HOMEBREW_HOME="${HOMEBREW_HOME:-"/home/linuxbrew/.linuxbrew"}"
 fi
 export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
-
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
+
+# Nix
+if [ -e /Users/vyas/.nix-profile/etc/profile.d/nix.sh ]; then 
+    . /Users/vyas/.nix-profile/etc/profile.d/nix.sh
+fi
 
 # Pip (user-level)
 export PYTHONUSERBASE="${DATA_HOME}/pip"

@@ -158,3 +158,4 @@ VirtualBox*/
 .vscode-server/
 
 .VSTeamServicesAuthPlugin/
+.nix-profile
