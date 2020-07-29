@@ -5,13 +5,12 @@
 [color]
 	ui = auto
 [commit]
-	# Values in ~/.config/git/local_config
+	gpgsign = true
 [tag]
 	forceSignAnnotated = true
 [gpg]
 	program = gpg
 [credential]
-	helper = ""
 	helper = manager-core
 [credential "https://dev.azure.com"]
 	useHttpPath = true
@@ -28,3 +27,5 @@
 	path = ~/.config/git/local_config
 [http]
 	sslVerify = true
+[init]
+	defaultBranch = develop

@@ -153,6 +153,7 @@ VirtualBox*/
 
 # VS Code
 .vscode/extensions
+.vscode/*.yml
 
 .vscode-server/
 

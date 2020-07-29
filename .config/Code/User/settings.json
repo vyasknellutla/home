@@ -43,5 +43,7 @@
   "npm.packageManager": "yarn",
   "elmLS.trace.server": "messages",
   "terminal.external.osxExec": "Hyper.app",
-  "prettier.packageManager": "yarn"
+  "prettier.packageManager": "yarn",
+  "git.rebaseWhenSync": true,
+  "git.confirmSync": false
 }
