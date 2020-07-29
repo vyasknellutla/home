@@ -45,5 +45,6 @@
   "terminal.external.osxExec": "Hyper.app",
   "prettier.packageManager": "yarn",
   "git.rebaseWhenSync": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "git.autofetch": true
 }
