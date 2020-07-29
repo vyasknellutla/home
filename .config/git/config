@@ -21,8 +21,6 @@
 	required = true
 [pull]
 	rebase = true
-[credential]
-	# Values in ~/.config/git/local_config
 [include]
 	path = ~/.config/git/local_config
 [http]
