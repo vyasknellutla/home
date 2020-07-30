@@ -46,5 +46,13 @@
   "prettier.packageManager": "yarn",
   "git.rebaseWhenSync": true,
   "git.confirmSync": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "terminal.integrated.shellArgs.osx": [
+    "--init-command=/usr/local/bin/direnv export fish | source",
+    "-l"
+  ],
+  "files.associations": {
+    ".Brewfile": "ruby",
+    "Brewfile": "ruby"
+  }
 }

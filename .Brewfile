@@ -1,4 +1,4 @@
-
+tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -26,6 +26,7 @@ brew "nmap"
 brew "node-build"
 brew "nodenv"
 brew "nomad"
+brew "openapi-generator"
 brew "openssh"
 brew "packer"
 brew "perl-build"
@@ -36,6 +37,7 @@ brew "rename"
 brew "rustup-init"
 brew "shellcheck"
 brew "terraform"
+brew "testdisk"
 brew "testssl"
 brew "tree"
 brew "unrar"
@@ -43,12 +45,15 @@ brew "vagrant-completion"
 brew "vault"
 brew "watch"
 brew "watchman"
+brew "youtube-dl"
 brew "zsh"
+brew "github/gh/gh"
 
 if OS.mac?
     tap "homebrew/cask"
     tap "homebrew/cask-drivers"
     tap "homebrew/cask-versions"
+    tap "microsoft/git"
 
     brew "mas"
 
@@ -56,6 +61,8 @@ if OS.mac?
     cask "balenaetcher"
     cask "docker"
     cask "firefox-developer-edition"
+    cask "git-credential-manager-core"
+    cask "github"
     cask "gpg-suite"
     cask "hyper"
     cask "jetbrains-toolbox"
@@ -72,11 +79,11 @@ if OS.mac?
     cask "zeplin"
 
     mas "1Password 7", id: 1333542190
-    mas "com.newsguardtech.app", id: 1438657064
     mas "Compressor", id: 424390742
     mas "Developer", id: 640199958
     mas "Final Cut Pro", id: 424389933
     mas "iMovie", id: 408981434
+    mas "Keynote", id: 409183694
     mas "Logic Pro X", id: 634148309
     mas "MainStage 3", id: 634159523
     mas "Microsoft Excel", id: 462058435
@@ -86,8 +93,10 @@ if OS.mac?
     mas "Microsoft To Do", id: 1274495053
     mas "Microsoft Word", id: 462054704
     mas "Motion", id: 434290957
+    mas "NewsGuard", id: 1438657064
     mas "NordVPN IKE", id: 1116599239
     mas "OneDrive", id: 823766827
+    mas "Pages", id: 409201541
     mas "Parcel", id: 639968404
     mas "Rakuten Cash Back", id: 1451893560
     mas "Server", id: 883878097

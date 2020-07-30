@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "ef457139283a75761ec89a651ae5340e7b83176e"
+        "revision": "c47df987c1b3be9247b0ed6e9fc3a3b556de8ffd"
       },
       "homebrew/cask-drivers": {
-        "revision": "95f52ea0d7a945db34ec605e1cdd6544f8096c34"
+        "revision": "7f8627f87d70fc255d2d1b5d9484d15eb3bf8159"
       },
       "homebrew/cask-versions": {
-        "revision": "e006d78a9f566ef5a20ecf8a879453939126457d"
+        "revision": "4acbedc3a4635fe5022aac93ea98937dc2700afa"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
@@ -17,7 +17,7 @@
         "revision": "94d474d9ab199720ff34560c82493e18da9b612d"
       },
       "homebrew/core": {
-        "revision": "07a649941a089623f9adba2934339e1a3179a5b6"
+        "revision": "1a2161ea2e743a39176c8e3a7d27e392c8f7e666"
       },
       "homebrew/services": {
         "revision": "e68b1b8a05ee097338d2b21a0edbe1dda905c61e"
@@ -919,13 +919,13 @@
     },
     "cask": {
       "balenaetcher": {
-        "version": "1.5.101",
+        "version": "1.5.102",
         "options": {
           "full_name": "balenaetcher"
         }
       },
       "docker": {
-        "version": "2.2.0.5,43884",
+        "version": "2.3.0.4,46911",
         "options": {
           "full_name": "docker"
         }
@@ -943,13 +943,13 @@
         }
       },
       "postman": {
-        "version": "7.22.1",
+        "version": "7.29.1",
         "options": {
           "full_name": "postman"
         }
       },
       "visual-studio-code": {
-        "version": "1.44.1",
+        "version": "1.47.2",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -967,19 +967,19 @@
         }
       },
       "gpg-suite": {
-        "version": "2019.2",
+        "version": "2020.1",
         "options": {
           "full_name": "gpg-suite"
         }
       },
       "jetbrains-toolbox": {
-        "version": "1.16.6319",
+        "version": "1.17.7275",
         "options": {
           "full_name": "jetbrains-toolbox"
         }
       },
       "keybase": {
-        "version": "5.4.1-20200422195946,0b914051a6",
+        "version": "5.5.0-20200526170801,139bb348af",
         "options": {
           "full_name": "keybase"
         }
@@ -991,7 +991,7 @@
         }
       },
       "signal": {
-        "version": "1.33.1",
+        "version": "1.34.4",
         "options": {
           "full_name": "signal"
         }
@@ -1027,7 +1027,7 @@
         }
       },
       "zeplin": {
-        "version": "3.6,918",
+        "version": "3.7,951",
         "options": {
           "full_name": "zeplin"
         }
@@ -1128,9 +1128,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-34-g06f078f",
+        "HOMEBREW_VERSION": "2.4.9-61-g2b33f99",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "07a649941a089623f9adba2934339e1a3179a5b6",
+        "Homebrew/homebrew-core": "1a2161ea2e743a39176c8e3a7d27e392c8f7e666",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"
