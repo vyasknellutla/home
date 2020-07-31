@@ -71,8 +71,8 @@
         set -x
 
         brew bundle --global --verbose
-        brew bundle cleanup --global --force
-        # brew upgrade --greedy --display-times --verbose
+        # TODO when mac app store sign-in issue is resolved
+        # brew bundle cleanup --global --force
         brew cask upgrade $(brew cask outdated --greedy --verbose | { grep -v 'latest' || true } | cut -d' ' -f1)
       when: ansible_distribution == "MacOSX"
 

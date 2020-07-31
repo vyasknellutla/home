@@ -79,29 +79,31 @@ if OS.mac?
     cask "visual-studio-code"
     cask "zeplin"
 
-    mas "1Password 7", id: 1333542190
-    mas "Compressor", id: 424390742
-    mas "Developer", id: 640199958
-    mas "Final Cut Pro", id: 424389933
-    mas "iMovie", id: 408981434
-    mas "Keynote", id: 409183694
-    mas "Logic Pro X", id: 634148309
-    mas "MainStage 3", id: 634159523
-    mas "Microsoft Excel", id: 462058435
-    mas "Microsoft OneNote", id: 784801555
-    mas "Microsoft PowerPoint", id: 462062816
-    mas "Microsoft Remote Desktop", id: 1295203466
-    mas "Microsoft To Do", id: 1274495053
-    mas "Microsoft Word", id: 462054704
-    mas "Motion", id: 434290957
-    mas "NewsGuard", id: 1438657064
-    mas "NordVPN IKE", id: 1116599239
-    mas "OneDrive", id: 823766827
-    mas "Pages", id: 409201541
-    mas "Parcel", id: 639968404
-    mas "Rakuten Cash Back", id: 1451893560
-    mas "Server", id: 883878097
-    mas "Termius", id: 1176074088
-    mas "Transporter", id: 1450874784
-    mas "Xcode", id: 497799835
+    if false  # TODO: Check if user is signed into Mac App Store
+        mas "1Password 7", id: 1333542190
+        mas "Compressor", id: 424390742
+        mas "Developer", id: 640199958
+        mas "Final Cut Pro", id: 424389933
+        mas "iMovie", id: 408981434
+        mas "Keynote", id: 409183694
+        mas "Logic Pro X", id: 634148309
+        mas "MainStage 3", id: 634159523
+        mas "Microsoft Excel", id: 462058435
+        mas "Microsoft OneNote", id: 784801555
+        mas "Microsoft PowerPoint", id: 462062816
+        mas "Microsoft Remote Desktop", id: 1295203466
+        mas "Microsoft To Do", id: 1274495053
+        mas "Microsoft Word", id: 462054704
+        mas "Motion", id: 434290957
+        mas "NewsGuard", id: 1438657064
+        mas "NordVPN IKE", id: 1116599239
+        mas "OneDrive", id: 823766827
+        mas "Pages", id: 409201541
+        mas "Parcel", id: 639968404
+        mas "Rakuten Cash Back", id: 1451893560
+        mas "Server", id: 883878097
+        mas "Termius", id: 1176074088
+        mas "Transporter", id: 1450874784
+        mas "Xcode", id: 497799835
+    end
 end
