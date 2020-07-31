@@ -20,10 +20,10 @@ if ! [ -d "${HOMEBREW_HOME}" ]; then
     curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOMEBREW_HOME}"
 fi
 
-if [ -x "$(command -v brew)" ]; then
-    brew update --force && brew upgrade && brew cleanup
-    brew install --display-times --force-bottle direnv fish git gpg
-fi
+# if [ -x "$(command -v brew)" ]; then
+#     brew update --force && brew upgrade && brew cleanup
+#     brew install --display-times --force-bottle direnv fish git gpg
+# fi
 
 if [ -x "$(command -v rustup-init)" ]; then
     rustup-init --no-modify-path -y
