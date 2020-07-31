@@ -96,6 +96,8 @@
         - { src: ".profile", dest: ".zshrc" }
         # gnupg
         # - { src: ".config/gnupg", dest: ".gnupg" }
+        # Hyper Terminal
+        - { src: ".config/Hyper/.hyper.js", dest: ".hyper.js" }
         # VS Code
         # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
 
