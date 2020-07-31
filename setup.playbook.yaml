@@ -42,7 +42,20 @@
       when: ansible_distribution == "Fedora"
 
     # dotfiles repository
-    - git:
+    - name: Check if dotfiles is cloned
+      stat:
+        path: ~/.git/
+      register: dotfiles_git_dir
+
+    - name: If dotfiles isn't cloned, install dotfiles
+      shell: | #!/bin/sh
+        git init "${HOME}"
+        git remote add origin https://github.com/vyasknellutla/dotfiles.git
+        git fetch origin
+        git checkout --force -b master --track origin/master
+      when: dotfiles_git_dir.stat.isdir is not defined
+    - name: Check that dotfiles is cloned
+      git:
         repo: "https://github.com/vyasknellutla/dotfiles.git"
         dest: ~/
         update: false
@@ -52,7 +65,7 @@
       shell: echo 'sudo'
       become: true
     - name: Upgrades all Homebrew Casks except those tagged with 'latest'
-      shell: | #/bin/sh
+      shell: | #!/bin/sh
         set -e
         set -u
         set -x

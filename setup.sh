@@ -6,15 +6,6 @@ set -x
 # shellcheck source=.profile
 . "${HOME}/.profile"
 
-# Setup dotfiles
-cd "${HOME}" || exit # TODO remove
-if ! [ -d "${HOME}/.git" ]; then
-    git init "${HOME}"
-    git remote add origin https://github.com/vyasknellutla/dotfiles.git
-    git fetch origin
-    git checkout --force -b master --track origin/master
-fi
-
 # Symlinks
 if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
     mkdir -p "${HOME}/.vscode-server/data/Machine"
@@ -67,4 +58,4 @@ fi
 # fi
 
 python3 -m pip install --user ansible pipenv
-ansible-playbook setup.playbook.yaml
+ansible-playbook "${HOME}/setup.playbook.yaml"
