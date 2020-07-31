@@ -51,9 +51,16 @@
     - name: Workaround for cask sudo permissions
       shell: echo 'sudo'
       become: true
-    - shell: |
+    - name: Upgrades all Homebrew Casks except those tagged with 'latest'
+      shell: | #/bin/sh
+        set -e
+        set -u
+        set -x
+
         brew bundle --global --verbose
-        brew upgrade --greedy --display-times --verbose
+        brew bundle cleanup --global --force
+        # brew upgrade --greedy --display-times --verbose
+        brew cask upgrade $(brew cask outdated --greedy --verbose | { grep -v 'latest' || true } | cut -d' ' -f1)
       when: ansible_distribution == "MacOSX"
 
     # Symlinks
@@ -75,6 +82,17 @@
         - { src: ".profile", dest: ".zprofile" }
         - { src: ".profile", dest: ".zshrc" }
         # gnupg
-        - { src: ".config/gnupg", dest: ".gnupg" }
+        # - { src: ".config/gnupg", dest: ".gnupg" }
         # VS Code
         # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
+
+    # Empty files
+    - name: Create empty files
+      file:
+        path: "{{ item.file_name }}"
+        state: touch
+        modification_time: preserve
+        access_time: preserve
+      loop:
+        - { file_name: ".cloud-locale-test.skip" }
+        - { file_name: ".sudo_as_admin_successful" }

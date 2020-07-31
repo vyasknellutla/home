@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
+set -e
+set -u
+set -x
 #
 # Copyright (c) .NET Foundation and contributors. All rights reserved.
 # Licensed under the MIT license. See LICENSE file in the project root for full license information.
 #
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 current_userid=$(id -u)
-if [ $current_userid -ne 0 ]; then
+if [ "$current_userid" -ne 0 ]; then
     echo "$(basename "$0") uninstallation script requires superuser privileges to run" >&2
     exit 1
 fi
@@ -27,8 +30,11 @@ remove_dotnet_pkgs() {
     done
 }
 
-remove_dotnet_pkgs
-[ "$?" -ne 0 ] && echo "Failed to remove dotnet packages." >&2 && exit 1
+
+if ! remove_dotnet_pkgs; then
+    echo "Failed to remove dotnet packages." >&2
+    exit 1
+fi
 
 echo "Deleting install root - ${dotnet_install_root}" >&2
 rm -rf "${dotnet_install_root}"

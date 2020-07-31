@@ -1,4 +1,7 @@
-#!/bin/sh -eu
+#!/usr/bin/env sh
+set -e
+set -u
+set -x
 
 # shellcheck source=.profile
 . "${HOME}/.profile"

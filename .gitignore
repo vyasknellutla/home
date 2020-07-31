@@ -51,7 +51,11 @@ desktop.ini
 ## User Dirs
 src/
 
-## CLI Apps
+## Empty Files
+.sudo_as_admin_successful
+.cloud-locale-test.skip
+
+## Shells & CLI
 # bash
 .bashrc
 .bash_profile
@@ -68,6 +72,10 @@ src/
 
 # kubernetes
 .kube/
+
+# github
+.config/gh/hosts.yml
+.config/gh/state.yml
 
 # gnupg
 .gnupg
@@ -112,10 +120,14 @@ src/
 .gradle/
 .tooling/gradle/
 
+# Nix
+.nix-profile
+.nix-defexpr/
+
 # NPM/Yarn
-.npm/
 .npmrc
 .yarnrc
+.npm/
 .node-gyp/
 
 node_modules/
@@ -134,8 +146,6 @@ node_modules/
 # Snap
 snap/
 .snap/
-.config/gh/hosts.yml
-.config/gh/state.yml
 
 ## App Development
 # Android Development
@@ -158,4 +168,3 @@ VirtualBox*/
 .vscode-server/
 
 .VSTeamServicesAuthPlugin/
-.nix-profile

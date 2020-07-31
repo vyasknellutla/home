@@ -13,28 +13,17 @@
   "editor.renderWhitespace": "boundary",
   "terminal.integrated.shell.linux": "/usr/bin/fish",
   "terminal.integrated.shell.osx": "/usr/local/bin/fish",
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "explorer.confirmDelete": false,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "explorer.confirmDragAndDrop": false,
   "python.jediEnabled": false,
   "vsonline.authentication.accountProvider": "Microsoft",
   "vsonline.accountProvider": "Microsoft",
   "editor.formatOnType": true,
   "codespaces.accountProvider": "Microsoft",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "python.languageServer": "Microsoft",
   "editor.fontLigatures": false,
@@ -53,6 +42,7 @@
   ],
   "files.associations": {
     ".Brewfile": "ruby",
-    "Brewfile": "ruby"
+    "Brewfile": "ruby",
+    "*.playbook.yaml": "ansible"
   }
 }
