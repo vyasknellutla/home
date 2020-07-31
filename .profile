@@ -82,10 +82,16 @@ export PATH="${GOENV_ROOT}/shims:${JENV_ROOT}/shims:${NODENV_ROOT}/shims:${PLENV
 
 ## C/C++ Complier Flags
 # C PreProcessor (C/C++)
-CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include"
+if [ -x "$(command -v brew)" ]; then
+    CPPFLAGS="${CPPFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+fi
 export CPPFLAGS
 
-LDFLAGS="-L/usr/local/lib $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+LDFLAGS="-L/usr/local/lib"
+if [ -x "$(command -v brew)" ]; then
+    LDFLAGS="${LDFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+fi
 export LDFLAGS
 
 # C complier
