@@ -56,7 +56,7 @@ SETUVAR pure_color_virtualenv:pure_color_mute
 SETUVAR pure_color_warning:yellow
 SETUVAR pure_enable_git:true
 SETUVAR pure_reverse_prompt_symbol_in_vimode:true
-SETUVAR pure_separate_prompt_on_error:false
+SETUVAR pure_separate_prompt_on_error:true
 SETUVAR pure_show_jobs:false
 SETUVAR pure_symbol_git_dirty:\x2a
 SETUVAR pure_symbol_git_unpulled_commits:\u21e3

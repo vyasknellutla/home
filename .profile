@@ -1,6 +1,8 @@
 #!/bin/sh
 
-## Proxy
+## Custom Config
+# shellcheck source=.envrc
+. "${HOME}/.envrc"
 
 ## Language
 export LANG="en_US.UTF-8"
@@ -167,8 +169,17 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
     ## DotNet tools
     export PATH="/usr/local/share/dotnet:${PATH}"
 
-    # TODO use launchctl setenv PATH $PATH
-    # For all environment vairables
+    # TODO use launchctl & loop though all defined environment vairables
+    launchctl setenv PATH "${PATH}"
+    launchctl setenv XDG_DATA_HOME "${XDG_DATA_HOME}"
+    launchctl setenv XDG_CONFIG_HOME "${XDG_CONFIG_HOME}"
+    launchctl setenv XDG_CACHE_HOME "${XDG_CACHE_HOME}"
+    launchctl setenv BIN_HOME "${BIN_HOME}"
+    launchctl setenv DATA_HOME "${DATA_HOME}"
+    launchctl setenv CONFIG_HOME "${CONFIG_HOME}"
+    launchctl setenv CACHE_HOME "${CACHE_HOME}"
+
+export DIRENV="${CONFIG_HOME}/direnv"
 elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
     export PATH="/mingw64/bin:${PATH}"
 fi
@@ -177,7 +188,7 @@ fi
 ! tty -s && return
 
 # Bash Specific
-if [ -n "$(/bin/bash -c 'echo ${BASH_VERSION}')" ]; then
+if [ "${0}" = "bash" ]; then
     # Alias definitions.
     # You may want to put all your additions into a separate file like
     # ~/.bash_aliases, instead of adding them here directly.
@@ -202,13 +213,12 @@ if [ -n "$(/bin/bash -c 'echo ${BASH_VERSION}')" ]; then
     fi
 
     # Pip
-    _pip_completion() {
-        COMPREPLY=($(COMP_WORDS="${COMP_WORDS[*]}" \
-            COMP_CWORD=$COMP_CWORD \
-            PIP_AUTO_COMPLETE=1 $1 2>/dev/null))
-    }
-    complete -o default -F _pip_completion pip
-    complete -o default -F _pip_completion pip3
+    if [ -x "$(command -v pip3)" ]; then
+        . <(pip3 completion --bash)
+    fi
+    if [ -x "$(command -v pip)" ]; then
+        . <(pip completion --bash)
+    fi
 fi
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -245,7 +255,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "${force_color_prompt}" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -275,7 +285,11 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x "/usr/bin/dircolors" ]; then
-    test -r "${HOME}/.dircolors" && eval "$(dircolors -b "${HOME}"/.dircolors)" || eval "$(dircolors -b)"
+    if [ -r "${HOME}/.dircolors" ]; then
+        eval "$(dircolors -b "${HOME}"/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
