@@ -38,7 +38,8 @@ versions/
 
 # Fish
 /fish/completions/
-/fish/functions/fisher.fish
+/fish/functions/
+/fish/conf.d/
 
 # Snapcraft
 /snapcraft/snapcraft.cfg
