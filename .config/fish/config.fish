@@ -24,6 +24,13 @@ function __direnv_export_eval --on-event fish_prompt
     end
 end
 
+## Fisher: https://github.com/jorgebucaran/fisher#bootstrap-installation
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+
 ## Fish Exit/Logout
 function on_exit --on-process %self
     echo "Exiting Fish Shell, see you next time"

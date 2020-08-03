@@ -1,53 +1,53 @@
-.mono/
-configstore/
-doctl/
-Microsoft\\VisualStudio\ Services/
-stetic/
-xbuild/
+/.mono/
+/configstore/
+/doctl/
+/Microsoft\\VisualStudio\ Services/
+/stetic/
+/xbuild/
 
 # Direnv
-direnv/direnvrc
+/direnv/direnvrc
 
 # Tools
-git/credentials
-git/local_config
+/git/credentials
+/git/local_config
 
-gnupg/
+/gnupg/
 
 # Shims
 shims/
 versions/
 
-npm/_cacache/
-npm/_locks/
+/npm/_cacache/
+/npm/_locks/
 
-jenv/*.time
-pyenv/pyenv/
-rustup/
+/jenv/*.time
+/rustup/
 
 # Azure
-azure/commands
-azure/logs
-azure/telemetry
-azure/az.json
-azure/az.sess
-azure/azureProfile.json
-azure/telemetry.txt
+/azure/commands
+/azure/logs
+/azure/telemetry
+/azure/az.json
+/azure/az.sess
+/azure/azureProfile.json
+/azure/telemetry.txt
 
 # AWS
-aws/credentials
+/aws/credentials
 
 # Fish
-fish/completions/
+/fish/completions/
+/fish/functions/fisher.fish
 
 # Snapcraft
-snapcraft/snapcraft.cfg
+/snapcraft/snapcraft.cfg
 
 # VS Code
-Code/*
+/Code/*
 !Code/Dictionaries/
 !Code/User/argv.json
 !Code/User/settings.json
 
 # Packer
-packer/
+/packer/
