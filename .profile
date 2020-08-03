@@ -18,6 +18,7 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # User Paths
+export BIN_HOME="${HOME}/bin"
 export DATA_HOME="${XDG_DATA_HOME}"
 export CONFIG_HOME="${XDG_CONFIG_HOME}"
 export CACHE_HOME="${XDG_CACHE_HOME}"
@@ -41,6 +42,11 @@ else
 fi
 export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
+
+# Whalebrew: https://github.com/whalebrew/whalebrew#configuration
+export WHALEBREW_CONFIG_DIR="${CONFIG_HOME}/whalebrew"
+export WHALEBREW_INSTALL_PATH="${BIN_HOME}/whalebrew"
+export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
 
 # Nix
 if [ -e /Users/vyas/.nix-profile/etc/profile.d/nix.sh ]; then 
