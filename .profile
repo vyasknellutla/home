@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ## Custom Config
 # shellcheck source=.envrc
@@ -214,10 +214,10 @@ if [ "${0}" = "bash" ]; then
 
     # Pip
     if [ -x "$(command -v pip3)" ]; then
-        . <(pip3 completion --bash)
+        eval "$(pip3 completion --bash)"
     fi
     if [ -x "$(command -v pip)" ]; then
-        . <(pip completion --bash)
+        eval "$(pip completion --bash)"
     fi
 fi
 # don't put duplicate lines or lines starting with space in the history.
@@ -258,7 +258,7 @@ esac
 force_color_prompt=yes
 
 if [ -n "${force_color_prompt}" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >/dev/null 2>/dev/null; then
         # We have color support; assume it's compliant with Ecma-48
         # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
         # a case would tend to support setf rather than setaf.)
