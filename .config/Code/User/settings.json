@@ -49,5 +49,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
-  "python.autoComplete.addBrackets": true
+  "python.autoComplete.addBrackets": true,
+  "workbench.panel.defaultLocation": "right"
 }

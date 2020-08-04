@@ -2,22 +2,22 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "b25633562b386d1a1c5b1e84cf997c81ae82f608"
+        "revision": "aecb4149b98299b01b8ab9b67c451b129680921b"
       },
       "homebrew/cask-drivers": {
-        "revision": "a7b7a83040a3a1f42d294d15b6f99708a74d82a0"
+        "revision": "c0c77f7925bd20cb89f4ca83cb11294f3e45ee4e"
       },
       "homebrew/cask-versions": {
-        "revision": "cd12014a4cbc7b6765db822cc72610e1dc6200e6"
+        "revision": "ae566e32f81132eaf9b1f090166638e223b76b51"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "f9fdf649899941bc4f8102ec71c817da28401e19"
+        "revision": "b7a2b79e71ba9487adf72203dc8c683f9890dddc"
       },
       "homebrew/core": {
-        "revision": "7b839136ef92b281fa8166534077f15160750ac8"
+        "revision": "90b7068df58fa4046f413181789e465126c3ec95"
       },
       "homebrew/services": {
         "revision": "240e418ee2448548557ce3ecc43fb4aa28fbbe81"
@@ -27,6 +27,9 @@
       },
       "microsoft/git": {
         "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "c248bf634ce620b7704808ce7a5b57b14a9fe4d5"
       }
     },
     "brew": {
@@ -430,7 +433,7 @@
         }
       },
       "node-build": {
-        "version": "4.9.2",
+        "version": "4.9.3",
         "bottle": false
       },
       "nodenv": {
@@ -1026,6 +1029,35 @@
             }
           }
         }
+      },
+      "docker-completion": {
+        "version": "19.03.12",
+        "bottle": false
+      },
+      "docker-compose-completion": {
+        "version": "1.26.2_1",
+        "bottle": false
+      },
+      "terragrunt": {
+        "version": "0.23.33",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/terragrunt-0.23.33.catalina.bottle.tar.gz",
+              "sha256": "9a682ff3818c7ba80ea54f46e9f9085e5d22f13161a37937201f60ad125cef72"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/terragrunt-0.23.33.mojave.bottle.tar.gz",
+              "sha256": "6192fc023d2bc219549c8d40657f6b226ef51c4c919cfb592fcb62a2279cd701"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/terragrunt-0.23.33.high_sierra.bottle.tar.gz",
+              "sha256": "478bb13fd0f6d51a9fd61af685f1b0eb725e515938df96ec3a83bebaa3671ea5"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1154,6 +1186,36 @@
         "options": {
           "full_name": "github"
         }
+      },
+      "android-studio": {
+        "version": "4.0.1.0,193.6626763",
+        "options": {
+          "full_name": "android-studio"
+        }
+      },
+      "dbeaver-community": {
+        "version": "7.1.4",
+        "options": {
+          "full_name": "dbeaver-community"
+        }
+      },
+      "font-hack-nerd-font": {
+        "version": "2.1.0",
+        "options": {
+          "full_name": "font-hack-nerd-font"
+        }
+      },
+      "intellij-idea-ce": {
+        "version": "2020.2,202.6397.94",
+        "options": {
+          "full_name": "intellij-idea-ce"
+        }
+      },
+      "pycharm-ce": {
+        "version": "2020.2,202.6397.98",
+        "options": {
+          "full_name": "pycharm-ce"
+        }
       }
     },
     "mas": {
@@ -1263,9 +1325,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-174-g0369c0a",
+        "HOMEBREW_VERSION": "2.4.9-234-g875f9e3",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7b839136ef92b281fa8166534077f15160750ac8",
+        "Homebrew/homebrew-core": "90b7068df58fa4046f413181789e465126c3ec95",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"
