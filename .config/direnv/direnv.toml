@@ -1,2 +1,2 @@
 [whitelist]
-exact = [ "/home/vyas/.envrc" ]
+prefix = [ "/home/vyas" ]

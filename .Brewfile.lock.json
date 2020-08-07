@@ -2,25 +2,25 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "aecb4149b98299b01b8ab9b67c451b129680921b"
+        "revision": "63f26e9732376a1b30d6ff680d981b0588e38a17"
       },
       "homebrew/cask-drivers": {
-        "revision": "c0c77f7925bd20cb89f4ca83cb11294f3e45ee4e"
+        "revision": "6f9e10dbeb442b4d161f0dbf14d2ad9f69b9567f"
       },
       "homebrew/cask-versions": {
-        "revision": "ae566e32f81132eaf9b1f090166638e223b76b51"
+        "revision": "1df5da59a20f7d51e17ad2db7ecd9f4186085a4e"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "b7a2b79e71ba9487adf72203dc8c683f9890dddc"
+        "revision": "538ffcbd24561213480e6f32a9ec087c91b25862"
       },
       "homebrew/core": {
-        "revision": "90b7068df58fa4046f413181789e465126c3ec95"
+        "revision": "7f9aa30778d3e3c391b0060a1ac4af230f351dcc"
       },
       "homebrew/services": {
-        "revision": "240e418ee2448548557ce3ecc43fb4aa28fbbe81"
+        "revision": "60367a866d3ec0067773a112d8de82f966c0ada0"
       },
       "github/gh": {
         "revision": "de8d7e7960fd07a5dc1abef30d754de314e26dd1"
@@ -29,7 +29,7 @@
         "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
       },
       "homebrew/cask-fonts": {
-        "revision": "c248bf634ce620b7704808ce7a5b57b14a9fe4d5"
+        "revision": "45270c52e8b346c7bc26209c15f2d65d59b7317a"
       }
     },
     "brew": {
@@ -1325,9 +1325,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-234-g875f9e3",
+        "HOMEBREW_VERSION": "2.4.9-317-g02969cd",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "90b7068df58fa4046f413181789e465126c3ec95",
+        "Homebrew/homebrew-core": "7f9aa30778d3e3c391b0060a1ac4af230f351dcc",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"

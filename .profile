@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
 
 ## Custom Config
-# shellcheck source=.envrc
-. "${HOME}/.envrc"
+if [ -f "${HOME}/.envrc" ]; then
+    # shellcheck source=.envrc
+    . "${HOME}/.envrc"
+fi
 
 ## Language
 export LANG="en_US.UTF-8"
