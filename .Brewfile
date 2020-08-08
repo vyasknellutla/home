@@ -2,6 +2,7 @@ tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "instrumenta/instrumenta"
 
 brew "bash"
 brew "consul"
@@ -54,6 +55,7 @@ brew "whalebrew"
 brew "youtube-dl"
 brew "zsh"
 brew "github/gh/gh"
+brew "instrumenta/instrumenta/kubeval"
 
 if OS.mac?
     tap "homebrew/cask"

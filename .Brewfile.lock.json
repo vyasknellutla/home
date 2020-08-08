@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "63f26e9732376a1b30d6ff680d981b0588e38a17"
+        "revision": "f1f1b098876c96b12fe53c63dd9da3895565fb81"
       },
       "homebrew/cask-drivers": {
         "revision": "6f9e10dbeb442b4d161f0dbf14d2ad9f69b9567f"
       },
       "homebrew/cask-versions": {
-        "revision": "1df5da59a20f7d51e17ad2db7ecd9f4186085a4e"
+        "revision": "7c1191a6e8085e28040aa16c73db8bfdf024e588"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
@@ -17,7 +17,7 @@
         "revision": "538ffcbd24561213480e6f32a9ec087c91b25862"
       },
       "homebrew/core": {
-        "revision": "7f9aa30778d3e3c391b0060a1ac4af230f351dcc"
+        "revision": "22a0827203697261cbd887a8ee63c8882ff3bbbb"
       },
       "homebrew/services": {
         "revision": "60367a866d3ec0067773a112d8de82f966c0ada0"
@@ -30,6 +30,9 @@
       },
       "homebrew/cask-fonts": {
         "revision": "45270c52e8b346c7bc26209c15f2d65d59b7317a"
+      },
+      "instrumenta/instrumenta": {
+        "revision": "9efed05801bd2b5ce4b79aa0be3c4b4e88b3aa93"
       }
     },
     "brew": {
@@ -136,22 +139,22 @@
         }
       },
       "consul": {
-        "version": "1.8.1",
+        "version": "1.8.2",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/consul-1.8.1.catalina.bottle.tar.gz",
-              "sha256": "3482184f7d185f58fc138e5d56c9c82cd0c867bcbf53cc5388eb0e3d641ae19c"
+              "url": "https://homebrew.bintray.com/bottles/consul-1.8.2.catalina.bottle.tar.gz",
+              "sha256": "a1ac90e772d142f8f8e43593a3b961c460bb79ef31808ef2bd20bd5f7bf10f49"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/consul-1.8.1.mojave.bottle.tar.gz",
-              "sha256": "7f5a46e8ab20500a1510812bd90cafa00aaa19901182bde0bb7075dd21303f43"
+              "url": "https://homebrew.bintray.com/bottles/consul-1.8.2.mojave.bottle.tar.gz",
+              "sha256": "42e1c09e36f6a388a066030c686412e34f32c533ee29960f6cf59c913606a9cc"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/consul-1.8.1.high_sierra.bottle.tar.gz",
-              "sha256": "62ced3d65acf4372356c329f6afff6c8d85bd362c01329f672679efaa2bd5694"
+              "url": "https://homebrew.bintray.com/bottles/consul-1.8.2.high_sierra.bottle.tar.gz",
+              "sha256": "2ff4dbd6c6718cebd05c757c09636294ed63f8bfe38ae3181e0bccab9122ade5"
             }
           }
         }
@@ -1058,7 +1061,8 @@
             }
           }
         }
-      }
+      },
+      "instrumenta/instrumenta/kubeval": null
     },
     "cask": {
       "balenaetcher": {
@@ -1298,7 +1302,7 @@
       },
       "Termius": {
         "id": "1176074088",
-        "version": "6.2.2"
+        "version": "6.3.0"
       },
       "Transporter": {
         "id": "1450874784",
@@ -1314,7 +1318,7 @@
       },
       "NewsGuard": {
         "id": "1438657064",
-        "version": "2.1.15"
+        "version": "2.1.17"
       },
       "Pages": {
         "id": "409201541",
@@ -1325,9 +1329,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-317-g02969cd",
+        "HOMEBREW_VERSION": "2.4.9-321-g5de4378",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "7f9aa30778d3e3c391b0060a1ac4af230f351dcc",
+        "Homebrew/homebrew-core": "22a0827203697261cbd887a8ee63c8882ff3bbbb",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"
