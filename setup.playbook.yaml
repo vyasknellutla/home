@@ -35,13 +35,6 @@
       - { file_name: ".cloud-locale-test.skip" }
       - { file_name: ".sudo_as_admin_successful" }
   tasks:
-    # Python Dependencies
-    - pip:
-        name:
-          - pipenv
-          - ansible
-        extra_args: --user
-
     # System Upgrade
     - name: Initialize a system with the aptitude (apt) package manager
       block:
