@@ -3,6 +3,37 @@
   hosts: localhost
   connection: local
   become_method: sudo
+  vars:
+    symlinks:
+      # ansible
+      - { src: ".local/share/ansible", dest: ".ansible", type: "dir" }
+      # direnv
+      - { src: ".profile", dest: ".config/direnv/direnvrc", type: "file" }
+      # bash
+      - { src: ".profile", dest: ".bashrc", type: "file" }
+      - { src: ".profile", dest: ".bash_profile", type: "file" }
+      - { src: ".logout", dest: ".bash_logout", type: "file" }
+      # zsh
+      - { src: ".profile", dest: ".login", type: "file" }
+      - { src: ".profile", dest: ".zprofile", type: "file" }
+      - { src: ".profile", dest: ".zshrc", type: "file" }
+      # docker
+      - { src: ".config/docker", dest: ".docker", type: "dir" }
+      # gnupg
+      - { src: ".config/gnupg", dest: ".gnupg", type: "dir" }
+      # Hyper Terminal
+      - { src: ".config/Hyper/.hyper.js", dest: ".hyper.js", type: "file" }
+      # kubectl
+      - { src: ".local/share/kube", dest: ".kube", type: "dir" }
+      # ssh
+      - { src: ".local/share/ssh", dest: ".ssh", type: "dir" }
+      # terraform
+      - { src: ".local/share/terraform", dest: ".terraform.d", type: "dir" }
+      # VS Code
+      # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
+    empty_files:
+      - { file_name: ".cloud-locale-test.skip" }
+      - { file_name: ".sudo_as_admin_successful" }
   tasks:
     # Python Dependencies
     - pip:
@@ -12,19 +43,23 @@
         extra_args: --user
 
     # System Upgrade
-    - name: Upgrade all installed packages for Debian and Ubuntu
-      become: true
-      apt:
-        name: "*"
-        state: latest
-        update_cache: true
-        force_apt_get: true
+    - name: Initialize a system with the aptitude (apt) package manager
+      block:
+        - name: Upgrade all apt packages
+          become: true
+          apt:
+            name: "*"
+            state: latest
+            update_cache: true
+            force_apt_get: true
       when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
-    - name: Upgrade all installed packages on openSUSE
-      become: true
-      zypper:
-        name: "*"
-        state: latest
+    - name: Initialize a system with the zypper package manager
+      block:
+        - name: Upgrade all zypper packages
+          become: true
+          zypper:
+            name: "*"
+            state: latest
       when: ansible_distribution == "openSUSE Leap"
     - name: Update all installed packages for CentOS
       become: true
@@ -83,37 +118,13 @@
         dest: "{{ lookup('env','HOME') }}/{{ item.dest }}"
         state: link
         force: true
-      loop:
-        # direnv
-        - { src: ".profile", dest: ".config/direnv/direnvrc" }
-        # bash
-        - { src: ".profile", dest: ".bashrc" }
-        - { src: ".profile", dest: ".bash_profile" }
-        - { src: ".logout", dest: ".bash_logout" }
-        # zsh
-        - { src: ".profile", dest: ".login" }
-        - { src: ".profile", dest: ".zprofile" }
-        - { src: ".profile", dest: ".zshrc" }
-        # docker
-        - { src: ".config/docker", dest: ".docker"}
-        # gnupg
-        - { src: ".config/gnupg", dest: ".gnupg" }
-        # Hyper Terminal
-        - { src: ".config/Hyper/.hyper.js", dest: ".hyper.js" }
-        # ssh
-        - { src: ".local/share/ssh", dest: ".ssh"}
-        # terraform
-        - { src: ".local/share/terraform", dest: ".terraform.d" }
-        # VS Code
-        # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
+      loop: "{{ symlinks }}"
 
     # Empty files
     - name: Create empty files
       file:
-        path: "{{ item.file_name }}"
+        path: "{{ lookup('env','HOME') }}/{{ item.file_name }}"
         state: touch
         modification_time: preserve
         access_time: preserve
-      loop:
-        - { file_name: ".cloud-locale-test.skip" }
-        - { file_name: ".sudo_as_admin_successful" }
+      loop: "{{ empty_files }}"

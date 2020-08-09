@@ -71,10 +71,10 @@ desktop.ini
 /.ssh
 
 # ansible
-/.ansible/
+/.ansible
 
 # kubernetes
-/.kube/
+/.kube
 
 # github
 /.config/gh/hosts.yml
