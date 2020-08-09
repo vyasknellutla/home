@@ -22,18 +22,24 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # User Paths
-export BIN_HOME="${HOME}/bin"
 export DATA_HOME="${XDG_DATA_HOME}"
 export CONFIG_HOME="${XDG_CONFIG_HOME}"
 export CACHE_HOME="${XDG_CACHE_HOME}"
 export PATH="${HOME}/bin:${HOME}/sbin:${PATH}"
 
-export DIRENV="${CONFIG_HOME}/direnv"
+## Shell Configs
+export CLICOLOR=1
+export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
+
+if [ -x "$(command -v vim)" ]; then
+    export EDITOR="vim"
+    export VISUAL="vim"
+else
+    export EDITOR="vi"
+    export VISUAL="vi"
+fi
 
 ## Package Managers
-# Snap
-export PATH="/snap/bin:${PATH}"
-
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
     HOMEBREW_HOME="$(brew --prefix)"
@@ -47,107 +53,127 @@ fi
 export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
 
-# Whalebrew: https://github.com/whalebrew/whalebrew#configuration
-export WHALEBREW_CONFIG_DIR="${CONFIG_HOME}/whalebrew"
-export WHALEBREW_INSTALL_PATH="${BIN_HOME}/whalebrew"
-export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
-
 # Nix
-if [ -e /Users/vyas/.nix-profile/etc/profile.d/nix.sh ]; then 
-    . /Users/vyas/.nix-profile/etc/profile.d/nix.sh
+if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then 
+    . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
-# Pip (user-level)
-export PYTHONUSERBASE="${DATA_HOME}/pip"
-export PATH="${PYTHONUSERBASE}/bin:${PATH}"
+# Snap
+export PATH="/snap/bin:${PATH}"
 
-## SHIM Paths
+# Whalebrew: https://github.com/whalebrew/whalebrew#configuration
+export WHALEBREW_CONFIG_DIR="${CONFIG_HOME}/whalebrew"
+export WHALEBREW_INSTALL_PATH="${DATA_HOME}/whalebrew"
+export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
+
+## Programming Language & Packages
+# C/C++:
+if [ -x "$(command -v gcc)"] && [ -x "$(command -v g++)"]; then
+    export CC="gcc"
+    export CXX="g++"
+fi
+
+CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include"
+LDFLAGS="-L/usr/local/lib"
+if [ -x "$(command -v brew)" ]; then
+    CPPFLAGS="${CPPFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+    LDFLAGS="${LDFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+fi
+export CPPFLAGS
+export CFLAGS="${CPPFLAGS}"
+export CXXFLAGS="${CPPFLAGS}"
+export LDFLAGS
+
+# elm: https://github.com/stil4m/elm-analyse/issues/229#issue-571057137
+export ELM_HOME="${CACHE_HOME}/elm"
+
 # Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
 export GOENV_ROOT="${CONFIG_HOME}/goenv"
 
-# Java: No source, just precedent
+export GOPATH="${DATA_HOME}/go"
+
+export PATH="${GOENV_ROOT}/shims:${PATH}"
+
+# Java:
+## - https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
 export JENV_ROOT="${CONFIG_HOME}/jenv"
 
+export GRADLE_USER_HOME="${DATA_HOME}/gradle"
+
+export PATH="${JENV_ROOT}/shims:${PATH}"
+
 # Node.js
-export NPM_HOME="${CONFIG_HOME}/npm"
-# https://github.com/nodenv/nodenv#environment-variables
+## - https://github.com/nodenv/nodenv#environment-variables
 export NODENV_ROOT="${CONFIG_HOME}/nodenv"
+
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+
+export PATH="${NODENV_ROOT}/shims:${PATH}"
 
 # Perl: No source, just precedent
 export PLENV_ROOT="${CONFIG_HOME}/plenv"
 
+export PATH="${PLENV_ROOT}/shims:${PATH}"
+
 # Python: https://github.com/pyenv/pyenv#environment-variables
 export PYENV_ROOT="${CONFIG_HOME}/pyenv"
 
-# Ruby: https://github.com/rbenv/rbenv#environment-variables
+export PYTHONUSERBASE="${DATA_HOME}/pip"
+
+export PATH="${PYENV_ROOT}/shims:${PYTHONUSERBASE}/bin:${PATH}"
+
+# Ruby:
+## - https://github.com/rbenv/rbenv#environment-variables
+## - https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
 export RBENV_ROOT="${CONFIG_HOME}/rbenv"
 
-# Rust
-# https://github.com/rust-lang/rustup#environment-variables
+export BUNDLE_USER_CONFIG="${CONFIG_HOME}/bundle"
+export BUNDLE_USER_CACHE="${CACHE_HOME}/bundle"
+export BUNDLE_USER_PLUGIN="${DATA_HOME}/bundle"
+
+export GEM_HOME="${DATA_HOME}/gem"
+export GEM_SPEC_CACHE="${CACHE_HOME}/gem"
+
+export PATH="${RBENV_ROOT}/shims:${PATH}"
+
+# Rust:
+## - https://github.com/rust-lang/rustup#environment-variables
+## - https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
 export RUSTUP_HOME="${DATA_HOME}/rustup"
-# https://doc.rust-lang.org/cargo/reference/environment-variables.html#environment-variables-cargo-reads
+
 export CARGO_HOME="${DATA_HOME}/cargo"
 
-export PATH="${GOENV_ROOT}/shims:${JENV_ROOT}/shims:${NODENV_ROOT}/shims:${PLENV_ROOT}/shims:${PYENV_ROOT}/shims:${RBENV_ROOT}/shims:${CARGO_HOME}/bin:${PATH}"
-
-## C/C++ Complier Flags
-# C PreProcessor (C/C++)
-CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include"
-if [ -x "$(command -v brew)" ]; then
-    CPPFLAGS="${CPPFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
-fi
-export CPPFLAGS
-
-LDFLAGS="-L/usr/local/lib"
-if [ -x "$(command -v brew)" ]; then
-    LDFLAGS="${LDFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
-fi
-export LDFLAGS
-
-# C complier
-CC="$(command -v gcc)"
-export CC
-export CFLAGS="${CPPFLAGS}"
-
-# C++ complier
-CXX="$(command -v g++)"
-export CXX
-export CXXFLAGS="${CPPFLAGS}"
+export PATH="${CARGO_HOME}/bin:${PATH}"
 
 ## CLI Tools
-# ls
-export CLICOLOR=1
-export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
+# direnv
+export DIRENV="${CONFIG_HOME}/direnv"
 
-# Editors
-if [ -x "$(command -v vim)" ]; then
-    export EDITOR="vim"
-    export VISUAL="vim"
-else
-    export EDITOR="vi"
-    export VISUAL="vi"
-fi
+# Docker: https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
+export DOCKER_HOST="unix:///var/run/docker.sock"
+export DOCKER_CONFIG="${CONFIG_HOME}/docker"
 
-# VirtualBox: https://github.com/hashicorp/vagrant/issues/3532#issuecomment-41321828
-export VBOX_USER_HOME="${DATA_HOME}/virtualbox"
-
-# Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
-export VAGRANT_HOME="${DATA_HOME}/vagrant"
+# GPG: https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
+export GNUPGHOME="${CONFIG_HOME}/gnupg"
 
 # Packer: https://www.packer.io/docs/other/environment-variables.html
 export PACKER_CACHE_DIR="${CACHE_HOME}/packer"
 export PACKER_CONFIG_DIR="${CONFIG_HOME}/packer"
 
-# GPG: https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html
-export GNUPGHOME="${CONFIG_HOME}/gnupg"
+# Terraform: https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file
+export TF_CLI_CONFIG_FILE="${CONFIG_HOME}/terraform/.terraformrc"
 
-# Docker
-export DOCKER_HOST="unix:///var/run/docker.sock"
+# Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
+export VAGRANT_HOME="${DATA_HOME}/vagrant"
+export VAGRANT_ALIAS_FILE="${DATA_HOME}/vagrant/aliases"
+
+# VirtualBox: https://github.com/hashicorp/vagrant/issues/3532#issuecomment-41321828
+export VBOX_USER_HOME="${DATA_HOME}/virtualbox"
 
 ## Cloud Providers
 # AWS
 export AWS_CONFIG_FILE="${CONFIG_HOME}/aws/config"                  # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#general-options
-export AWS_SHARED_CREDENTIALS_FILE="${CONFIG_HOME}/aws/credentials" # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#the-shared-credentials-file
+export AWS_SHARED_CREDENTIALS_FILE="${DATA_HOME}/aws/credentials" # https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#the-shared-credentials-file
 
 # Azure
 export AZURE_CONFIG_DIR="${CONFIG_HOME}/azure"
@@ -176,20 +202,17 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
     launchctl setenv XDG_DATA_HOME "${XDG_DATA_HOME}"
     launchctl setenv XDG_CONFIG_HOME "${XDG_CONFIG_HOME}"
     launchctl setenv XDG_CACHE_HOME "${XDG_CACHE_HOME}"
-    launchctl setenv BIN_HOME "${BIN_HOME}"
     launchctl setenv DATA_HOME "${DATA_HOME}"
     launchctl setenv CONFIG_HOME "${CONFIG_HOME}"
     launchctl setenv CACHE_HOME "${CACHE_HOME}"
-
-export DIRENV="${CONFIG_HOME}/direnv"
 elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
     export PATH="/mingw64/bin:${PATH}"
 fi
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything after this point
 ! tty -s && return
 
-# Bash Specific
+# Shell Specific
 if [ "${0}" = "bash" ]; then
     # Alias definitions.
     # You may want to put all your additions into a separate file like
@@ -293,8 +316,8 @@ if [ -x "/usr/bin/dircolors" ]; then
         eval "$(dircolors -b)"
     fi
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    # alias dir='dir --color=auto'
+    # alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -302,7 +325,7 @@ if [ -x "/usr/bin/dircolors" ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'

@@ -64,8 +64,11 @@ desktop.ini
 # direnv
 /.envrc
 
+# docker
+/.docker
+
 # ssh
-/.ssh/
+/.ssh
 
 # ansible
 /.ansible/
@@ -80,6 +83,9 @@ desktop.ini
 # gnupg
 /.gnupg
 
+# terraform
+/.terraform.d
+
 # zsh
 /.login
 /.zprofile
@@ -93,10 +99,6 @@ desktop.ini
 /.hyper.js
 /.hyper_plugins/
 
-# Terraform
-/.terraform.d/
-/.terraformrc
-
 # Visual Studio
 /.dotnet/
 /.mono/
@@ -106,41 +108,24 @@ desktop.ini
 # .NET
 /.aspnet/
 
-# Cargo
-/.cargo/
-/.m2/
-
 # Cocoapods
 /.cocoapods/
 
 # Elm
-/.elm/
 /.elm-analyse/
 
 # Gradle
-/.gradle/
 /.tooling/gradle/
+
+# Maven
+/.m2/
 
 # Nix
 /.nix-profile
 /.nix-defexpr/
 
-# NPM/Yarn
-/.npmrc
-/.yarnrc
-/.npm/
-/.node-gyp/
-
-# NuGet
-/.nuget/
-
 # Perl
 /.cpan/
-
-# RubyGems
-/.bundle/
-/.gem/ruby/
-/.gem/specs/
 
 # Snap
 /snap/

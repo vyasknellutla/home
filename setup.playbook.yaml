@@ -94,10 +94,16 @@
         - { src: ".profile", dest: ".login" }
         - { src: ".profile", dest: ".zprofile" }
         - { src: ".profile", dest: ".zshrc" }
+        # docker
+        - { src: ".config/docker", dest: ".docker"}
         # gnupg
-        # - { src: ".config/gnupg", dest: ".gnupg" }
+        - { src: ".config/gnupg", dest: ".gnupg" }
         # Hyper Terminal
         - { src: ".config/Hyper/.hyper.js", dest: ".hyper.js" }
+        # ssh
+        - { src: ".local/share/ssh", dest: ".ssh"}
+        # terraform
+        - { src: ".local/share/terraform", dest: ".terraform.d" }
         # VS Code
         # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
 

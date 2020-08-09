@@ -9,7 +9,6 @@
 /direnv/direnvrc
 
 # Tools
-/git/credentials
 /git/local_config
 
 /gnupg/
@@ -17,9 +16,6 @@
 # Shims
 shims/
 versions/
-
-/npm/_cacache/
-/npm/_locks/
 
 /jenv/*.time
 /rustup/
@@ -32,9 +28,6 @@ versions/
 /azure/az.sess
 /azure/azureProfile.json
 /azure/telemetry.txt
-
-# AWS
-/aws/credentials
 
 # Fish
 /fish/completions/
