@@ -2,22 +2,22 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "f1f1b098876c96b12fe53c63dd9da3895565fb81"
+        "revision": "abc2a7ce4182949ee5e663d5e96d1ee4d77d095b"
       },
       "homebrew/cask-drivers": {
         "revision": "6f9e10dbeb442b4d161f0dbf14d2ad9f69b9567f"
       },
       "homebrew/cask-versions": {
-        "revision": "7c1191a6e8085e28040aa16c73db8bfdf024e588"
+        "revision": "4e81c360c10f92eff716e76bfc7f448317db8d40"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "538ffcbd24561213480e6f32a9ec087c91b25862"
+        "revision": "f7bef4895314997307a028071b0f534e0bcaa045"
       },
       "homebrew/core": {
-        "revision": "22a0827203697261cbd887a8ee63c8882ff3bbbb"
+        "revision": "a48f18bee6c12e25a67669db2dcacd0eaccba0e0"
       },
       "homebrew/services": {
         "revision": "60367a866d3ec0067773a112d8de82f966c0ada0"
@@ -1329,9 +1329,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-321-g5de4378",
+        "HOMEBREW_VERSION": "2.4.9-328-ge28a336",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "22a0827203697261cbd887a8ee63c8882ff3bbbb",
+        "Homebrew/homebrew-core": "a48f18bee6c12e25a67669db2dcacd0eaccba0e0",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"

@@ -52,3 +52,6 @@ versions/
 
 # Packer
 /packer/
+
+# Hyper
+/Hyper/.hyper_plugins/
