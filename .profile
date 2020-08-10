@@ -54,7 +54,8 @@ export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
 
 # Nix
-if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then 
+if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
+    # shellcheck source=.nix-profile/etc/profile.d/nix.sh
     . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
@@ -68,7 +69,7 @@ export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
 
 ## Programming Language & Packages
 # C/C++:
-if [ -x "$(command -v gcc)"] && [ -x "$(command -v g++)"]; then
+if [ -x "$(command -v gcc)" ] && [ -x "$(command -v g++)" ]; then
     export CC="gcc"
     export CXX="g++"
 fi

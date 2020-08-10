@@ -77,6 +77,10 @@
 
     - name: If dotfiles isn't cloned, install dotfiles
       shell: | #!/bin/sh
+        set -e
+        set -u
+        set -x
+
         git init "${HOME}"
         git remote add origin https://github.com/vyasknellutla/dotfiles.git
         git fetch origin
