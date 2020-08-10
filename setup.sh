@@ -14,6 +14,7 @@ if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
 fi
 
 if [ -x "$(command -v python3)" ]; then
+    echo "Found Python 3, no need to install it!"
     # Python 3 is already installed, we don't need to do anything
 elif [ -x "$(command -v apt-get)" ]; then
     apt-get update
