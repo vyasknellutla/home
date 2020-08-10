@@ -21,3 +21,9 @@ FROM fedora:33
 WORKDIR /root
 COPY . /root
 RUN /root/setup.sh
+
+FROM alpine:3.12.0
+
+WORKDIR /root
+COPY . /root
+RUN /root/setup.sh

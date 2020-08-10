@@ -40,5 +40,4 @@ jobs:
       - name: Run a multi-line script
         run: |
           export HOME=$GITHUB_WORKSPACE
-          export LANG=en_US.UTF-8
           ./setup.sh

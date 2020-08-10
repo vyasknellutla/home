@@ -13,6 +13,25 @@ if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
     ln -sfn "${CONFIG_HOME}/Code/User/settings.json" "${HOME}/.vscode-server/data/Machine/settings.json"
 fi
 
+if [ -x "$(command -v python3)" ]; then
+    # Python 3 is already installed, we don't need to do anything
+elif [ -x "$(command -v apt-get)" ]; then
+    apt-get update
+    # TODO: install python3
+elif [ -x "$(command -v dnf)" ]; then
+    dnf check-update
+    dnf install -y python3
+elif [ -x "$(command -v yum)" ]; then
+    yum check-update
+    yum install -y python3
+elif [ -x "$(command -v apk)" ]; then
+    apk update
+    apk add python3
+else
+    echo "Python 3 was not found and I couldn't find a way to install it!"
+    exit 1
+fi
+
 # Setup Homebrew
 # if ! [ -d "${HOMEBREW_HOME}" ]; then
 #     mkdir -p "${HOMEBREW_HOME}"
