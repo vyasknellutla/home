@@ -18,7 +18,7 @@ if [ -x "$(command -v python3)" ]; then
     # Python 3 is already installed, we don't need to do anything
 elif [ -x "$(command -v apt-get)" ]; then
     apt-get update
-    # TODO: install python3
+    apt-get install -y python3
 elif [ -x "$(command -v dnf)" ]; then
     dnf check-update
     dnf install -y python3
