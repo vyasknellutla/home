@@ -2,25 +2,25 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "1e80d4765c7c40d76ecefca10f9b61af298bf3ed"
+        "revision": "b862a827188c8eae8978cf8f590ab81668cbd67a"
       },
       "homebrew/cask-drivers": {
-        "revision": "6f9e10dbeb442b4d161f0dbf14d2ad9f69b9567f"
+        "revision": "0dd8c9e24b4bac19da0392fe968628e92ab42a18"
       },
       "homebrew/cask-versions": {
-        "revision": "c6c2cb1535238b0161d65e7d64ba12b9f731fd01"
+        "revision": "271855b05b2c510403d02fc0d42107e801495759"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "f7bef4895314997307a028071b0f534e0bcaa045"
+        "revision": "6a81666e48591926f96341b830b3567988603706"
       },
       "homebrew/core": {
-        "revision": "6eb30ff0120677dee0e9e37dbe64628df9b574bd"
+        "revision": "2a38c199646844242391e223b903f504a2a3670c"
       },
       "homebrew/services": {
-        "revision": "60367a866d3ec0067773a112d8de82f966c0ada0"
+        "revision": "5794bf15f276cc1d0f0830556081bf6b2f8640dc"
       },
       "github/gh": {
         "revision": "de8d7e7960fd07a5dc1abef30d754de314e26dd1"
@@ -29,7 +29,7 @@
         "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
       },
       "homebrew/cask-fonts": {
-        "revision": "45270c52e8b346c7bc26209c15f2d65d59b7317a"
+        "revision": "ce8f457dc66b69e0f6360fe4c064ce48c6751fc5"
       },
       "instrumenta/instrumenta": {
         "revision": "9efed05801bd2b5ce4b79aa0be3c4b4e88b3aa93"
@@ -586,22 +586,22 @@
         }
       },
       "terraform": {
-        "version": "0.12.29",
+        "version": "0.13.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.29.catalina.bottle.tar.gz",
-              "sha256": "f7c787a4c42bb1291200f19b112aae5f725fc0fad068ad2422003e73ab74e4f7"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.13.0.catalina.bottle.tar.gz",
+              "sha256": "4ff5b12ae74bad7014c5b3d516535d12f34af1a9af000b0a2353fb9ed6b7cb23"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.29.mojave.bottle.tar.gz",
-              "sha256": "f7c787a4c42bb1291200f19b112aae5f725fc0fad068ad2422003e73ab74e4f7"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.13.0.mojave.bottle.tar.gz",
+              "sha256": "4ff5b12ae74bad7014c5b3d516535d12f34af1a9af000b0a2353fb9ed6b7cb23"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.29.high_sierra.bottle.tar.gz",
-              "sha256": "f7c787a4c42bb1291200f19b112aae5f725fc0fad068ad2422003e73ab74e4f7"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.13.0.high_sierra.bottle.tar.gz",
+              "sha256": "4ff5b12ae74bad7014c5b3d516535d12f34af1a9af000b0a2353fb9ed6b7cb23"
             }
           }
         }
@@ -1329,9 +1329,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.9-336-g264de96",
+        "HOMEBREW_VERSION": "2.4.11-9-g2cf655f",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "6eb30ff0120677dee0e9e37dbe64628df9b574bd",
+        "Homebrew/homebrew-core": "2a38c199646844242391e223b903f504a2a3670c",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"

@@ -17,17 +17,17 @@ if [ -x "$(command -v python3)" ]; then
     echo "Found Python 3, no need to install it!"
     # Python 3 is already installed, we don't need to do anything
 elif [ -x "$(command -v apt-get)" ]; then
-    apt-get update
-    apt-get install -y python3
+    sudo apt-get update
+    sudo apt-get install -y python3
 elif [ -x "$(command -v dnf)" ]; then
-    dnf check-update
-    dnf install -y python3
+    sudo dnf check-update
+    sudo dnf install -y python3
 elif [ -x "$(command -v yum)" ]; then
-    yum check-update
-    yum install -y python3
+    sudo yum check-update
+    sudo yum install -y python3
 elif [ -x "$(command -v apk)" ]; then
-    apk update
-    apk add python3
+    sudo apk update
+    sudo apk add python3
 else
     echo "Python 3 was not found and I couldn't find a way to install it!"
     exit 1

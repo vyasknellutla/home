@@ -6,8 +6,6 @@ if [ -f "${HOME}/.envrc" ]; then
     . "${HOME}/.envrc"
 fi
 
-## Language
-export LANG="en_US.UTF-8"
 
 ## Path Variable
 # UNIX System Paths
@@ -17,6 +15,7 @@ export USER="${USER:-$(id --user --name)}"
 
 ## XDG Base Dir Spec
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+# Note: Many applications don't natively support XDG Base Dir Spec, so workarounds are implemented either by symlinks or according to this doc: https://wiki.archlinux.org/index.php/XDG_Base_Directory
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -28,9 +27,14 @@ export CACHE_HOME="${XDG_CACHE_HOME}"
 export PATH="${HOME}/bin:${HOME}/sbin:${PATH}"
 
 ## Shell Configs
+# Language
+export LANG="en_US.UTF-8"
+
+# Colors
 export CLICOLOR=1
 export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 
+# Editors
 if [ -x "$(command -v vim)" ]; then
     export EDITOR="vim"
     export VISUAL="vim"
@@ -107,9 +111,9 @@ export PATH="${JENV_ROOT}/shims:${PATH}"
 ## - https://github.com/nodenv/nodenv#environment-variables
 export NODENV_ROOT="${CONFIG_HOME}/nodenv"
 
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export NPM_CONFIG_USERCONFIG="${CONFIG_HOME}/npm/npmrc"
 
-export PATH="${NODENV_ROOT}/shims:${PATH}"
+export PATH="${NODENV_ROOT}/shims:${DATA_HOME}/npm/bin:${PATH}"
 
 # Perl: No source, just precedent
 export PLENV_ROOT="${CONFIG_HOME}/plenv"
@@ -180,7 +184,7 @@ export AWS_SHARED_CREDENTIALS_FILE="${DATA_HOME}/aws/credentials" # https://docs
 export AZURE_CONFIG_DIR="${CONFIG_HOME}/azure"
 
 ## OS Specific
-if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
+if [ "$(uname -s)" = "Darwin" ]; then # If using macOS
     ## HOMEBREW
     export PKG_CONFIG_PATH="${HOMEBREW_HOME}/opt/*/lib/pkgconfig"
 
@@ -206,8 +210,8 @@ if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
     launchctl setenv DATA_HOME "${DATA_HOME}"
     launchctl setenv CONFIG_HOME "${CONFIG_HOME}"
     launchctl setenv CACHE_HOME "${CACHE_HOME}"
-elif [ "$(uname --operating-system)" = "Msys" ]; then # Check if Windows using MinGW or Git-Bash
-    export PATH="/mingw64/bin:${PATH}"
+elif [ "$(uname -s)" = "Linux" ]; then # If using Linux
+    echo "Linux!"
 fi
 
 # If not running interactively, don't do anything after this point
@@ -215,6 +219,13 @@ fi
 
 # Shell Specific
 if [ "${0}" = "bash" ]; then
+    # don't put duplicate lines or lines starting with space in the history.
+    # See bash(1) for more options
+    HISTCONTROL=ignoreboth
+    # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+    HISTSIZE=1000
+    HISTFILESIZE=2000
+
     # Alias definitions.
     # You may want to put all your additions into a separate file like
     # ~/.bash_aliases, instead of adding them here directly.
@@ -246,16 +257,9 @@ if [ "${0}" = "bash" ]; then
         eval "$(pip completion --bash)"
     fi
 fi
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 # shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
