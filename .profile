@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+set -e
+set -u
+set -x
 
 ## Custom Config
 if [ -f "${HOME}/.envrc" ]; then

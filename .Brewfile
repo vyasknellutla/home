@@ -52,6 +52,7 @@ brew "vault"
 brew "watch"
 brew "watchman"
 brew "whalebrew"
+brew "ykman"
 brew "youtube-dl"
 brew "zsh"
 brew "github/gh/gh"
@@ -89,9 +90,12 @@ if OS.mac?
     cask "virtualbox"
     cask "virtualbox-extension-pack"
     cask "visual-studio-code"
+    cask "yubico-yubikey-manager"
     cask "zeplin"
 
     if false  # TODO: Check if user is signed into Mac App Store
+        # To get a list of installed mas
+        ### $ mas list | sort -k2 --ignore-case
         mas "1Password 7", id: 1333542190
         mas "Compressor", id: 424390742
         mas "Developer", id: 640199958
@@ -99,9 +103,11 @@ if OS.mac?
         mas "iMovie", id: 408981434
         mas "Keynote", id: 409183694
         mas "Logic Pro X", id: 634148309
+        mas "Magnet", id: 441258766
         mas "MainStage 3", id: 634159523
         mas "Microsoft Excel", id: 462058435
         mas "Microsoft OneNote", id: 784801555
+        mas "Microsoft Outlook", id: 985367838
         mas "Microsoft PowerPoint", id: 462062816
         mas "Microsoft Remote Desktop", id: 1295203466
         mas "Microsoft To Do", id: 1274495053
@@ -112,10 +118,13 @@ if OS.mac?
         mas "OneDrive", id: 823766827
         mas "Pages", id: 409201541
         mas "Parcel", id: 639968404
+        mas "Photos Duplicate Cleaner", id: 592704001
         mas "Rakuten Cash Back", id: 1451893560
         mas "Server", id: 883878097
+        mas "Slack", id: 803453959
         mas "Termius", id: 1176074088
         mas "Transporter", id: 1450874784
         mas "Xcode", id: 497799835
+        mas "Yubico Authenticator", id: 1497506650
     end
 end
