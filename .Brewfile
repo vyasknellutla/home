@@ -82,7 +82,7 @@ if OS.mac?
     cask "yubico-yubikey-manager"
     cask "zeplin"
 
-    if true  # TODO: Check if user is signed into Mac App Store
+    if false  # TODO: Check if user is signed into Mac App Store
         # To get a list of installed mas
         ### $ mas list | sort -k2 --ignore-case
         mas "1Password 7", id: 1333542190
