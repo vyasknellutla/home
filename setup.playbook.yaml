@@ -35,10 +35,9 @@
       - { file_name: ".cloud-locale-test.skip" }
       - { file_name: ".sudo_as_admin_successful" }
   tasks:
-    # System Upgrade
-    - name: Initialize a system with the aptitude (apt) package manager
+    - name: Aptitude (apt) Package Manager
       block:
-        - name: Upgrade all apt packages
+        - name: Upgrade all packages
           become: true
           apt:
             name: "*"
@@ -46,67 +45,92 @@
             update_cache: true
             force_apt_get: true
       when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
-    - name: Initialize a system with the zypper package manager
+
+    - name: Zypper Package Manager
       block:
-        - name: Upgrade all zypper packages
+        - name: Upgrade all packages
           become: true
           zypper:
             name: "*"
             state: latest
       when: ansible_distribution == "openSUSE Leap"
-    - name: Update all installed packages for CentOS
-      become: true
-      yum:
-        name: "*"
+
+    - name: Yellowdog Updater, Modified (yum) Package Manager
+      block:
+        - name: Upgrade all packages
+          become: true
+          yum:
+            name: "*"
+            state: latest
+            update_cache: true
+          when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
+
+    - name: Dandified YUM (dnf) Package Manager
+      block:
+        - name: Upgrade all packages
+          become: true
+          dnf:
+            name: "*"
+            state: latest
+            update_cache: true
+          when: ansible_distribution == "Fedora"
+
+    - name: Dotfiles
+      block:
+        - name: Register if dotfiles is cloned
+          stat:
+            path: ~/.git/
+          register: dotfiles_git_dir
+
+        - name: If dotfiles isn't cloned, install dotfiles
+          shell: | #!/bin/sh
+            set -e
+            set -u
+            set -x
+
+            git init "${HOME}"
+            git remote add origin https://github.com/vyasknellutla/dotfiles.git
+            git fetch origin
+            git checkout --force -b master --track origin/master
+          when: dotfiles_git_dir.stat.isdir is not defined
+        - name: Check that dotfiles is cloned
+          git:
+            repo: "https://github.com/vyasknellutla/dotfiles.git"
+            dest: ~/
+            update: false
+
+    - name: Homebrew
+      block:
+        - name: Workaround for cask sudo permissions
+          shell: |
+            #!/bin/sh
+            set -e
+            set -u
+            set -x
+
+            echo 'sudo check'
+          become: true
+        - name: Upgrades all Homebrew Casks except those tagged with 'latest'
+          shell: |
+            #!/bin/sh
+            set -e
+            set -u
+            set -x
+
+            brew bundle --global --verbose
+            brew cask upgrade $(brew cask outdated --greedy --verbose | { grep -v 'latest' || true } | cut -d' ' -f1)
+            brew bundle cleanup --global --force --verbose
+            brew bundle check --global --verbose
+          when: ansible_distribution == "MacOSX"
+
+    # Pip
+    - name: Install pip packages
+      pip:
+        name:
+          - ansible
+          - pipenv
+        extra_args: --user
         state: latest
-        update_cache: true
-      when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
-    - name: Upgrade all installed packages on Fedora
-      become: true
-      dnf:
-        name: "*"
-        state: latest
-        update_cache: true
-      when: ansible_distribution == "Fedora"
-
-    # dotfiles repository
-    - name: Check if dotfiles is cloned
-      stat:
-        path: ~/.git/
-      register: dotfiles_git_dir
-
-    - name: If dotfiles isn't cloned, install dotfiles
-      shell: | #!/bin/sh
-        set -e
-        set -u
-        set -x
-
-        git init "${HOME}"
-        git remote add origin https://github.com/vyasknellutla/dotfiles.git
-        git fetch origin
-        git checkout --force -b master --track origin/master
-      when: dotfiles_git_dir.stat.isdir is not defined
-    - name: Check that dotfiles is cloned
-      git:
-        repo: "https://github.com/vyasknellutla/dotfiles.git"
-        dest: ~/
-        update: false
-
-    # Homebrew
-    - name: Workaround for cask sudo permissions
-      shell: echo 'sudo'
-      become: true
-    - name: Upgrades all Homebrew Casks except those tagged with 'latest'
-      shell: | #!/bin/sh
-        set -e
-        set -u
-        set -x
-
-        brew bundle --global --verbose
-        # TODO when mac app store sign-in issue is resolved
-        # brew bundle cleanup --global --force
-        brew cask upgrade $(brew cask outdated --greedy --verbose | { grep -v 'latest' || true } | cut -d' ' -f1)
-      when: ansible_distribution == "MacOSX"
 
     # Symlinks
     - name: Create Symlinks

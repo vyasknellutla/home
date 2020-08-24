@@ -1,7 +1,10 @@
 #!/usr/bin/env fish
 
 ## direnv: https://direnv.net/docs/hook.html#fish
-set PATH /home/linuxbrew/.linuxbrew/bin $PATH
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ]
+    set PATH "/home/linuxbrew/.linuxbrew/bin" $PATH
+end
+
 ### Workaround from: https://github.com/direnv/direnv/issues/583#issuecomment-626109571
 function __direnv_export_eval --on-event fish_prompt
     # Run on each prompt to update the state
@@ -26,16 +29,16 @@ end
 
 ## Fisher: https://github.com/jorgebucaran/fisher#bootstrap-installation
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+    if type -q curl
+        curl https://git.io/fisher --create-dirs -sLo "$XDG_CONFIG_HOME/fish/functions/fisher.fish"
+        fish -c fisher
+    end
 end
 
 ## Fish Exit/Logout
 function on_exit --on-process %self
-    echo "Exiting Fish Shell, see you next time"
-    if [ -x $HOME/.logout ]
+    if [ -x "$HOME/.logout" ]
         $HOME/.logout
     end
-    sleep 1
 end

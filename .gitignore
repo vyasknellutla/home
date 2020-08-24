@@ -49,6 +49,9 @@ desktop.ini
 /IntelGraphicsProfiles/
 /MicrosoftEdgeBackups/
 
+# Printer
+/.cups/
+
 # Filesyncing Services
 /Creative Cloud Files/
 /Google Drive/

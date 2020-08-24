@@ -2,25 +2,25 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "506186b8b8f7d47937bc73bb365a00038198af51"
+        "revision": "ff97a486e8f7a2899f07a6daba217376808c98c0"
       },
       "homebrew/cask-drivers": {
-        "revision": "9ccb022255d681bad8a7d0ccdf2181c7b1f25cd8"
+        "revision": "594c242fb01d6b3a4fc40a8711ee097ddc5e1544"
       },
       "homebrew/cask-versions": {
-        "revision": "cf74a8c45454f94696edf45bc47e082fac349770"
+        "revision": "773f9035899f6e055060fa06b354e5a2740b5aa9"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "8cd670555d856b9baf45794948fdcda12326b27b"
+        "revision": "110666adad626439d950b405e4164079f8068fa5"
       },
       "homebrew/core": {
-        "revision": "ccdb268d1deaa67f89050b252eff78a2489edcfc"
+        "revision": "18fd404b9b1e5d9705ab31bd7ffe21bb1cfb318e"
       },
       "homebrew/services": {
-        "revision": "2dfec5b4dc3adcea04775a3846da6ff5e61e4eb6"
+        "revision": "a2c3e50e4d1ac0e5f948f7d7fe17281fe1d18f32"
       },
       "github/gh": {
         "revision": "de8d7e7960fd07a5dc1abef30d754de314e26dd1"
@@ -29,7 +29,7 @@
         "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
       },
       "homebrew/cask-fonts": {
-        "revision": "be2313365ccccfa366b2a6f73ac9a71d50ee2c61"
+        "revision": "815944ad70d5932b51c16ec58bd9e0648ce99e2f"
       },
       "instrumenta/instrumenta": {
         "revision": "9efed05801bd2b5ce4b79aa0be3c4b4e88b3aa93"
@@ -963,22 +963,22 @@
       },
       "github/gh/gh": null,
       "faas-cli": {
-        "version": "0.12.8",
+        "version": "0.12.9",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.8.catalina.bottle.tar.gz",
-              "sha256": "07922b22fcde92c1c228f81a963afd31f21a6186085cecc4b62f95d7e446f98c"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.catalina.bottle.tar.gz",
+              "sha256": "74e0979caa804d1e2771cc7bb8ca334f3e45a5e8b2f33abc63b21d7fccd6bab3"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.8.mojave.bottle.tar.gz",
-              "sha256": "f85f2ee245a69fe8b5d625a7b2971e4a055ceff23e39b919f3cbcd4d11b3becc"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.mojave.bottle.tar.gz",
+              "sha256": "e8ac72ff95820dd19650bf8c2f3257d22e11b3dd10a28721f4a4bf328258a5e9"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.8.high_sierra.bottle.tar.gz",
-              "sha256": "ccf05f987fd3c8aad9890fbac2a6d6205c79805f58d269d5a0f172f5b3a127fa"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.high_sierra.bottle.tar.gz",
+              "sha256": "7c81a7145f3a9acd9c348abcc5229cea7a8afcb1b6469a189d0e74a5b3650fdd"
             }
           }
         }
@@ -1083,11 +1083,74 @@
             }
           }
         }
+      },
+      "coreutils": {
+        "version": "8.32",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/coreutils-8.32.catalina.bottle.tar.gz",
+              "sha256": "67a4452d75a1882bd7fb977b384204edfa2758276d66290e595487922368e093"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/coreutils-8.32.mojave.bottle.tar.gz",
+              "sha256": "5da6cb9dbc0a8144480dde2fb78eb0a5a1710490afc3697174f7e261ec69763f"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/coreutils-8.32.high_sierra.bottle.tar.gz",
+              "sha256": "caa8cd8965727d0e805eccdc3e306cd0599720cdd0d5417cfcca03bead670663"
+            }
+          }
+        }
+      },
+      "helmfile": {
+        "version": "0.125.7",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.catalina.bottle.tar.gz",
+              "sha256": "85ccf7ee705efde6a5671c4e615290f59308dbdbcca9807a62f72566a7bf0070"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.mojave.bottle.tar.gz",
+              "sha256": "c09c955f8739c621f8a8df0f325bc81a3b8c199a46758c71d6287d42f42024db"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.high_sierra.bottle.tar.gz",
+              "sha256": "2759b5e1dc6208b85e083cd5329ed836c752b401538515585a467a36b478eef6"
+            }
+          }
+        }
+      },
+      "util-linux": {
+        "version": "2.36",
+        "bottle": {
+          "cellar": ":any",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/util-linux-2.36.catalina.bottle.tar.gz",
+              "sha256": "b2b01c8554fdc4071e16bbe74c2956bdeb748b1a62eef4e6314aad005d7227c7"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/util-linux-2.36.mojave.bottle.tar.gz",
+              "sha256": "55bcb266293b3780e934b4cabf6885247fdd2d40bf7a27715142b263de3256d4"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/util-linux-2.36.high_sierra.bottle.tar.gz",
+              "sha256": "c464328c920e63e017ef642aefed04ad9d34c755064e9ce41d6362b1d119f74a"
+            }
+          }
+        }
       }
     },
     "cask": {
       "balenaetcher": {
-        "version": "1.5.102",
+        "version": "1.5.104",
         "options": {
           "full_name": "balenaetcher"
         }
@@ -1153,7 +1216,7 @@
         }
       },
       "nextcloud": {
-        "version": "2.6.5.20200710",
+        "version": "3.0.0",
         "options": {
           "full_name": "nextcloud"
         }
@@ -1243,7 +1306,7 @@
         }
       },
       "yubico-yubikey-manager": {
-        "version": "1.1.4",
+        "version": "1.1.5",
         "options": {
           "full_name": "yubico-yubikey-manager"
         }
@@ -1376,9 +1439,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.12-46-g9a63811",
+        "HOMEBREW_VERSION": "2.4.13-91-g3b3b547",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "ccdb268d1deaa67f89050b252eff78a2489edcfc",
+        "Homebrew/homebrew-core": "18fd404b9b1e5d9705ab31bd7ffe21bb1cfb318e",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"

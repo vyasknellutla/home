@@ -1,9 +1,19 @@
 #!/bin/sh
 # ~/.bash_logout: executed by bash(1) when login shell exits.
 
-# when leaving the console clear the screen to increase privacy
-if [ "${SHLVL}" = 1 ]; then
-    [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q
+# Prompt
+# temp=eval 'basename "${SHELL}"'
+if [ -n "${SHELL}" ] && [ -x "$(command -v basename)" ]; then
+    echo "Exiting $(basename "${SHELL}") shell, see you next time"
+else
+    echo "Exiting, see you next time"
+fi
+
+# when leaving the console clear the screen
+if [ -z "${SHLVL}" ] || [ "${SHLVL}" = 1 ]; then
+    if [ -x "$(command -v clear_console)" ]; then
+        clear_console -q
+    fi
 fi
 
 # Python
@@ -21,3 +31,5 @@ rm -rf "${HOME}/.vim/"
 
 # wget
 rm -f "${HOME}/.wget-hsts"
+
+sleep 0.5
