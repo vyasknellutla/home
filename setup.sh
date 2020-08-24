@@ -4,7 +4,9 @@ set -u
 set -x
 
 # shellcheck source=.profile
-. "${HOME}/.profile"
+if [ -f "${HOME}/.profile" ];
+    . "${HOME}/.profile"
+fi
 
 # Symlinks
 if [ -f "${CONFIG_HOME}/Code/User/settings.json" ]; then
@@ -79,4 +81,4 @@ fi
 # fi
 
 python3 -m pip install --user ansible pipenv
-python3 -m ansible-playbook "${HOME}/setup.playbook.yaml"
+ansible-playbook "${HOME}/setup.playbook.yaml"
