@@ -19,10 +19,10 @@ if [ -x "$(command -v python3)" ]; then
 elif [ -x "$(command -v apt-get)" ]; then
     if [ -x "$(command -v sudo)" ]; then
         sudo apt-get update
-        sudo apt-get install -y python3
+        sudo apt-get install -y python3 python3-pip
     else
         apt-get update
-        apt-get install -y python3
+        apt-get install -y python3 python3-pip
     fi
 elif [ -x "$(command -v dnf)" ]; then
     if [ -x "$(command -v sudo)" ]; then
@@ -35,7 +35,7 @@ elif [ -x "$(command -v dnf)" ]; then
 elif [ -x "$(command -v yum)" ]; then
     if [ -x "$(command -v sudo)" ]; then
         sudo yum check-update
-        sudo yum install -y python3
+        sudo yum install -y python3 
     else
         yum check-update
         yum install -y python3
