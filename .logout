@@ -10,6 +10,7 @@ else
 fi
 
 # when leaving the console clear the screen
+# shellcheck disable=SC2039
 if [ -z "${SHLVL}" ] || [ "${SHLVL}" = 1 ]; then
     if [ -x "$(command -v clear_console)" ]; then
         clear_console -q

@@ -1,3 +1,9 @@
+FROM shellcheck:v0.7.1 as bash_linter
+
+WORKDIR /root
+COPY . /root
+RUN shellcheck -x ~/setup.sh ~/.profile ~/.logout ~/.envrc ~/bin/*.sh
+
 FROM ubuntu:20.04
 
 WORKDIR /root

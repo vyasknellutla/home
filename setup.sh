@@ -3,8 +3,8 @@ set -e
 set -u
 set -x
 
-# shellcheck source=.profile
-if [ -f "${HOME}/.profile" ];
+if [ -f "${HOME}/.profile" ]; then
+    # shellcheck disable=SC1090
     . "${HOME}/.profile"
 fi
 

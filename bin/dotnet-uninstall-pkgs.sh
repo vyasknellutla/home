@@ -22,7 +22,7 @@ dotnet_path_file="/etc/paths.d/dotnet"
 dotnet_tool_path_file="/etc/paths.d/dotnet-cli-tools"
 
 remove_dotnet_pkgs() {
-    installed_pkgs=($(pkgutil --pkgs | grep ${dotnet_pkg_name_suffix}))
+    installed_pkgs=("$(pkgutil --pkgs | grep ${dotnet_pkg_name_suffix})")
 
     for i in "${installed_pkgs[@]}"; do
         echo "Removing dotnet component - \"${i}\"" >&2

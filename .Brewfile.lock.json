@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "ff97a486e8f7a2899f07a6daba217376808c98c0"
+        "revision": "c3cdecdb04fa36ef57c5304d835e32c5ad6f7428"
       },
       "homebrew/cask-drivers": {
         "revision": "594c242fb01d6b3a4fc40a8711ee097ddc5e1544"
@@ -17,7 +17,7 @@
         "revision": "110666adad626439d950b405e4164079f8068fa5"
       },
       "homebrew/core": {
-        "revision": "18fd404b9b1e5d9705ab31bd7ffe21bb1cfb318e"
+        "revision": "f7b8624708b0579d00ffda463f5d188bb70a8901"
       },
       "homebrew/services": {
         "revision": "a2c3e50e4d1ac0e5f948f7d7fe17281fe1d18f32"
@@ -29,7 +29,7 @@
         "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
       },
       "homebrew/cask-fonts": {
-        "revision": "815944ad70d5932b51c16ec58bd9e0648ce99e2f"
+        "revision": "fb35d70fa60eea83c583e5370d6360928cd4491c"
       },
       "instrumenta/instrumenta": {
         "revision": "9efed05801bd2b5ce4b79aa0be3c4b4e88b3aa93"
@@ -1439,9 +1439,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.13-91-g3b3b547",
+        "HOMEBREW_VERSION": "2.4.13-93-g7596259",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "18fd404b9b1e5d9705ab31bd7ffe21bb1cfb318e",
+        "Homebrew/homebrew-core": "f7b8624708b0579d00ffda463f5d188bb70a8901",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"

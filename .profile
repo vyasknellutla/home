@@ -4,7 +4,7 @@ set -u
 
 ## Custom Config
 if [ -f "${HOME}/.envrc" ]; then
-    # shellcheck source=.envrc
+    # shellcheck disable=SC1090
     . "${HOME}/.envrc"
 fi
 
@@ -61,7 +61,7 @@ export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
 
 # Nix
 if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then
-    # shellcheck source=.nix-profile/etc/profile.d/nix.sh
+    # shellcheck disable=SC1090
     . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
 fi
 
@@ -248,6 +248,7 @@ if [ "${0}" = "bash" ]; then
 
     # Adds completions for packages installed by brew
     if [ -f "${HOMEBREW_HOME}/etc/bash_completion" ]; then
+        # shellcheck disable=SC1090
         . "${HOMEBREW_HOME}/etc/bash_completion"
     fi
 
