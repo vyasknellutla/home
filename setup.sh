@@ -17,17 +17,37 @@ if [ -x "$(command -v python3)" ]; then
     echo "Found Python 3, no need to install it!"
     # Python 3 is already installed, we don't need to do anything
 elif [ -x "$(command -v apt-get)" ]; then
-    sudo apt-get update
-    sudo apt-get install -y python3
+    if [ -x "$(command -v sudo)" ]; then
+        sudo apt-get update
+        sudo apt-get install -y python3
+    else
+        apt-get update
+        apt-get install -y python3
+    fi
 elif [ -x "$(command -v dnf)" ]; then
-    sudo dnf check-update
-    sudo dnf install -y python3
+    if [ -x "$(command -v sudo)" ]; then
+        sudo dnf check-update
+        sudo dnf install -y python3
+    else
+        dnf check-update
+        dnf install -y python3
+    fi
 elif [ -x "$(command -v yum)" ]; then
-    sudo yum check-update
-    sudo yum install -y python3
+    if [ -x "$(command -v sudo)" ]; then
+        sudo yum check-update
+        sudo yum install -y python3
+    else
+        yum check-update
+        yum install -y python3
+    fi
 elif [ -x "$(command -v apk)" ]; then
-    sudo apk update
-    sudo apk add python3
+    if [ -x "$(command -v sudo)" ]; then
+        sudo apk update
+        sudo apk add python3
+    else
+        apk update
+        apk add python3
+    fi
 else
     echo "Python 3 was not found and I couldn't find a way to install it!"
     exit 1
@@ -40,27 +60,8 @@ fi
 #     curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "${HOMEBREW_HOME}"
 # fi
 
-# if [ -x "$(command -v brew)" ]; then
-#     brew update --force && brew upgrade && brew cleanup
-#     brew install --display-times --force-bottle direnv fish git gpg
-# fi
-
 # if [ -x "$(command -v rustup-init)" ]; then
 #     rustup-init --no-modify-path -y
-# fi
-
-# # Setup Shims
-# if [ -x "$(command -v goenv)" ]; then
-#     goenv install --skip-existing "$(goenv global)" &
-# fi
-# if [ -x "$(command -v pyenv)" ]; then
-#     pyenv install --skip-existing "$(pyenv global)" &
-# fi
-# if [ -x "$(command -v rbenv)" ]; then
-#     rbenv install --skip-existing "$(rbenv global)" &
-# fi
-# if [ -x "$(command -v nodenv)" ]; then
-#     nodenv install --skip-existing "$(nodenv global)" &
 # fi
 
 # VS Code setup
