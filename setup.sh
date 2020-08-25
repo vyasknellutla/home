@@ -80,5 +80,5 @@ fi
 #     sudo gpasswd -a "${USER}" docker
 # fi
 
-python3 -m pip install --user ansible pipenv
+python3 -m pip install --user ansible pipenv pip
 ansible-playbook "${HOME}/setup.playbook.yaml"

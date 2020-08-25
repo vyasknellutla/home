@@ -4,13 +4,15 @@ WORKDIR /root
 COPY . /root
 RUN shellcheck -x ~/setup.sh ~/.profile ~/.logout ~/.envrc ~/bin/*.sh
 
-FROM ubuntu:20.04
+# Ubuntu 20.04
+FROM ubuntu:focal-20200729
 
 WORKDIR /root
 COPY . /root
 RUN /root/setup.sh
 
-FROM ubuntu:20.10
+# Ubuntu 20.10
+FROM ubuntu:groovy-20200812
 
 WORKDIR /root
 COPY . /root
@@ -23,6 +25,12 @@ COPY . /root
 RUN /root/setup.sh
 
 FROM fedora:33
+
+WORKDIR /root
+COPY . /root
+RUN /root/setup.sh
+
+FROM centos:8.2.2004
 
 WORKDIR /root
 COPY . /root

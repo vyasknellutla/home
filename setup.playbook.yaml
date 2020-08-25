@@ -129,6 +129,7 @@
         name:
           - ansible
           - pipenv
+          - pip
         extra_args: --user
         state: latest
 

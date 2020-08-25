@@ -46,6 +46,13 @@ else
 fi
 
 ## Package Managers
+# ASDF
+if [ -x "$(command -v brew)" ] && [ -d "$(brew --prefix asdf)" ] && [ -f "$(brew --prefix asdf)/asdf.sh" ]; then
+    . "$(brew --prefix asdf)/asdf.sh"
+fi
+export ASDF_CONFIG_FILE="${CONFIG_HOME}/asdf/.asdfrc"
+export ASDF_DATA_DIR="${DATA_HOME}/asdf"
+
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
     HOMEBREW_HOME="$(brew --prefix)"
@@ -94,54 +101,29 @@ export LDFLAGS
 # elm: https://github.com/stil4m/elm-analyse/issues/229#issue-571057137
 export ELM_HOME="${CACHE_HOME}/elm"
 
-# Golang: https://github.com/syndbg/goenv/blob/master/ENVIRONMENT_VARIABLES.md#environment-variables
-export GOENV_ROOT="${CONFIG_HOME}/goenv"
-
 export GOPATH="${DATA_HOME}/go"
 
-export PATH="${GOENV_ROOT}/shims:${PATH}"
-
 # Java:
-## - https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
-export JENV_ROOT="${CONFIG_HOME}/jenv"
-
 export GRADLE_USER_HOME="${DATA_HOME}/gradle"
 
-export PATH="${JENV_ROOT}/shims:${PATH}"
-
 # Node.js
-## - https://github.com/nodenv/nodenv#environment-variables
-export NODENV_ROOT="${CONFIG_HOME}/nodenv"
-
 export NPM_CONFIG_USERCONFIG="${CONFIG_HOME}/npm/npmrc"
 
-export PATH="${NODENV_ROOT}/shims:${DATA_HOME}/npm/bin:${PATH}"
-
-# Perl: No source, just precedent
-export PLENV_ROOT="${CONFIG_HOME}/plenv"
-
-export PATH="${PLENV_ROOT}/shims:${PATH}"
+export PATH="${DATA_HOME}/npm/bin:${PATH}"
 
 # Python: https://github.com/pyenv/pyenv#environment-variables
-export PYENV_ROOT="${CONFIG_HOME}/pyenv"
-
 export PYTHONUSERBASE="${DATA_HOME}/pip"
 
-export PATH="${PYENV_ROOT}/shims:${PYTHONUSERBASE}/bin:${PATH}"
+export PATH="${PYTHONUSERBASE}/bin:${PATH}"
 
 # Ruby:
-## - https://github.com/rbenv/rbenv#environment-variables
 ## - https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
-export RBENV_ROOT="${CONFIG_HOME}/rbenv"
-
 export BUNDLE_USER_CONFIG="${CONFIG_HOME}/bundle"
 export BUNDLE_USER_CACHE="${CACHE_HOME}/bundle"
 export BUNDLE_USER_PLUGIN="${DATA_HOME}/bundle"
 
 export GEM_HOME="${DATA_HOME}/gem"
 export GEM_SPEC_CACHE="${CACHE_HOME}/gem"
-
-export PATH="${RBENV_ROOT}/shims:${PATH}"
 
 # Rust:
 ## - https://github.com/rust-lang/rustup#environment-variables

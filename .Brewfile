@@ -4,6 +4,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "instrumenta/instrumenta"
 
+brew "asdf"
 brew "bash"
 brew "coreutils"
 brew "direnv"
@@ -29,10 +30,7 @@ brew "openapi-generator"
 brew "openssh"
 brew "packer"
 brew "pinentry-mac"
-brew "rustup-init"
 brew "shellcheck"
-brew "terraform"
-brew "terragrunt"
 brew "testdisk"
 brew "testssl"
 brew "tree"
@@ -81,6 +79,7 @@ if OS.mac?
     cask "visual-studio-code"
     cask "yubico-yubikey-manager"
     cask "zeplin"
+    cask "zoomus"
 
     if false  # TODO: Check if user is signed into Mac App Store
         # To get a list of installed mas
