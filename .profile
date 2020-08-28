@@ -46,13 +46,6 @@ else
 fi
 
 ## Package Managers
-# ASDF
-if [ -x "$(command -v brew)" ] && [ -d "$(brew --prefix asdf)" ] && [ -f "$(brew --prefix asdf)/asdf.sh" ]; then
-    . "$(brew --prefix asdf)/asdf.sh"
-fi
-export ASDF_CONFIG_FILE="${CONFIG_HOME}/asdf/.asdfrc"
-export ASDF_DATA_DIR="${DATA_HOME}/asdf"
-
 # HomeBrew
 if [ -x "$(command -v brew)" ]; then
     HOMEBREW_HOME="$(brew --prefix)"
@@ -81,6 +74,16 @@ export WHALEBREW_INSTALL_PATH="${DATA_HOME}/whalebrew"
 export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
 
 ## Programming Language & Packages
+# ASDF
+export ASDF_DIR="${HOMEBREW_HOME}/opt/asdf"
+export ASDF_DATA_DIR="${DATA_HOME}/asdf"
+export ASDF_CONFIG_FILE="${CONFIG_HOME}/asdf/.asdfrc"
+
+export ASDF_BIN="${ASDF_DIR}/bin"
+export ASDF_USER_SHIMS="${ASDF_DATA_DIR}/shims"
+
+export PATH="${ASDF_USER_SHIMS}:${ASDF_BIN}:${PATH}"
+
 # C/C++:
 if [ -x "$(command -v gcc)" ] && [ -x "$(command -v g++)" ]; then
     export CC="gcc"
@@ -172,10 +175,6 @@ if [ "$(uname -s)" = "Darwin" ]; then # If using macOS
     ## HOMEBREW
     export PKG_CONFIG_PATH="${HOMEBREW_HOME}/opt/*/lib/pkgconfig"
 
-    ## Java Paths
-    ## TODO: Replace with jenv shim
-    export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
-
     ## Android Paths
     export ANDROID_HOME="${HOME}/Library/Android/sdk"
     export PATH="${ANDROID_HOME}:tools/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
@@ -185,15 +184,6 @@ if [ "$(uname -s)" = "Darwin" ]; then # If using macOS
 
     ## DotNet tools
     export PATH="/usr/local/share/dotnet:${PATH}"
-
-    # TODO use launchctl & loop though all defined environment vairables
-    launchctl setenv PATH "${PATH}"
-    launchctl setenv XDG_DATA_HOME "${XDG_DATA_HOME}"
-    launchctl setenv XDG_CONFIG_HOME "${XDG_CONFIG_HOME}"
-    launchctl setenv XDG_CACHE_HOME "${XDG_CACHE_HOME}"
-    launchctl setenv DATA_HOME "${DATA_HOME}"
-    launchctl setenv CONFIG_HOME "${CONFIG_HOME}"
-    launchctl setenv CACHE_HOME "${CACHE_HOME}"
 elif [ "$(uname -s)" = "Linux" ]; then # If using Linux
     echo "Linux!"
 fi

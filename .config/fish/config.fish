@@ -5,11 +5,6 @@ if [ -d "/home/linuxbrew/.linuxbrew/bin" ]
     set PATH "/home/linuxbrew/.linuxbrew/bin" $PATH
 end
 
-## asdf: https://asdf-vm.com/#/core-manage-asdf-vm?id=add-to-your-shell
-if type -q direnv; and [ -d (brew --prefix asdf) ]; and [ -f (brew --prefix asdf)/asdf.sh ]
-    source (brew --prefix asdf)/asdf.fish
-end
-
 ### Workaround from: https://github.com/direnv/direnv/issues/583#issuecomment-626109571
 function __direnv_export_eval --on-event fish_prompt
     # Run on each prompt to update the state

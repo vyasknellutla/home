@@ -6,6 +6,23 @@ set -x
 if [ -f "${HOME}/.profile" ]; then
     # shellcheck disable=SC1090
     . "${HOME}/.profile"
+
+    ## Bulk actions
+    # shellcheck disable=SC2039
+    echo -e "$(printenv)" | while IFS="$(echo -en "\n\b")" read -r line; do
+        key="${line%%=*}"
+        value="${line#*=}"
+
+        # Create Parent Directory's of all paths
+        if dirname "${value}" > /dev/null 2> /dev/null && [ -d "$(dirname "$(dirname "${value}")")" ]; then
+            mkdir -p "$(dirname "${value}")"
+        fi
+
+        # Expose variables to macOS GUI/System Applications
+        if [ "$(uname -s)" = "Darwin" ]; then # If using macOS
+            launchctl setenv "${key}" "${value}"
+        fi
+    done
 fi
 
 # Symlinks
@@ -80,5 +97,5 @@ fi
 #     sudo gpasswd -a "${USER}" docker
 # fi
 
-python3 -m pip install --user ansible pipenv pip
+pip3 install --user ansible pipenv pip
 ansible-playbook "${HOME}/setup.playbook.yaml"

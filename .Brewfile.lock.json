@@ -2,34 +2,34 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "64a41f353706d1f785ae4397defdeba629eff39b"
+        "revision": "8383aa567b7093699a415a4d213e0baea0eab14d"
       },
       "homebrew/cask-drivers": {
-        "revision": "16d309a0ba428a6722bda39167f8550b1dac1939"
+        "revision": "c66e99f1f94d3f7c4a26be229dea2acd03131fb3"
       },
       "homebrew/cask-versions": {
-        "revision": "b10b260e9c36841e27eb766dcc3f64a4aa026dd3"
+        "revision": "4253e24450cfa9e0da0068c0fdcfb23e777cea2b"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
       },
       "homebrew/bundle": {
-        "revision": "110666adad626439d950b405e4164079f8068fa5"
+        "revision": "d1fe8a76750e7df23373720f5ea212afcad847bd"
       },
       "homebrew/core": {
-        "revision": "2e7c561527ff7550d710794ecdba32534dd76936"
+        "revision": "33088496b3f033bce8d5553651098f3ce87f3bbf"
       },
       "homebrew/services": {
         "revision": "a2c3e50e4d1ac0e5f948f7d7fe17281fe1d18f32"
       },
       "github/gh": {
-        "revision": "de8d7e7960fd07a5dc1abef30d754de314e26dd1"
+        "revision": "209f59cda890de69b74c224982591642c21323d3"
       },
       "microsoft/git": {
-        "revision": "42d1dbd17e0e4e6a70e268b02df25e36aa4c5ddd"
+        "revision": "3ddf73c187923bb50eb2a581a4dae3323d50de24"
       },
       "homebrew/cask-fonts": {
-        "revision": "66a2b007a712264191269078c26d85dfb854b922"
+        "revision": "1f1d346222497f3700aefbbbd1bba33c11f4be61"
       },
       "instrumenta/instrumenta": {
         "revision": "9efed05801bd2b5ce4b79aa0be3c4b4e88b3aa93"
@@ -390,22 +390,22 @@
         }
       },
       "kubernetes-cli": {
-        "version": "1.18.8",
+        "version": "1.19.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.18.8.catalina.bottle.tar.gz",
-              "sha256": "6f93ab2c3883f480dbdc0e45e88f3e558ab0c9ffaeb58e906d69a39a4d381f27"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.0.catalina.bottle.tar.gz",
+              "sha256": "46b7d96c97256a2a4a55fcbb8c72085a76ac6eac1b61a9d030d07ed7537f2c5c"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.18.8.mojave.bottle.tar.gz",
-              "sha256": "cd1c01158cf241b07f0e4875acf151099fabf44b5c55e7b33b457a9eb0fefcfe"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.0.mojave.bottle.tar.gz",
+              "sha256": "214b259580cd5d9c0a4c97c5bc56931a3ae86a035ce0c67bc1c12671bcb4f175"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.18.8.high_sierra.bottle.tar.gz",
-              "sha256": "a86b0894d94dbb51d75efec1dc2781cd83d657a9c7ad2bb65b7ad24971339f0d"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.0.high_sierra.bottle.tar.gz",
+              "sha256": "b5a5d643326f9301164e1167d9ad21d9657a55da697da761cf5feb42be629ca2"
             }
           }
         }
@@ -1106,22 +1106,22 @@
         }
       },
       "helmfile": {
-        "version": "0.125.7",
+        "version": "0.125.8",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.catalina.bottle.tar.gz",
-              "sha256": "85ccf7ee705efde6a5671c4e615290f59308dbdbcca9807a62f72566a7bf0070"
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.8.catalina.bottle.tar.gz",
+              "sha256": "d02b676d8bc23a4f9f54dafcf7d94268d258c8a5f311e1dcac1ff42567c8c0a8"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.mojave.bottle.tar.gz",
-              "sha256": "c09c955f8739c621f8a8df0f325bc81a3b8c199a46758c71d6287d42f42024db"
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.8.mojave.bottle.tar.gz",
+              "sha256": "13881a0d3ac260a2419cc38cd332884b45112af120f3ebda72f5f34129f4e4dc"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.7.high_sierra.bottle.tar.gz",
-              "sha256": "2759b5e1dc6208b85e083cd5329ed836c752b401538515585a467a36b478eef6"
+              "url": "https://homebrew.bintray.com/bottles/helmfile-0.125.8.high_sierra.bottle.tar.gz",
+              "sha256": "c24bfd38c187158d13b90f9a8797381e75294d1a849e1b4fe892ed5c5b5112f5"
             }
           }
         }
@@ -1146,11 +1146,36 @@
             }
           }
         }
+      },
+      "asdf": {
+        "version": "0.7.8",
+        "bottle": false
+      },
+      "gh": {
+        "version": "0.11.1",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.catalina.bottle.tar.gz",
+              "sha256": "8c407d1a98c582f12b7830c854b1c29e706a4215b5d5fae94cdf85b1929a9dfe"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.mojave.bottle.tar.gz",
+              "sha256": "d758ddf6c6e240b09cb2133a35b4c05cf78c722d1e54f40622485628a6d544ac"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.high_sierra.bottle.tar.gz",
+              "sha256": "9f65a309f159a2bed8f7b4d737aa01b4b4f7037cf79f8b112db4f04ac38a3666"
+            }
+          }
+        }
       }
     },
     "cask": {
       "balenaetcher": {
-        "version": "1.5.104",
+        "version": "1.5.106",
         "options": {
           "full_name": "balenaetcher"
         }
@@ -1240,7 +1265,7 @@
         }
       },
       "vagrant": {
-        "version": "2.2.9",
+        "version": "2.2.10",
         "options": {
           "full_name": "vagrant"
         }
@@ -1309,6 +1334,12 @@
         "version": "1.1.5",
         "options": {
           "full_name": "yubico-yubikey-manager"
+        }
+      },
+      "zoomus": {
+        "version": "5.2.44040.0816",
+        "options": {
+          "full_name": "zoomus"
         }
       }
     },
@@ -1439,9 +1470,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.4.13-105-gd3e22f4",
+        "HOMEBREW_VERSION": "2.4.14-20-g257e4cc",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "2e7c561527ff7550d710794ecdba32534dd76936",
+        "Homebrew/homebrew-core": "33088496b3f033bce8d5553651098f3ce87f3bbf",
         "CLT": "1103.0.32.59",
         "Xcode": "11.6",
         "macOS": "10.15.6"
