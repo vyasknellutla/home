@@ -1,4 +1,4 @@
-FROM shellcheck:v0.7.1 as bash_linter
+FROM koalaman/shellcheck:v0.7.1 as bash_linter
 
 WORKDIR /root
 COPY . /root
