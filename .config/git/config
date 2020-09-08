@@ -1,7 +1,9 @@
 [user]
 	# Values in ~/.config/git/local_config
 [core]
-	editor = vim
+	editor = code --wait
+	autocrlf = input
+	eol = lf
 [color]
 	ui = auto
 [commit]

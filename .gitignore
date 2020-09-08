@@ -53,6 +53,7 @@ desktop.ini
 /.cups/
 
 # Filesyncing Services
+/.dropbox/
 /Creative Cloud Files/
 /Google Drive/
 /OneDrive*/

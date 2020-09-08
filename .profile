@@ -85,17 +85,20 @@ export ASDF_USER_SHIMS="${ASDF_DATA_DIR}/shims"
 export PATH="${ASDF_USER_SHIMS}:${ASDF_BIN}:${PATH}"
 
 # C/C++:
+
 if [ -x "$(command -v gcc)" ] && [ -x "$(command -v g++)" ]; then
     export CC="gcc"
     export CXX="g++"
 fi
+# export CC="clang"
+# export CXX="clang"
 
 CPPFLAGS="-Ofast -pipe -march=native -I/usr/local/include"
-LDFLAGS="-L/usr/local/lib"
-if [ -x "$(command -v brew)" ]; then
-    CPPFLAGS="${CPPFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
-    LDFLAGS="${LDFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
-fi
+LDFLAGS="-L/usr/local/lib -L/usr/lib"
+# if [ -x "$(command -v brew)" ]; then
+    # CPPFLAGS="${CPPFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/include | sed 's/ / -I/g')"
+    # LDFLAGS="${LDFLAGS} $(echo "${HOMEBREW_HOME}"/opt/*/lib | sed 's/ / -L/g')"
+# fi
 export CPPFLAGS
 export CFLAGS="${CPPFLAGS}"
 export CXXFLAGS="${CPPFLAGS}"
