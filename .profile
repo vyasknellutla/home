@@ -110,6 +110,10 @@ export ELM_HOME="${CACHE_HOME}/elm"
 export GOPATH="${DATA_HOME}/go"
 
 # Java:
+if [ -x "$(command -v asdf)"  ] && [ -n "$(asdf which java)" ] && [ -x "$(command -v realpath)" ] && [ -x "$(command -v dirname)" ]; then
+    JAVA_HOME="$(dirname "$(dirname "$(realpath "$(asdf which java)")")")"
+    export JAVA_HOME
+fi
 export GRADLE_USER_HOME="${DATA_HOME}/gradle"
 
 # Node.js

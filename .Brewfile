@@ -28,16 +28,15 @@ brew "kubectx"
 brew "nmap"
 brew "openapi-generator"
 brew "openssh"
-brew "packer"
 brew "pinentry-mac"
 brew "shellcheck"
 brew "testdisk"
 brew "testssl"
 brew "tree"
 brew "util-linux"
-brew "vagrant-completion"
 brew "watch"
 brew "watchman"
+brew "wget"
 brew "whalebrew"
 brew "ykman"
 brew "youtube-dl"
@@ -54,21 +53,20 @@ if OS.mac?
     brew "mas"
 
     cask "adobe-creative-cloud"
+    cask "alacritty"
     cask "android-studio"
     cask "balenaetcher"
     cask "dbeaver-community"
     cask "docker"
+    cask "dropbox"
     cask "firefox-developer-edition"
     cask "font-hack-nerd-font"
     cask "git-credential-manager-core"
     cask "github"
     cask "gpg-suite"
-    cask "hyper"
     cask "keybase"
-    cask "nextcloud"
     cask "postman"
     cask "signal"
-    cask "vagrant"
     cask "virtualbox"
     cask "virtualbox-extension-pack"
     cask "visual-studio-code"
@@ -77,7 +75,7 @@ if OS.mac?
     cask "zoomus"
 
     if false  # TODO: Check if user is signed into Mac App Store
-        # To get a list of installed mas
+        ## To get a list of installed mas apps:
         ### $ mas list | sort -k2 --ignore-case
         mas "1Password 7", id: 1333542190
         mas "Compressor", id: 424390742
@@ -101,7 +99,6 @@ if OS.mac?
         mas "OneDrive", id: 823766827
         mas "Pages", id: 409201541
         mas "Parcel", id: 639968404
-        mas "Photos Duplicate Cleaner", id: 592704001
         mas "Rakuten Cash Back", id: 1451893560
         mas "Server", id: 883878097
         mas "Slack", id: 803453959
