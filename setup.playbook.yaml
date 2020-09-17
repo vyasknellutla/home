@@ -21,8 +21,6 @@
       - { src: ".config/docker", dest: ".docker", type: "dir" }
       # gnupg
       - { src: ".config/gnupg", dest: ".gnupg", type: "dir" }
-      # Hyper Terminal
-      - { src: ".config/Hyper/.hyper.js", dest: ".hyper.js", type: "file" }
       # kubectl
       - { src: ".local/share/kube", dest: ".kube", type: "dir" }
       # ssh
