@@ -61,6 +61,7 @@ if OS.mac?
     cask "github"
     cask "gpg-suite"
     cask "postman"
+    cask "raindropio"
     cask "signal"
     cask "virtualbox"
     cask "virtualbox-extension-pack"
@@ -76,9 +77,6 @@ if OS.mac?
         mas "Magnet", id: 441258766
         mas "Microsoft Excel", id: 462058435
         mas "Microsoft OneNote", id: 784801555
-        mas "Microsoft Outlook", id: 985367838
-        mas "Microsoft PowerPoint", id: 462062816
-        mas "Microsoft To Do", id: 1274495053
         mas "Microsoft Word", id: 462054704
         mas "NewsGuard", id: 1438657064
         mas "OneDrive", id: 823766827

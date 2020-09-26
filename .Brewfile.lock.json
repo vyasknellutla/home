@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "81eb8976709fbefcf07aa7daed08c621cefb1a4e"
+        "revision": "3b6d27600aed32b39d4606026390fedab861f0eb"
       },
       "homebrew/cask-drivers": {
-        "revision": "10493aa25815ee2a662a5398e0306a45615c6762"
+        "revision": "bfe66b9812e15c2a510c34a6eb83173cdb46d2fa"
       },
       "homebrew/cask-versions": {
-        "revision": "3df18297689cd6c3d010be9ad8b427c8edf8ba5f"
+        "revision": "a6621c005e7229be32191a2e542b0736fb6dcda7"
       },
       "wix/brew": {
         "revision": "d2dfddf14e72f0fedb0688fb825b65002ab7ec36"
@@ -17,7 +17,7 @@
         "revision": "b84d4569eafe799c7c46c6c12c63215cb8095b6d"
       },
       "homebrew/core": {
-        "revision": "ddc3eb64b22162c41f83bf0561e7652d3884d4ed"
+        "revision": "05104bc3ad5b769caf67bca5a53c5ca647e0a456"
       },
       "homebrew/services": {
         "revision": "5ba553ecb4d4dad31eabd9535f262212d5098214"
@@ -29,7 +29,7 @@
         "revision": "3ddf73c187923bb50eb2a581a4dae3323d50de24"
       },
       "homebrew/cask-fonts": {
-        "revision": "05ca9a1455a06a2eda4627c80df6c399899af024"
+        "revision": "6e6d69ca2e7c40adb8d6e6a090d191b4a52498a1"
       },
       "instrumenta/instrumenta": {
         "revision": "e697e9e53eeff399c68b854bc319023fbe47a767"
@@ -315,22 +315,22 @@
         "bottle": false
       },
       "helm": {
-        "version": "3.3.1",
+        "version": "3.3.3",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/helm-3.3.1.catalina.bottle.tar.gz",
-              "sha256": "117f91c43b63eeacd75ecff80bb3de44cdf69a221a3419d6321b3eaea2aa9c0d"
+              "url": "https://homebrew.bintray.com/bottles/helm-3.3.3.catalina.bottle.tar.gz",
+              "sha256": "ffcb6fd81bbd3d3aaa58169c592da6eeef79f35890231022f05c3074d515675d"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/helm-3.3.1.mojave.bottle.tar.gz",
-              "sha256": "3c053e558031d4ce17c111237fb6e0d69f0a5bd696595c4c2910a4bcbacf7050"
+              "url": "https://homebrew.bintray.com/bottles/helm-3.3.3.mojave.bottle.tar.gz",
+              "sha256": "e9f06e6b6a506564a621dab018f472da70364b5a11f29615ea268f6490fb2d7b"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/helm-3.3.1.high_sierra.bottle.tar.gz",
-              "sha256": "8857b72ab199eac53f8b7c174684ce8fba89bcd8eaec335b9d568dcd21dc1dc2"
+              "url": "https://homebrew.bintray.com/bottles/helm-3.3.3.high_sierra.bottle.tar.gz",
+              "sha256": "04e4a728be0d1141e7baf911b9dcf9b587623b31dc2ce57e461e58cd1dbf5a78"
             }
           }
         }
@@ -954,27 +954,27 @@
         }
       },
       "youtube-dl": {
-        "version": "2020.09.14",
+        "version": "2020.09.20",
         "bottle": false
       },
       "github/gh/gh": null,
       "faas-cli": {
-        "version": "0.12.9",
+        "version": "0.12.13",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.catalina.bottle.tar.gz",
-              "sha256": "74e0979caa804d1e2771cc7bb8ca334f3e45a5e8b2f33abc63b21d7fccd6bab3"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.13.catalina.bottle.tar.gz",
+              "sha256": "4af5d58445ec66a3579d299c59601f529916f418afae6bfddec311a291b81fda"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.mojave.bottle.tar.gz",
-              "sha256": "e8ac72ff95820dd19650bf8c2f3257d22e11b3dd10a28721f4a4bf328258a5e9"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.13.mojave.bottle.tar.gz",
+              "sha256": "66d58b724a8aae046acc7b911ff92dbe5a9f6a5ddaf11b2517f21df1ff728bd7"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.9.high_sierra.bottle.tar.gz",
-              "sha256": "7c81a7145f3a9acd9c348abcc5229cea7a8afcb1b6469a189d0e74a5b3650fdd"
+              "url": "https://homebrew.bintray.com/bottles/faas-cli-0.12.13.high_sierra.bottle.tar.gz",
+              "sha256": "25587b7731f13b6c623d9d6dac0e417a19582cfaedf71f36fd8a3408a7dae31b"
             }
           }
         }
@@ -1030,11 +1030,11 @@
         }
       },
       "docker-completion": {
-        "version": "19.03.12",
+        "version": "19.03.13",
         "bottle": false
       },
       "docker-compose-completion": {
-        "version": "1.27.2",
+        "version": "1.27.3",
         "bottle": false
       },
       "terragrunt": {
@@ -1376,6 +1376,12 @@
         "options": {
           "full_name": "cloudflare-warp"
         }
+      },
+      "raindropio": {
+        "version": "latest",
+        "options": {
+          "full_name": "raindropio"
+        }
       }
     },
     "mas": {
@@ -1513,9 +1519,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.1-57-g4393df8",
+        "HOMEBREW_VERSION": "2.5.1-112-g431b9c0",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "ddc3eb64b22162c41f83bf0561e7652d3884d4ed",
+        "Homebrew/homebrew-core": "05104bc3ad5b769caf67bca5a53c5ca647e0a456",
         "CLT": "1103.0.32.59",
         "Xcode": "11.5",
         "macOS": "10.15.6"
