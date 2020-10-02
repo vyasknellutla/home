@@ -27,8 +27,6 @@
       - { src: ".local/share/ssh", dest: ".ssh", type: "dir" }
       # terraform
       - { src: ".local/share/terraform", dest: ".terraform.d", type: "dir" }
-      # VS Code
-      # - { src: ".config/Code/User", dest: ".vscode-server/data/Machine" }
     empty_files:
       - { file_name: ".cloud-locale-test.skip" }
       - { file_name: ".sudo_as_admin_successful" }

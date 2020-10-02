@@ -130,10 +130,6 @@ desktop.ini
 # Maven
 /.m2/
 
-# Nix
-/.nix-profile
-/.nix-defexpr/
-
 # Perl
 /.cpan/
 
