@@ -48,6 +48,7 @@ if OS.mac?
     cask "github"
     cask "google-earth-pro"
     cask "gpg-suite"
+    cask "keybase"
     cask "logos"
     cask "postman"
     cask "raindropio"
