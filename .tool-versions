@@ -4,3 +4,5 @@ elm 0.19.1
 terraform 0.13.1
 python 3.8.5
 ruby 2.7.1
+shellcheck 0.7.1
+jq jq-1.6

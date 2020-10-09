@@ -119,15 +119,23 @@
             brew bundle check --global --verbose
           when: ansible_distribution == "MacOSX"
 
-    # Pip
-    - name: Install pip packages
-      pip:
-        name:
-          - ansible
-          - pipenv
-          - pip
-        extra_args: --user
-        state: latest
+    # ASDF
+    - name: Install asdf tools
+      shell: |
+        #!/bin/sh
+        set -e
+        set -u
+        set -x
+
+        # $(brew --prefix asdf)/bin/asdf plugin add elm
+        # $(brew --prefix asdf)/bin/asdf plugin add jq
+        # $(brew --prefix asdf)/bin/asdf plugin add nodejs
+        # $(brew --prefix asdf)/bin/asdf plugin add python
+        # $(brew --prefix asdf)/bin/asdf plugin add ruby
+        # $(brew --prefix asdf)/bin/asdf plugin add rust
+        # $(brew --prefix asdf)/bin/asdf plugin add shellcheck
+        # $(brew --prefix asdf)/bin/asdf plugin add terraform
+        $(brew --prefix asdf)/bin/asdf install
 
     # Symlinks
     - name: Create Symlinks
