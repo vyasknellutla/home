@@ -59,7 +59,7 @@ if OS.mac?
     cask "visual-studio-code"
     cask "yubico-yubikey-manager"
 
-    if true  # TODO: Check if user is signed into Mac App Store
+    if false  # TODO: Check if user is signed into Mac App Store
         ## To get a list of installed mas apps:
         ### $ mas list | sort -k2 --ignore-case
         mas "1Password 7", id: 1333542190
