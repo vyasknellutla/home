@@ -34,8 +34,6 @@ brew "instrumenta/instrumenta/kubeval"
 if OS.mac?
     tap "homebrew/cask"
     tap "homebrew/cask-drivers"
-    tap "homebrew/cask-fonts"
-    tap "homebrew/cask-versions"
 
     brew "mas"
 
@@ -43,14 +41,12 @@ if OS.mac?
     cask "cloudflare-warp"
     cask "dbeaver-community"
     cask "docker"
-    cask "dropbox"
     cask "git-credential-manager-core"
     cask "github"
     cask "google-earth-pro"
     cask "gpg-suite"
     cask "keybase"
     cask "logos"
-    cask "postman"
     cask "raindropio"
     cask "signal"
     cask "vagrant"
@@ -70,7 +66,6 @@ if OS.mac?
         mas "Kindle", id: 405399194
         mas "Magnet", id: 441258766
         mas "Microsoft Excel", id: 462058435
-        mas "Microsoft OneNote", id: 784801555
         mas "Microsoft Word", id: 462054704
         mas "NewsGuard", id: 1438657064
         mas "OneDrive", id: 823766827
