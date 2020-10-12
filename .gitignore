@@ -47,7 +47,10 @@ desktop.ini
 /3D Objects/
 /Intel/
 /IntelGraphicsProfiles/
+/.ipython/
 /MicrosoftEdgeBackups/
+/.vagrant.d/
+/.VirtualBox/
 
 # Printer
 /.cups/
@@ -56,6 +59,7 @@ desktop.ini
 /.dropbox/
 /Creative Cloud Files/
 /Google Drive/
+/iCloudDrive/
 /OneDrive*/
 
 ## User Dirs
