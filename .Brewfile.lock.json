@@ -2,10 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "160c23fce59d7bdefb056c50d514a422393e72b5"
+        "revision": "acec04197a2633d1f0b034a302fece354f08c1de"
       },
       "homebrew/cask-drivers": {
-        "revision": "bb4c58b8e049ad3952167f267b9a34ba351f6703"
+        "revision": "cf026e64a05040a628bb487f388264fad6ad41cf"
       },
       "homebrew/cask-versions": {
         "revision": "39b210e60dbb936d13a81d7e91dff003ee104a90"
@@ -17,7 +17,7 @@
         "revision": "78513292658ff002a6a816bdeb9d286150ee1a16"
       },
       "homebrew/core": {
-        "revision": "e0a2e61af423843f5590d8057a127512aa15bde5"
+        "revision": "276dae40dd99834e0aa98e5aa8305e2514d055c4"
       },
       "homebrew/services": {
         "revision": "0448884d8213af19280ee8fab30af89cca20f630"
@@ -729,22 +729,22 @@
         }
       },
       "direnv": {
-        "version": "2.22.1",
+        "version": "2.23.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/direnv-2.22.1.catalina.bottle.tar.gz",
-              "sha256": "44e70a14fb3eff7708df0c7aa46701b4476568cf2b7fd06f68ced2dd0a4c52f7"
+              "url": "https://homebrew.bintray.com/bottles/direnv-2.23.0.catalina.bottle.tar.gz",
+              "sha256": "b5b5d510abe32133caad83648afc0950dcfbf9ea0ecdd305efe155817bff0b8b"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/direnv-2.22.1.mojave.bottle.tar.gz",
-              "sha256": "3214ef11c015566e5d4891242659d89705dc45ee84c76493280d88264cc2cff8"
+              "url": "https://homebrew.bintray.com/bottles/direnv-2.23.0.mojave.bottle.tar.gz",
+              "sha256": "0339beb93dee2207dc3fdf9236a6a80bde6f6207dcfaee5f812d6700a8622f1f"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/direnv-2.22.1.high_sierra.bottle.tar.gz",
-              "sha256": "7463876a5196f01d219cdadd5d57ee4f035e0d4c37dbf9d18bc8d99738c05160"
+              "url": "https://homebrew.bintray.com/bottles/direnv-2.23.0.high_sierra.bottle.tar.gz",
+              "sha256": "4f66782d86962cfec8c4383d8a0195eb4f8b3df44fc707f33eb5662e5aca76b9"
             }
           }
         }
@@ -1418,7 +1418,7 @@
       },
       "Final Cut Pro": {
         "id": "424389933",
-        "version": "10.4.8"
+        "version": "10.4.10"
       },
       "iMovie": {
         "id": "408981434",
@@ -1462,7 +1462,7 @@
       },
       "NordVPN IKE": {
         "id": "1116599239",
-        "version": "5.6.1"
+        "version": "5.8.0"
       },
       "OneDrive": {
         "id": "823766827",
@@ -1526,7 +1526,7 @@
       },
       "Grammarly for Safari": {
         "id": "1462114288",
-        "version": "9.19"
+        "version": "9.20"
       },
       "Kindle": {
         "id": "405399194",
@@ -1549,9 +1549,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.5-17-g3f5b7c4",
+        "HOMEBREW_VERSION": "2.5.6-33-g8437f51",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "e0a2e61af423843f5590d8057a127512aa15bde5",
+        "Homebrew/homebrew-core": "276dae40dd99834e0aa98e5aa8305e2514d055c4",
         "CLT": "1103.0.32.59",
         "Xcode": "11.5",
         "macOS": "10.15.7"

@@ -38,7 +38,7 @@ if OS.mac?
     brew "mas"
 
     cask "alacritty"
-    cask "cloudflare-warp"
+    cask "authy"
     cask "dbeaver-community"
     cask "docker"
     cask "git-credential-manager-core"
@@ -62,12 +62,14 @@ if OS.mac?
         mas "1Password 7", id: 1333542190
         mas "Boop", id: 1518425043
         mas "Desktop Verse", id: 572304633
+        mas "Final Cut Pro", id: 424389933
         mas "Grammarly for Safari", id: 1462114288
         mas "Kindle", id: 405399194
         mas "Magnet", id: 441258766
         mas "Microsoft Excel", id: 462058435
         mas "Microsoft Word", id: 462054704
         mas "NewsGuard", id: 1438657064
+        mas "NordVPN IKE", id: 1116599239
         mas "OneDrive", id: 823766827
         mas "Parcel", id: 639968404
         mas "Raindrop.io for Safari", id: 957810159
