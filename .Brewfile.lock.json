@@ -2,10 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "acec04197a2633d1f0b034a302fece354f08c1de"
+        "revision": "dc3b677914b940bf9362c791efc4005052e360b0"
       },
       "homebrew/cask-drivers": {
-        "revision": "cf026e64a05040a628bb487f388264fad6ad41cf"
+        "revision": "e515b3821293abeb20c629dcbfb2328248892b92"
       },
       "homebrew/cask-versions": {
         "revision": "39b210e60dbb936d13a81d7e91dff003ee104a90"
@@ -17,7 +17,7 @@
         "revision": "78513292658ff002a6a816bdeb9d286150ee1a16"
       },
       "homebrew/core": {
-        "revision": "276dae40dd99834e0aa98e5aa8305e2514d055c4"
+        "revision": "e837e37d659346dcbc8c8c9ef40618f651cf3433"
       },
       "homebrew/services": {
         "revision": "0448884d8213af19280ee8fab30af89cca20f630"
@@ -386,22 +386,22 @@
         }
       },
       "kubernetes-cli": {
-        "version": "1.19.2",
+        "version": "1.19.3",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.2.catalina.bottle.tar.gz",
-              "sha256": "914a5582fdccdbc429e438b700f7130a6df821c24a454177c3bac9d66a7bad9e"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.3.catalina.bottle.tar.gz",
+              "sha256": "f741a91d9fbcea6a40fbedbf0a63cdc8e9be3b39d13405d1d8507cc1b0f41e2f"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.2.mojave.bottle.tar.gz",
-              "sha256": "3ec1cae14b29188e6d756c3dd6a372d3043c8b3ce84e4275ff3a2ccdd5171148"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.3.mojave.bottle.tar.gz",
+              "sha256": "0eea0ea0d9aaa807972692c47efd8525e22f9977dfba4b333e95fc10c41ce872"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.2.high_sierra.bottle.tar.gz",
-              "sha256": "bc49147fe564917ab13ca30dfc687e020e8483647238fe738244d5b5c752b92f"
+              "url": "https://homebrew.bintray.com/bottles/kubernetes-cli-1.19.3.high_sierra.bottle.tar.gz",
+              "sha256": "92567b1807bd2d656a2e63b53784a93170a058b5c4e5c308863bb49ab919c85a"
             }
           }
         }
@@ -1390,7 +1390,7 @@
         }
       },
       "logos": {
-        "version": "8.16.0.0002",
+        "version": "8.17.0.0011",
         "options": {
           "full_name": "logos"
         }
@@ -1399,6 +1399,12 @@
         "version": "2.7.1",
         "options": {
           "full_name": "vagrant-manager"
+        }
+      },
+      "authy": {
+        "version": "1.8.3",
+        "options": {
+          "full_name": "authy"
         }
       }
     },
@@ -1549,9 +1555,9 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.6-33-g8437f51",
+        "HOMEBREW_VERSION": "2.5.6-61-g7f422af",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "276dae40dd99834e0aa98e5aa8305e2514d055c4",
+        "Homebrew/homebrew-core": "e837e37d659346dcbc8c8c9ef40618f651cf3433",
         "CLT": "1103.0.32.59",
         "Xcode": "11.5",
         "macOS": "10.15.7"

@@ -127,15 +127,13 @@
         set -u
         set -x
 
-        # $(brew --prefix asdf)/bin/asdf plugin add elm
-        # $(brew --prefix asdf)/bin/asdf plugin add jq
-        # $(brew --prefix asdf)/bin/asdf plugin add nodejs
-        # $(brew --prefix asdf)/bin/asdf plugin add python
-        # $(brew --prefix asdf)/bin/asdf plugin add ruby
-        # $(brew --prefix asdf)/bin/asdf plugin add rust
-        # $(brew --prefix asdf)/bin/asdf plugin add shellcheck
-        # $(brew --prefix asdf)/bin/asdf plugin add terraform
+        while read line; do
+          read -a plugin_name <<< "${line}"
+          $(brew --prefix asdf)/bin/asdf plugin-add "${plugin_name}" || true
+        done < "${HOME}/.tool-versions"
+
         $(brew --prefix asdf)/bin/asdf install
+        $(brew --prefix asdf)/bin/asdf reshim
 
     # Symlinks
     - name: Create Symlinks
