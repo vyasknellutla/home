@@ -40,6 +40,21 @@
             state: latest
             update_cache: true
             force_apt_get: true
+        - name: Install packages
+          become: true
+          apt:
+            name:
+              - make
+              - build-essential
+              - libssl-dev
+              - wget
+              - curl
+              - llvm
+              - xz-utils
+              - libc-dev
+            state: latest
+            update_cache: true
+            force_apt_get: true
       when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
 
     - name: Zypper Package Manager
@@ -59,7 +74,7 @@
             name: "*"
             state: latest
             update_cache: true
-          when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
+      when: ansible_distribution == "CentOS" or ansible_distribution == "Fedora"
 
     - name: Dandified YUM (dnf) Package Manager
       block:
@@ -69,7 +84,7 @@
             name: "*"
             state: latest
             update_cache: true
-          when: ansible_distribution == "Fedora"
+      when: ansible_distribution == "Fedora"
 
     - name: Dotfiles
       block:
@@ -124,6 +139,7 @@
       shell: |
         #!/bin/sh
         set -e
+
         set -u
         set -x
 
