@@ -51,6 +51,10 @@ desktop.ini
 /MicrosoftEdgeBackups/
 /.vagrant.d/
 /.VirtualBox/
+/.virtualenvs/
+/.node-stats/
+/.pylint.d/
+/.vault-token
 
 # Printer
 /.cups/
