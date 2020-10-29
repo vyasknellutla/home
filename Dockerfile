@@ -5,14 +5,14 @@ COPY . /root
 RUN shellcheck -x ~/setup.sh ~/.profile ~/.logout ~/.envrc ~/bin/*.sh
 
 # Ubuntu 20.04
-FROM ubuntu:focal-20200925
+FROM ubuntu:focal-20201008
 
 WORKDIR /root
 COPY . /root
 RUN /root/setup.sh
 
 # Ubuntu 20.10
-FROM ubuntu:focal-20200925
+FROM ubuntu:focal-20201008
 
 WORKDIR /root
 COPY . /root
