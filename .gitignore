@@ -47,13 +47,14 @@ desktop.ini
 /3D Objects/
 /Intel/
 /IntelGraphicsProfiles/
-/.ipython/
 /MicrosoftEdgeBackups/
-/.vagrant.d/
 /.VirtualBox/
-/.virtualenvs/
+/.eclipse/
+/.ipython/
 /.node-stats/
 /.pylint.d/
+/.vagrant.d/
+/.virtualenvs/
 /.vault-token
 
 # Printer
