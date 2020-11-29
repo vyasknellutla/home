@@ -5,16 +5,16 @@
 /.local
 
 # MacOS System Files/Directories
-/.DS_Store
-/.localized
+.DS_Store
+.localized
 
 /.IdentityService/
 /.ServiceHub/logs/
 /.Trash*/
 /Applications/
-/Desktop/
-/Documents/
-/Downloads/
+/Desktop
+/Documents
+/Downloads
 /Library/
 /Movies/
 /Music/
@@ -65,6 +65,7 @@ desktop.ini
 /Creative Cloud Files/
 /Google Drive/
 /iCloudDrive/
+/Dropbox/
 /OneDrive*/
 
 ## User Dirs
