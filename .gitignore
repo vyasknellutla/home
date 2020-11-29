@@ -57,6 +57,10 @@ desktop.ini
 /.virtualenvs/
 /.vault-token
 
+# Misc Apps
+/.adobe/
+/.fb-adb/
+
 # Printer
 /.cups/
 
@@ -64,7 +68,7 @@ desktop.ini
 /.dropbox/
 /Creative Cloud Files/
 /Google Drive/
-/iCloudDrive/
+/iCloud*Drive*/
 /Dropbox/
 /OneDrive*/
 
