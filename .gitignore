@@ -86,6 +86,7 @@ desktop.ini
 /.bash_logout
 
 # direnv
+/.env
 /.envrc
 
 # docker
