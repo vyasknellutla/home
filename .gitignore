@@ -60,6 +60,8 @@ desktop.ini
 # Misc Apps
 /.adobe/
 /.fb-adb/
+/.mozilla/
+/.var/
 
 # Printer
 /.cups/
@@ -130,6 +132,9 @@ desktop.ini
 /.templateengine/
 
 ## Package Managers
+# ASDF
+/.asdf
+
 # .NET
 /.aspnet/
 
@@ -141,6 +146,9 @@ desktop.ini
 
 # Gradle
 /.tooling/gradle/
+
+# Homebrew
+/.linuxbrew
 
 # Maven
 /.m2/
@@ -158,7 +166,7 @@ desktop.ini
 ## App Development
 # Android Development
 /.android/
-
+    
 # Dart files
 /.dartServer/
 /.pub-cache/
@@ -173,6 +181,6 @@ desktop.ini
 /.vscode/extensions
 /.vscode/*.yml
 
-/.vscode-server/
+/.vscode-server
 
 /.VSTeamServicesAuthPlugin/

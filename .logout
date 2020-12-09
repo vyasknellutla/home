@@ -33,4 +33,8 @@ rm -rf "${HOME}/.vim/"
 # wget
 rm -f "${HOME}/.wget-hsts"
 
-sleep 0.5
+# Uncategoried
+rm -f "${HOME}/.ICEauthority"
+rm -f "${HOME}/.vas_logon_server"
+rm -f "${HOME}/.Xauthority"
+rm -f "${HOME}/.xsession-errors"

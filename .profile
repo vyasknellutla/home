@@ -48,11 +48,14 @@ fi
 if [ -x "$(command -v brew)" ]; then
     HOMEBREW_HOME="$(brew --prefix)"
     export HOMEBREW_HOME
+else
+    unset HOMEBREW_HOME
 fi
+
 if [ "$(uname -s)" = "Darwin" ]; then # Check if using macOS
     export HOMEBREW_HOME="${HOMEBREW_HOME:-"/usr/local"}"
 else
-    export HOMEBREW_HOME="${HOMEBREW_HOME:-"/home/linuxbrew/.linuxbrew"}"
+    export HOMEBREW_HOME="${HOMEBREW_HOME:-"${HOME}/.linuxbrew"}"
 fi
 export HOMEBREW_CACHE="${CACHE_HOME}/homebrew"
 export PATH="${HOMEBREW_HOME}/bin:${HOMEBREW_HOME}/sbin:${PATH}"
