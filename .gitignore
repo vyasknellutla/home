@@ -62,6 +62,7 @@ desktop.ini
 /.fb-adb/
 /.mozilla/
 /.var/
+/.ueli/
 
 # Printer
 /.cups/
@@ -152,6 +153,11 @@ desktop.ini
 
 # Maven
 /.m2/
+
+# Nix
+/Applications
+/.nix-defexpr/
+/.nix-profile
 
 # Perl
 /.cpan/
