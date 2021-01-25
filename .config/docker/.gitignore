@@ -3,3 +3,5 @@ machine/
 
 .buildNodeID
 config.json
+
+.token_seed*
