@@ -40,3 +40,6 @@
 
 # Hyper
 /Hyper/.hyper_plugins/
+
+# Terraform
+/terraform/.terraformrc

@@ -160,8 +160,9 @@ export GNUPGHOME="${CONFIG_HOME}/gnupg"
 export PACKER_CACHE_DIR="${CACHE_HOME}/packer"
 export PACKER_CONFIG_DIR="${CONFIG_HOME}/packer"
 
-# Terraform: https://www.terraform.io/docs/commands/environment-variables.html#tf_cli_config_file
+# Terraform: https://www.terraform.io/docs/cli/config/config-file.html#provider-plugin-cache
 export TF_CLI_CONFIG_FILE="${CONFIG_HOME}/terraform/.terraformrc"
+export TF_PLUGIN_CACHE_DIR="${CACHE_HOME}/terraform/plugin-cache"
 
 # Vagrant: https://www.vagrantup.com/docs/other/environmental-variables.html
 export VAGRANT_HOME="${DATA_HOME}/vagrant"
