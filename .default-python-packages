@@ -1,2 +1,4 @@
 ansible
 pipenv
+poetry
+wheel

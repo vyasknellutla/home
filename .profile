@@ -76,12 +76,20 @@ export PATH="${WHALEBREW_INSTALL_PATH}:${PATH}"
 
 ## Programming Language & Packages
 # ASDF
-export ASDF_DIR="${HOMEBREW_HOME}/opt/asdf"
+export ASDF_DIR="${HOME}/.asdf"
 export ASDF_DATA_DIR="${DATA_HOME}/asdf"
 export ASDF_CONFIG_FILE="${CONFIG_HOME}/asdf/.asdfrc"
 
 export ASDF_BIN="${ASDF_DIR}/bin"
 export ASDF_USER_SHIMS="${ASDF_DATA_DIR}/shims"
+
+if [ -x "${ASDF_DIR}/asdf.sh" ]; then
+    . ${ASDF_DIR}/asdf.sh
+fi
+
+if [ -x "${ASDF_DIR}/completions/asdf.bash" ]; then
+    . ${ASDF_DIR}/completions/asdf.bash
+fi
 
 export PATH="${ASDF_USER_SHIMS}:${ASDF_BIN}:${PATH}"
 
@@ -148,6 +156,7 @@ export PATH="${CARGO_HOME}/bin:${PATH}"
 ## CLI Tools
 # direnv
 export DIRENV="${CONFIG_HOME}/direnv"
+eval "$(direnv hook bash)"
 
 # Docker: https://wiki.archlinux.org/index.php/XDG_Base_Directory#Partial
 export DOCKER_HOST="unix:///var/run/docker.sock"
