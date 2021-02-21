@@ -63,6 +63,7 @@ desktop.ini
 /.mozilla/
 /.var/
 /.ueli/
+/Virtual Machines.localized/
 
 # Printer
 /.cups/
