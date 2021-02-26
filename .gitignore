@@ -91,7 +91,6 @@ desktop.ini
 
 # direnv
 /.env
-/.envrc
 
 # docker
 /.docker
@@ -104,6 +103,9 @@ desktop.ini
 
 # kubernetes
 /.kube
+
+# git
+/.git-credentials
 
 # github
 /.config/gh/hosts.yml
@@ -121,13 +123,6 @@ desktop.ini
 /.zshrc
 
 ## GUI Apps
-# GitKraken
-/.gitkraken/
-
-# Hyper
-/.hyper.js
-/.hyper_plugins/
-
 # Visual Studio
 /.dotnet/
 /.mono/
@@ -173,7 +168,7 @@ desktop.ini
 ## App Development
 # Android Development
 /.android/
-    
+
 # Dart files
 /.dartServer/
 /.pub-cache/
