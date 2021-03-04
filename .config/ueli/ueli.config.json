@@ -102,7 +102,8 @@
     "hideMainWindowOnBlur": true,
     "hotKey": {
       "key": "Space",
-      "modifier": "Command"
+      "modifier": "CommandOrControl",
+      "secondModifier": "-"
     },
     "language": "English",
     "logExecution": true,
@@ -172,7 +173,7 @@
         },
         "isFallback": false,
         "name": "Google",
-        "prefix": "g?",
+        "prefix": "g? ",
         "priority": 2,
         "url": "https://google.com/search?q={{query}}",
         "suggestionUrl": "https://www.google.com/complete/search?client=opera&q={{query}}"
@@ -185,7 +186,7 @@
         },
         "isFallback": false,
         "name": "Wikipedia",
-        "prefix": "w?",
+        "prefix": "w? ",
         "priority": 4,
         "url": "https://en.wikipedia.org/wiki/{{query}}",
         "suggestionUrl": "https://en.wikipedia.org/w/api.php?action=opensearch&search={{query}}"
@@ -198,7 +199,7 @@
         },
         "isFallback": false,
         "name": "YouTube",
-        "prefix": "yt?",
+        "prefix": "yt? ",
         "priority": 5,
         "url": "https://www.youtube.com/results?search_query={{query}}",
         "suggestionUrl": "https://www.google.com/complete/search?ds=yt&output=firefox&q={{query}}"
